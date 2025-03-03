@@ -1,0 +1,230 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gpio.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB2415:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral4GPIOC2EP12GPIO_TypeDeft,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral4GPIOC2EP12GPIO_TypeDeft
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s 			page 2
+
+
+  61              	_ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:
+  62              		.fnstart
+  63              	.LFB1929:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0160     		str	r1, [r0]
+  68 0002 8280     		strh	r2, [r0, #4]	@ movhi
+  69 0004 7047     		bx	lr
+  70              		.cantunwind
+  71              		.fnend
+  73              		.global	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+  74              		.thumb_set _ZN10peripheral4GPIOC1EP12GPIO_TypeDeft,_ZN10peripheral4GPIOC2EP12GPIO_TypeDeft
+  75              		.section	.text._ZN10peripheral4GPIO2OnEv,"ax",%progbits
+  76              		.align	1
+  77              		.global	_ZN10peripheral4GPIO2OnEv
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	_ZN10peripheral4GPIO2OnEv:
+  83              		.fnstart
+  84              	.LFB1931:
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87 0000 08B5     		push	{r3, lr}
+  88              		.save {r3, lr}
+  89 0002 0122     		movs	r2, #1
+  90 0004 8188     		ldrh	r1, [r0, #4]
+  91 0006 0068     		ldr	r0, [r0]
+  92 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  93 000c 08BD     		pop	{r3, pc}
+  94              		.fnend
+  96              		.section	.text._ZN10peripheral4GPIO3OffEv,"ax",%progbits
+  97              		.align	1
+  98              		.global	_ZN10peripheral4GPIO3OffEv
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 103              	_ZN10peripheral4GPIO3OffEv:
+ 104              		.fnstart
+ 105              	.LFB1932:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 08B5     		push	{r3, lr}
+ 109              		.save {r3, lr}
+ 110 0002 0022     		movs	r2, #0
+ 111 0004 8188     		ldrh	r1, [r0, #4]
+ 112 0006 0068     		ldr	r0, [r0]
+ 113 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 114 000c 08BD     		pop	{r3, pc}
+ 115              		.fnend
+ 117              		.section	.text._ZN10peripheral4GPIO6ToggleEv,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	_ZN10peripheral4GPIO6ToggleEv
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s 			page 3
+
+
+ 124              	_ZN10peripheral4GPIO6ToggleEv:
+ 125              		.fnstart
+ 126              	.LFB1933:
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129 0000 08B5     		push	{r3, lr}
+ 130              		.save {r3, lr}
+ 131 0002 8188     		ldrh	r1, [r0, #4]
+ 132 0004 0068     		ldr	r0, [r0]
+ 133 0006 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 134 000a 08BD     		pop	{r3, pc}
+ 135              		.fnend
+ 137              		.section	.text._ZN10peripheral4GPIO7ReadValEv,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	_ZN10peripheral4GPIO7ReadValEv
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 144              	_ZN10peripheral4GPIO7ReadValEv:
+ 145              		.fnstart
+ 146              	.LFB1934:
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149 0000 08B5     		push	{r3, lr}
+ 150              		.save {r3, lr}
+ 151 0002 8188     		ldrh	r1, [r0, #4]
+ 152 0004 0068     		ldr	r0, [r0]
+ 153 0006 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 154 000a B0FA80F0 		clz	r0, r0
+ 155 000e 4009     		lsrs	r0, r0, #5
+ 156 0010 08BD     		pop	{r3, pc}
+ 157              		.fnend
+ 159              		.section	.text._GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft,"ax",%progbits
+ 160              		.align	1
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 165              	_GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:
+ 166              		.fnstart
+ 167              	.LFB2416:
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170 0000 08B5     		push	{r3, lr}
+ 171 0002 4FF6FF71 		movw	r1, #65535
+ 172 0006 0120     		movs	r0, #1
+ 173 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 174 000c 08BD     		pop	{r3, pc}
+ 175              		.cantunwind
+ 176              		.fnend
+ 178              		.section	.init_array,"aw",%init_array
+ 179              		.align	2
+ 180 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft(target1)
+ 181              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 182              		.align	2
+ 183              		.set	.LANCHOR0,. + 0
+ 186              	_ZStL8__ioinit:
+ 187 0000 00       		.space	1
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s 			page 4
+
+
+ 188              		.hidden	__dso_handle
+ 189              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpio.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:55     .text._ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:61     .text._ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 _ZN10peripheral4GPIOC2EP12GPIO_TypeDeft
+.ARM.exidx.text._ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:61     .text._ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 _ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:76     .text._ZN10peripheral4GPIO2OnEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:82     .text._ZN10peripheral4GPIO2OnEv:00000000 _ZN10peripheral4GPIO2OnEv
+.ARM.extab.text._ZN10peripheral4GPIO2OnEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral4GPIO2OnEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:97     .text._ZN10peripheral4GPIO3OffEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:103    .text._ZN10peripheral4GPIO3OffEv:00000000 _ZN10peripheral4GPIO3OffEv
+.ARM.extab.text._ZN10peripheral4GPIO3OffEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral4GPIO3OffEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:118    .text._ZN10peripheral4GPIO6ToggleEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:124    .text._ZN10peripheral4GPIO6ToggleEv:00000000 _ZN10peripheral4GPIO6ToggleEv
+.ARM.extab.text._ZN10peripheral4GPIO6ToggleEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral4GPIO6ToggleEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:138    .text._ZN10peripheral4GPIO7ReadValEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:144    .text._ZN10peripheral4GPIO7ReadValEv:00000000 _ZN10peripheral4GPIO7ReadValEv
+.ARM.extab.text._ZN10peripheral4GPIO7ReadValEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral4GPIO7ReadValEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:160    .text._GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:165    .text._GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 _GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral4GPIOC2EP12GPIO_TypeDeft:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:179    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:182    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cclpRxbC.s:186    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+HAL_GPIO_WritePin
+__aeabi_unwind_cpp_pr1
+HAL_GPIO_TogglePin
+HAL_GPIO_ReadPin

@@ -1,0 +1,2967 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"config.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SystemClock_Config,"ax",%progbits
+  20              		.align	1
+  21              		.global	SystemClock_Config
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	SystemClock_Config:
+  27              	.LFB239:
+  28              		.file 1 "App/Src/c/config.c"
+   1:App/Src/c/config.c **** #include "config.h"
+   2:App/Src/c/config.c **** 
+   3:App/Src/c/config.c **** ADC_HandleTypeDef hadc1;
+   4:App/Src/c/config.c **** DMA_HandleTypeDef hdma_adc1;
+   5:App/Src/c/config.c **** 
+   6:App/Src/c/config.c **** SPI_HandleTypeDef hspi3;
+   7:App/Src/c/config.c **** 
+   8:App/Src/c/config.c **** TIM_HandleTypeDef htim1;
+   9:App/Src/c/config.c **** TIM_HandleTypeDef htim2;
+  10:App/Src/c/config.c **** TIM_HandleTypeDef htim3;
+  11:App/Src/c/config.c **** TIM_HandleTypeDef htim4;
+  12:App/Src/c/config.c **** TIM_HandleTypeDef htim5;
+  13:App/Src/c/config.c **** TIM_HandleTypeDef htim8;
+  14:App/Src/c/config.c **** 
+  15:App/Src/c/config.c **** UART_HandleTypeDef huart1;
+  16:App/Src/c/config.c **** 
+  17:App/Src/c/config.c **** /**
+  18:App/Src/c/config.c ****   * @brief System Clock Configuration
+  19:App/Src/c/config.c ****   * @retval None
+  20:App/Src/c/config.c ****   */
+  21:App/Src/c/config.c **** void SystemClock_Config(void)
+  22:App/Src/c/config.c **** {
+  29              		.loc 1 22 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 80
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 2
+
+
+  37 0002 95B0     		sub	sp, sp, #84
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 88
+  23:App/Src/c/config.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  40              		.loc 1 23 3 view .LVU1
+  41              		.loc 1 23 22 is_stmt 0 view .LVU2
+  42 0004 3022     		movs	r2, #48
+  43 0006 0021     		movs	r1, #0
+  44 0008 08A8     		add	r0, sp, #32
+  45 000a FFF7FEFF 		bl	memset
+  46              	.LVL0:
+  24:App/Src/c/config.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  47              		.loc 1 24 3 is_stmt 1 view .LVU3
+  48              		.loc 1 24 22 is_stmt 0 view .LVU4
+  49 000e 0023     		movs	r3, #0
+  50 0010 0393     		str	r3, [sp, #12]
+  51 0012 0493     		str	r3, [sp, #16]
+  52 0014 0593     		str	r3, [sp, #20]
+  53 0016 0693     		str	r3, [sp, #24]
+  54 0018 0793     		str	r3, [sp, #28]
+  25:App/Src/c/config.c **** 
+  26:App/Src/c/config.c ****   /** Configure the main internal regulator output voltage
+  27:App/Src/c/config.c ****   */
+  28:App/Src/c/config.c ****   __HAL_RCC_PWR_CLK_ENABLE();
+  55              		.loc 1 28 3 is_stmt 1 view .LVU5
+  56              	.LBB2:
+  57              		.loc 1 28 3 view .LVU6
+  58 001a 0193     		str	r3, [sp, #4]
+  59              		.loc 1 28 3 view .LVU7
+  60 001c 1F4A     		ldr	r2, .L7
+  61 001e 116C     		ldr	r1, [r2, #64]
+  62 0020 41F08051 		orr	r1, r1, #268435456
+  63 0024 1164     		str	r1, [r2, #64]
+  64              		.loc 1 28 3 view .LVU8
+  65 0026 126C     		ldr	r2, [r2, #64]
+  66 0028 02F08052 		and	r2, r2, #268435456
+  67 002c 0192     		str	r2, [sp, #4]
+  68              		.loc 1 28 3 view .LVU9
+  69 002e 019A     		ldr	r2, [sp, #4]
+  70              	.LBE2:
+  71              		.loc 1 28 3 view .LVU10
+  29:App/Src/c/config.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  72              		.loc 1 29 3 view .LVU11
+  73              	.LBB3:
+  74              		.loc 1 29 3 view .LVU12
+  75 0030 0293     		str	r3, [sp, #8]
+  76              		.loc 1 29 3 view .LVU13
+  77 0032 1B4A     		ldr	r2, .L7+4
+  78 0034 1168     		ldr	r1, [r2]
+  79 0036 41F48041 		orr	r1, r1, #16384
+  80 003a 1160     		str	r1, [r2]
+  81              		.loc 1 29 3 view .LVU14
+  82 003c 1268     		ldr	r2, [r2]
+  83 003e 02F48042 		and	r2, r2, #16384
+  84 0042 0292     		str	r2, [sp, #8]
+  85              		.loc 1 29 3 view .LVU15
+  86 0044 029A     		ldr	r2, [sp, #8]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 3
+
+
+  87              	.LBE3:
+  88              		.loc 1 29 3 view .LVU16
+  30:App/Src/c/config.c **** 
+  31:App/Src/c/config.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+  32:App/Src/c/config.c ****   * in the RCC_OscInitTypeDef structure.
+  33:App/Src/c/config.c ****   */
+  34:App/Src/c/config.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  89              		.loc 1 34 3 view .LVU17
+  90              		.loc 1 34 36 is_stmt 0 view .LVU18
+  91 0046 0222     		movs	r2, #2
+  92 0048 0892     		str	r2, [sp, #32]
+  35:App/Src/c/config.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  93              		.loc 1 35 3 is_stmt 1 view .LVU19
+  94              		.loc 1 35 30 is_stmt 0 view .LVU20
+  95 004a 0121     		movs	r1, #1
+  96 004c 0B91     		str	r1, [sp, #44]
+  36:App/Src/c/config.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  97              		.loc 1 36 3 is_stmt 1 view .LVU21
+  98              		.loc 1 36 41 is_stmt 0 view .LVU22
+  99 004e 1021     		movs	r1, #16
+ 100 0050 0C91     		str	r1, [sp, #48]
+  37:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 101              		.loc 1 37 3 is_stmt 1 view .LVU23
+ 102              		.loc 1 37 34 is_stmt 0 view .LVU24
+ 103 0052 0E92     		str	r2, [sp, #56]
+  38:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 104              		.loc 1 38 3 is_stmt 1 view .LVU25
+ 105              		.loc 1 38 35 is_stmt 0 view .LVU26
+ 106 0054 0F93     		str	r3, [sp, #60]
+  39:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLM = 8;
+ 107              		.loc 1 39 3 is_stmt 1 view .LVU27
+ 108              		.loc 1 39 30 is_stmt 0 view .LVU28
+ 109 0056 0823     		movs	r3, #8
+ 110 0058 1093     		str	r3, [sp, #64]
+  40:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLN = 168;
+ 111              		.loc 1 40 3 is_stmt 1 view .LVU29
+ 112              		.loc 1 40 30 is_stmt 0 view .LVU30
+ 113 005a A823     		movs	r3, #168
+ 114 005c 1193     		str	r3, [sp, #68]
+  41:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 115              		.loc 1 41 3 is_stmt 1 view .LVU31
+ 116              		.loc 1 41 30 is_stmt 0 view .LVU32
+ 117 005e 1292     		str	r2, [sp, #72]
+  42:App/Src/c/config.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 118              		.loc 1 42 3 is_stmt 1 view .LVU33
+ 119              		.loc 1 42 30 is_stmt 0 view .LVU34
+ 120 0060 0423     		movs	r3, #4
+ 121 0062 1393     		str	r3, [sp, #76]
+  43:App/Src/c/config.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 122              		.loc 1 43 3 is_stmt 1 view .LVU35
+ 123              		.loc 1 43 7 is_stmt 0 view .LVU36
+ 124 0064 08A8     		add	r0, sp, #32
+ 125 0066 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 126              	.LVL1:
+ 127              		.loc 1 43 6 view .LVU37
+ 128 006a 88B9     		cbnz	r0, .L5
+ 129              	.L2:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 4
+
+
+  44:App/Src/c/config.c ****   {
+  45:App/Src/c/config.c ****     Error_Handler();
+  46:App/Src/c/config.c ****   }
+  47:App/Src/c/config.c **** 
+  48:App/Src/c/config.c ****   /** Initializes the CPU, AHB and APB buses clocks
+  49:App/Src/c/config.c ****   */
+  50:App/Src/c/config.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 130              		.loc 1 50 3 is_stmt 1 view .LVU38
+ 131              		.loc 1 50 31 is_stmt 0 view .LVU39
+ 132 006c 0F23     		movs	r3, #15
+ 133 006e 0393     		str	r3, [sp, #12]
+  51:App/Src/c/config.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  52:App/Src/c/config.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 134              		.loc 1 52 3 is_stmt 1 view .LVU40
+ 135              		.loc 1 52 34 is_stmt 0 view .LVU41
+ 136 0070 0223     		movs	r3, #2
+ 137 0072 0493     		str	r3, [sp, #16]
+  53:App/Src/c/config.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 138              		.loc 1 53 3 is_stmt 1 view .LVU42
+ 139              		.loc 1 53 35 is_stmt 0 view .LVU43
+ 140 0074 0023     		movs	r3, #0
+ 141 0076 0593     		str	r3, [sp, #20]
+  54:App/Src/c/config.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 142              		.loc 1 54 3 is_stmt 1 view .LVU44
+ 143              		.loc 1 54 36 is_stmt 0 view .LVU45
+ 144 0078 4FF4A053 		mov	r3, #5120
+ 145 007c 0693     		str	r3, [sp, #24]
+  55:App/Src/c/config.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;
+ 146              		.loc 1 55 3 is_stmt 1 view .LVU46
+ 147              		.loc 1 55 36 is_stmt 0 view .LVU47
+ 148 007e 0793     		str	r3, [sp, #28]
+  56:App/Src/c/config.c **** 
+  57:App/Src/c/config.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+ 149              		.loc 1 57 3 is_stmt 1 view .LVU48
+ 150              		.loc 1 57 7 is_stmt 0 view .LVU49
+ 151 0080 0521     		movs	r1, #5
+ 152 0082 03A8     		add	r0, sp, #12
+ 153 0084 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 154              	.LVL2:
+ 155              		.loc 1 57 6 view .LVU50
+ 156 0088 28B9     		cbnz	r0, .L6
+ 157              	.L1:
+  58:App/Src/c/config.c ****   {
+  59:App/Src/c/config.c ****     Error_Handler();
+  60:App/Src/c/config.c ****   }
+  61:App/Src/c/config.c **** }
+ 158              		.loc 1 61 1 view .LVU51
+ 159 008a 15B0     		add	sp, sp, #84
+ 160              	.LCFI2:
+ 161              		.cfi_remember_state
+ 162              		.cfi_def_cfa_offset 4
+ 163              		@ sp needed
+ 164 008c 5DF804FB 		ldr	pc, [sp], #4
+ 165              	.L5:
+ 166              	.LCFI3:
+ 167              		.cfi_restore_state
+  45:App/Src/c/config.c ****   }
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 5
+
+
+ 168              		.loc 1 45 5 is_stmt 1 view .LVU52
+ 169 0090 FFF7FEFF 		bl	Error_Handler
+ 170              	.LVL3:
+ 171 0094 EAE7     		b	.L2
+ 172              	.L6:
+  59:App/Src/c/config.c ****   }
+ 173              		.loc 1 59 5 view .LVU53
+ 174 0096 FFF7FEFF 		bl	Error_Handler
+ 175              	.LVL4:
+ 176              		.loc 1 61 1 is_stmt 0 view .LVU54
+ 177 009a F6E7     		b	.L1
+ 178              	.L8:
+ 179              		.align	2
+ 180              	.L7:
+ 181 009c 00380240 		.word	1073887232
+ 182 00a0 00700040 		.word	1073770496
+ 183              		.cfi_endproc
+ 184              	.LFE239:
+ 186              		.section	.text.MX_ADC1_Init,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	MX_ADC1_Init
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	MX_ADC1_Init:
+ 194              	.LFB240:
+  62:App/Src/c/config.c **** 
+  63:App/Src/c/config.c **** /**
+  64:App/Src/c/config.c ****   * @brief ADC1 Initialization Function
+  65:App/Src/c/config.c ****   * @param None
+  66:App/Src/c/config.c ****   * @retval None
+  67:App/Src/c/config.c ****   */
+  68:App/Src/c/config.c **** void MX_ADC1_Init(void)
+  69:App/Src/c/config.c **** {
+ 195              		.loc 1 69 1 is_stmt 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 16
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199 0000 00B5     		push	{lr}
+ 200              	.LCFI4:
+ 201              		.cfi_def_cfa_offset 4
+ 202              		.cfi_offset 14, -4
+ 203 0002 85B0     		sub	sp, sp, #20
+ 204              	.LCFI5:
+ 205              		.cfi_def_cfa_offset 24
+  70:App/Src/c/config.c **** 
+  71:App/Src/c/config.c ****   /* USER CODE BEGIN ADC1_Init 0 */
+  72:App/Src/c/config.c **** 
+  73:App/Src/c/config.c ****   /* USER CODE END ADC1_Init 0 */
+  74:App/Src/c/config.c **** 
+  75:App/Src/c/config.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+ 206              		.loc 1 75 3 view .LVU56
+ 207              		.loc 1 75 26 is_stmt 0 view .LVU57
+ 208 0004 0023     		movs	r3, #0
+ 209 0006 0093     		str	r3, [sp]
+ 210 0008 0193     		str	r3, [sp, #4]
+ 211 000a 0293     		str	r3, [sp, #8]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 6
+
+
+ 212 000c 0393     		str	r3, [sp, #12]
+  76:App/Src/c/config.c **** 
+  77:App/Src/c/config.c ****   /* USER CODE BEGIN ADC1_Init 1 */
+  78:App/Src/c/config.c **** 
+  79:App/Src/c/config.c ****   /* USER CODE END ADC1_Init 1 */
+  80:App/Src/c/config.c **** 
+  81:App/Src/c/config.c ****   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of con
+  82:App/Src/c/config.c ****   */
+  83:App/Src/c/config.c ****   hadc1.Instance = ADC1;
+ 213              		.loc 1 83 3 is_stmt 1 view .LVU58
+ 214              		.loc 1 83 18 is_stmt 0 view .LVU59
+ 215 000e 2D48     		ldr	r0, .L23
+ 216 0010 2D4A     		ldr	r2, .L23+4
+ 217 0012 0260     		str	r2, [r0]
+  84:App/Src/c/config.c ****   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+ 218              		.loc 1 84 3 is_stmt 1 view .LVU60
+ 219              		.loc 1 84 29 is_stmt 0 view .LVU61
+ 220 0014 4360     		str	r3, [r0, #4]
+  85:App/Src/c/config.c ****   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+ 221              		.loc 1 85 3 is_stmt 1 view .LVU62
+ 222              		.loc 1 85 25 is_stmt 0 view .LVU63
+ 223 0016 8360     		str	r3, [r0, #8]
+  86:App/Src/c/config.c ****   hadc1.Init.ScanConvMode = ENABLE;
+ 224              		.loc 1 86 3 is_stmt 1 view .LVU64
+ 225              		.loc 1 86 27 is_stmt 0 view .LVU65
+ 226 0018 0122     		movs	r2, #1
+ 227 001a 0261     		str	r2, [r0, #16]
+  87:App/Src/c/config.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+ 228              		.loc 1 87 3 is_stmt 1 view .LVU66
+ 229              		.loc 1 87 33 is_stmt 0 view .LVU67
+ 230 001c 0376     		strb	r3, [r0, #24]
+  88:App/Src/c/config.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+ 231              		.loc 1 88 3 is_stmt 1 view .LVU68
+ 232              		.loc 1 88 36 is_stmt 0 view .LVU69
+ 233 001e 80F82030 		strb	r3, [r0, #32]
+  89:App/Src/c/config.c ****   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 234              		.loc 1 89 3 is_stmt 1 view .LVU70
+ 235              		.loc 1 89 35 is_stmt 0 view .LVU71
+ 236 0022 C362     		str	r3, [r0, #44]
+  90:App/Src/c/config.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 237              		.loc 1 90 3 is_stmt 1 view .LVU72
+ 238              		.loc 1 90 31 is_stmt 0 view .LVU73
+ 239 0024 02F17062 		add	r2, r2, #251658240
+ 240 0028 8262     		str	r2, [r0, #40]
+  91:App/Src/c/config.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 241              		.loc 1 91 3 is_stmt 1 view .LVU74
+ 242              		.loc 1 91 24 is_stmt 0 view .LVU75
+ 243 002a C360     		str	r3, [r0, #12]
+  92:App/Src/c/config.c ****   hadc1.Init.NbrOfConversion = 5;
+ 244              		.loc 1 92 3 is_stmt 1 view .LVU76
+ 245              		.loc 1 92 30 is_stmt 0 view .LVU77
+ 246 002c 0522     		movs	r2, #5
+ 247 002e C261     		str	r2, [r0, #28]
+  93:App/Src/c/config.c ****   hadc1.Init.DMAContinuousRequests = DISABLE;
+ 248              		.loc 1 93 3 is_stmt 1 view .LVU78
+ 249              		.loc 1 93 36 is_stmt 0 view .LVU79
+ 250 0030 80F83030 		strb	r3, [r0, #48]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 7
+
+
+  94:App/Src/c/config.c ****   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
+ 251              		.loc 1 94 3 is_stmt 1 view .LVU80
+ 252              		.loc 1 94 27 is_stmt 0 view .LVU81
+ 253 0034 4361     		str	r3, [r0, #20]
+  95:App/Src/c/config.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
+ 254              		.loc 1 95 3 is_stmt 1 view .LVU82
+ 255              		.loc 1 95 7 is_stmt 0 view .LVU83
+ 256 0036 FFF7FEFF 		bl	HAL_ADC_Init
+ 257              	.LVL5:
+ 258              		.loc 1 95 6 view .LVU84
+ 259 003a 0028     		cmp	r0, #0
+ 260 003c 2FD1     		bne	.L17
+ 261              	.L10:
+  96:App/Src/c/config.c ****   {
+  97:App/Src/c/config.c ****     Error_Handler();
+  98:App/Src/c/config.c ****   }
+  99:App/Src/c/config.c **** 
+ 100:App/Src/c/config.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 101:App/Src/c/config.c ****   */
+ 102:App/Src/c/config.c ****   sConfig.Channel = ADC_CHANNEL_1;
+ 262              		.loc 1 102 3 is_stmt 1 view .LVU85
+ 263              		.loc 1 102 19 is_stmt 0 view .LVU86
+ 264 003e 0123     		movs	r3, #1
+ 265 0040 0093     		str	r3, [sp]
+ 103:App/Src/c/config.c ****   sConfig.Rank = 1;
+ 266              		.loc 1 103 3 is_stmt 1 view .LVU87
+ 267              		.loc 1 103 16 is_stmt 0 view .LVU88
+ 268 0042 0193     		str	r3, [sp, #4]
+ 104:App/Src/c/config.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
+ 269              		.loc 1 104 3 is_stmt 1 view .LVU89
+ 270              		.loc 1 104 24 is_stmt 0 view .LVU90
+ 271 0044 0293     		str	r3, [sp, #8]
+ 105:App/Src/c/config.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 272              		.loc 1 105 3 is_stmt 1 view .LVU91
+ 273              		.loc 1 105 7 is_stmt 0 view .LVU92
+ 274 0046 6946     		mov	r1, sp
+ 275 0048 1E48     		ldr	r0, .L23
+ 276 004a FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 277              	.LVL6:
+ 278              		.loc 1 105 6 view .LVU93
+ 279 004e 48BB     		cbnz	r0, .L18
+ 280              	.L11:
+ 106:App/Src/c/config.c ****   {
+ 107:App/Src/c/config.c ****     Error_Handler();
+ 108:App/Src/c/config.c ****   }
+ 109:App/Src/c/config.c **** 
+ 110:App/Src/c/config.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 111:App/Src/c/config.c ****   */
+ 112:App/Src/c/config.c ****   sConfig.Channel = ADC_CHANNEL_3;
+ 281              		.loc 1 112 3 is_stmt 1 view .LVU94
+ 282              		.loc 1 112 19 is_stmt 0 view .LVU95
+ 283 0050 0323     		movs	r3, #3
+ 284 0052 0093     		str	r3, [sp]
+ 113:App/Src/c/config.c ****   sConfig.Rank = 2;
+ 285              		.loc 1 113 3 is_stmt 1 view .LVU96
+ 286              		.loc 1 113 16 is_stmt 0 view .LVU97
+ 287 0054 0223     		movs	r3, #2
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 8
+
+
+ 288 0056 0193     		str	r3, [sp, #4]
+ 114:App/Src/c/config.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 289              		.loc 1 114 3 is_stmt 1 view .LVU98
+ 290              		.loc 1 114 7 is_stmt 0 view .LVU99
+ 291 0058 6946     		mov	r1, sp
+ 292 005a 1A48     		ldr	r0, .L23
+ 293 005c FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 294              	.LVL7:
+ 295              		.loc 1 114 6 view .LVU100
+ 296 0060 18BB     		cbnz	r0, .L19
+ 297              	.L12:
+ 115:App/Src/c/config.c ****   {
+ 116:App/Src/c/config.c ****     Error_Handler();
+ 117:App/Src/c/config.c ****   }
+ 118:App/Src/c/config.c **** 
+ 119:App/Src/c/config.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 120:App/Src/c/config.c ****   */
+ 121:App/Src/c/config.c ****   sConfig.Channel = ADC_CHANNEL_0;
+ 298              		.loc 1 121 3 is_stmt 1 view .LVU101
+ 299              		.loc 1 121 19 is_stmt 0 view .LVU102
+ 300 0062 0023     		movs	r3, #0
+ 301 0064 0093     		str	r3, [sp]
+ 122:App/Src/c/config.c ****   sConfig.Rank = 3;
+ 302              		.loc 1 122 3 is_stmt 1 view .LVU103
+ 303              		.loc 1 122 16 is_stmt 0 view .LVU104
+ 304 0066 0323     		movs	r3, #3
+ 305 0068 0193     		str	r3, [sp, #4]
+ 123:App/Src/c/config.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 306              		.loc 1 123 3 is_stmt 1 view .LVU105
+ 307              		.loc 1 123 7 is_stmt 0 view .LVU106
+ 308 006a 6946     		mov	r1, sp
+ 309 006c 1548     		ldr	r0, .L23
+ 310 006e FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 311              	.LVL8:
+ 312              		.loc 1 123 6 view .LVU107
+ 313 0072 E8B9     		cbnz	r0, .L20
+ 314              	.L13:
+ 124:App/Src/c/config.c ****   {
+ 125:App/Src/c/config.c ****     Error_Handler();
+ 126:App/Src/c/config.c ****   }
+ 127:App/Src/c/config.c **** 
+ 128:App/Src/c/config.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 129:App/Src/c/config.c ****   */
+ 130:App/Src/c/config.c ****   sConfig.Channel = ADC_CHANNEL_2;
+ 315              		.loc 1 130 3 is_stmt 1 view .LVU108
+ 316              		.loc 1 130 19 is_stmt 0 view .LVU109
+ 317 0074 0223     		movs	r3, #2
+ 318 0076 0093     		str	r3, [sp]
+ 131:App/Src/c/config.c ****   sConfig.Rank = 4;
+ 319              		.loc 1 131 3 is_stmt 1 view .LVU110
+ 320              		.loc 1 131 16 is_stmt 0 view .LVU111
+ 321 0078 0423     		movs	r3, #4
+ 322 007a 0193     		str	r3, [sp, #4]
+ 132:App/Src/c/config.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 323              		.loc 1 132 3 is_stmt 1 view .LVU112
+ 324              		.loc 1 132 7 is_stmt 0 view .LVU113
+ 325 007c 6946     		mov	r1, sp
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 9
+
+
+ 326 007e 1148     		ldr	r0, .L23
+ 327 0080 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 328              	.LVL9:
+ 329              		.loc 1 132 6 view .LVU114
+ 330 0084 B8B9     		cbnz	r0, .L21
+ 331              	.L14:
+ 133:App/Src/c/config.c ****   {
+ 134:App/Src/c/config.c ****     Error_Handler();
+ 135:App/Src/c/config.c ****   }
+ 136:App/Src/c/config.c **** 
+ 137:App/Src/c/config.c ****   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and it
+ 138:App/Src/c/config.c ****   */
+ 139:App/Src/c/config.c ****   sConfig.Channel = ADC_CHANNEL_10;
+ 332              		.loc 1 139 3 is_stmt 1 view .LVU115
+ 333              		.loc 1 139 19 is_stmt 0 view .LVU116
+ 334 0086 0A23     		movs	r3, #10
+ 335 0088 0093     		str	r3, [sp]
+ 140:App/Src/c/config.c ****   sConfig.Rank = 5;
+ 336              		.loc 1 140 3 is_stmt 1 view .LVU117
+ 337              		.loc 1 140 16 is_stmt 0 view .LVU118
+ 338 008a 0523     		movs	r3, #5
+ 339 008c 0193     		str	r3, [sp, #4]
+ 141:App/Src/c/config.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 340              		.loc 1 141 3 is_stmt 1 view .LVU119
+ 341              		.loc 1 141 7 is_stmt 0 view .LVU120
+ 342 008e 6946     		mov	r1, sp
+ 343 0090 0C48     		ldr	r0, .L23
+ 344 0092 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 345              	.LVL10:
+ 346              		.loc 1 141 6 view .LVU121
+ 347 0096 88B9     		cbnz	r0, .L22
+ 348              	.L9:
+ 142:App/Src/c/config.c ****   {
+ 143:App/Src/c/config.c ****     Error_Handler();
+ 144:App/Src/c/config.c ****   }
+ 145:App/Src/c/config.c ****   /* USER CODE BEGIN ADC1_Init 2 */
+ 146:App/Src/c/config.c **** 
+ 147:App/Src/c/config.c ****   /* USER CODE END ADC1_Init 2 */
+ 148:App/Src/c/config.c **** 
+ 149:App/Src/c/config.c **** }
+ 349              		.loc 1 149 1 view .LVU122
+ 350 0098 05B0     		add	sp, sp, #20
+ 351              	.LCFI6:
+ 352              		.cfi_remember_state
+ 353              		.cfi_def_cfa_offset 4
+ 354              		@ sp needed
+ 355 009a 5DF804FB 		ldr	pc, [sp], #4
+ 356              	.L17:
+ 357              	.LCFI7:
+ 358              		.cfi_restore_state
+  97:App/Src/c/config.c ****   }
+ 359              		.loc 1 97 5 is_stmt 1 view .LVU123
+ 360 009e FFF7FEFF 		bl	Error_Handler
+ 361              	.LVL11:
+ 362 00a2 CCE7     		b	.L10
+ 363              	.L18:
+ 107:App/Src/c/config.c ****   }
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 10
+
+
+ 364              		.loc 1 107 5 view .LVU124
+ 365 00a4 FFF7FEFF 		bl	Error_Handler
+ 366              	.LVL12:
+ 367 00a8 D2E7     		b	.L11
+ 368              	.L19:
+ 116:App/Src/c/config.c ****   }
+ 369              		.loc 1 116 5 view .LVU125
+ 370 00aa FFF7FEFF 		bl	Error_Handler
+ 371              	.LVL13:
+ 372 00ae D8E7     		b	.L12
+ 373              	.L20:
+ 125:App/Src/c/config.c ****   }
+ 374              		.loc 1 125 5 view .LVU126
+ 375 00b0 FFF7FEFF 		bl	Error_Handler
+ 376              	.LVL14:
+ 377 00b4 DEE7     		b	.L13
+ 378              	.L21:
+ 134:App/Src/c/config.c ****   }
+ 379              		.loc 1 134 5 view .LVU127
+ 380 00b6 FFF7FEFF 		bl	Error_Handler
+ 381              	.LVL15:
+ 382 00ba E4E7     		b	.L14
+ 383              	.L22:
+ 143:App/Src/c/config.c ****   }
+ 384              		.loc 1 143 5 view .LVU128
+ 385 00bc FFF7FEFF 		bl	Error_Handler
+ 386              	.LVL16:
+ 387              		.loc 1 149 1 is_stmt 0 view .LVU129
+ 388 00c0 EAE7     		b	.L9
+ 389              	.L24:
+ 390 00c2 00BF     		.align	2
+ 391              	.L23:
+ 392 00c4 00000000 		.word	.LANCHOR0
+ 393 00c8 00200140 		.word	1073815552
+ 394              		.cfi_endproc
+ 395              	.LFE240:
+ 397              		.section	.text.MX_SPI3_Init,"ax",%progbits
+ 398              		.align	1
+ 399              		.global	MX_SPI3_Init
+ 400              		.syntax unified
+ 401              		.thumb
+ 402              		.thumb_func
+ 404              	MX_SPI3_Init:
+ 405              	.LFB241:
+ 150:App/Src/c/config.c **** 
+ 151:App/Src/c/config.c **** /**
+ 152:App/Src/c/config.c ****   * @brief SPI3 Initialization Function
+ 153:App/Src/c/config.c ****   * @param None
+ 154:App/Src/c/config.c ****   * @retval None
+ 155:App/Src/c/config.c ****   */
+ 156:App/Src/c/config.c **** void MX_SPI3_Init(void)
+ 157:App/Src/c/config.c **** {
+ 406              		.loc 1 157 1 is_stmt 1 view -0
+ 407              		.cfi_startproc
+ 408              		@ args = 0, pretend = 0, frame = 0
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 11
+
+
+ 411              	.LCFI8:
+ 412              		.cfi_def_cfa_offset 8
+ 413              		.cfi_offset 3, -8
+ 414              		.cfi_offset 14, -4
+ 158:App/Src/c/config.c **** 
+ 159:App/Src/c/config.c ****   /* USER CODE BEGIN SPI3_Init 0 */
+ 160:App/Src/c/config.c **** 
+ 161:App/Src/c/config.c ****   /* USER CODE END SPI3_Init 0 */
+ 162:App/Src/c/config.c **** 
+ 163:App/Src/c/config.c ****   /* USER CODE BEGIN SPI3_Init 1 */
+ 164:App/Src/c/config.c **** 
+ 165:App/Src/c/config.c ****   /* USER CODE END SPI3_Init 1 */
+ 166:App/Src/c/config.c ****   /* SPI3 parameter configuration*/
+ 167:App/Src/c/config.c ****   hspi3.Instance = SPI3;
+ 415              		.loc 1 167 3 view .LVU131
+ 416              		.loc 1 167 18 is_stmt 0 view .LVU132
+ 417 0002 0E48     		ldr	r0, .L29
+ 418 0004 0E4B     		ldr	r3, .L29+4
+ 419 0006 0360     		str	r3, [r0]
+ 168:App/Src/c/config.c ****   hspi3.Init.Mode = SPI_MODE_MASTER;
+ 420              		.loc 1 168 3 is_stmt 1 view .LVU133
+ 421              		.loc 1 168 19 is_stmt 0 view .LVU134
+ 422 0008 4FF48273 		mov	r3, #260
+ 423 000c 4360     		str	r3, [r0, #4]
+ 169:App/Src/c/config.c ****   hspi3.Init.Direction = SPI_DIRECTION_2LINES;
+ 424              		.loc 1 169 3 is_stmt 1 view .LVU135
+ 425              		.loc 1 169 24 is_stmt 0 view .LVU136
+ 426 000e 0023     		movs	r3, #0
+ 427 0010 8360     		str	r3, [r0, #8]
+ 170:App/Src/c/config.c ****   hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
+ 428              		.loc 1 170 3 is_stmt 1 view .LVU137
+ 429              		.loc 1 170 23 is_stmt 0 view .LVU138
+ 430 0012 C360     		str	r3, [r0, #12]
+ 171:App/Src/c/config.c ****   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 431              		.loc 1 171 3 is_stmt 1 view .LVU139
+ 432              		.loc 1 171 26 is_stmt 0 view .LVU140
+ 433 0014 0361     		str	r3, [r0, #16]
+ 172:App/Src/c/config.c ****   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 434              		.loc 1 172 3 is_stmt 1 view .LVU141
+ 435              		.loc 1 172 23 is_stmt 0 view .LVU142
+ 436 0016 4361     		str	r3, [r0, #20]
+ 173:App/Src/c/config.c ****   hspi3.Init.NSS = SPI_NSS_SOFT;
+ 437              		.loc 1 173 3 is_stmt 1 view .LVU143
+ 438              		.loc 1 173 18 is_stmt 0 view .LVU144
+ 439 0018 4FF40072 		mov	r2, #512
+ 440 001c 8261     		str	r2, [r0, #24]
+ 174:App/Src/c/config.c ****   hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
+ 441              		.loc 1 174 3 is_stmt 1 view .LVU145
+ 442              		.loc 1 174 32 is_stmt 0 view .LVU146
+ 443 001e 2022     		movs	r2, #32
+ 444 0020 C261     		str	r2, [r0, #28]
+ 175:App/Src/c/config.c ****   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 445              		.loc 1 175 3 is_stmt 1 view .LVU147
+ 446              		.loc 1 175 23 is_stmt 0 view .LVU148
+ 447 0022 0362     		str	r3, [r0, #32]
+ 176:App/Src/c/config.c ****   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
+ 448              		.loc 1 176 3 is_stmt 1 view .LVU149
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 12
+
+
+ 449              		.loc 1 176 21 is_stmt 0 view .LVU150
+ 450 0024 4362     		str	r3, [r0, #36]
+ 177:App/Src/c/config.c ****   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 451              		.loc 1 177 3 is_stmt 1 view .LVU151
+ 452              		.loc 1 177 29 is_stmt 0 view .LVU152
+ 453 0026 8362     		str	r3, [r0, #40]
+ 178:App/Src/c/config.c ****   hspi3.Init.CRCPolynomial = 10;
+ 454              		.loc 1 178 3 is_stmt 1 view .LVU153
+ 455              		.loc 1 178 28 is_stmt 0 view .LVU154
+ 456 0028 0A23     		movs	r3, #10
+ 457 002a C362     		str	r3, [r0, #44]
+ 179:App/Src/c/config.c ****   if (HAL_SPI_Init(&hspi3) != HAL_OK)
+ 458              		.loc 1 179 3 is_stmt 1 view .LVU155
+ 459              		.loc 1 179 7 is_stmt 0 view .LVU156
+ 460 002c FFF7FEFF 		bl	HAL_SPI_Init
+ 461              	.LVL17:
+ 462              		.loc 1 179 6 view .LVU157
+ 463 0030 00B9     		cbnz	r0, .L28
+ 464              	.L25:
+ 180:App/Src/c/config.c ****   {
+ 181:App/Src/c/config.c ****     Error_Handler();
+ 182:App/Src/c/config.c ****   }
+ 183:App/Src/c/config.c ****   /* USER CODE BEGIN SPI3_Init 2 */
+ 184:App/Src/c/config.c **** 
+ 185:App/Src/c/config.c ****   /* USER CODE END SPI3_Init 2 */
+ 186:App/Src/c/config.c **** 
+ 187:App/Src/c/config.c **** }
+ 465              		.loc 1 187 1 view .LVU158
+ 466 0032 08BD     		pop	{r3, pc}
+ 467              	.L28:
+ 181:App/Src/c/config.c ****   }
+ 468              		.loc 1 181 5 is_stmt 1 view .LVU159
+ 469 0034 FFF7FEFF 		bl	Error_Handler
+ 470              	.LVL18:
+ 471              		.loc 1 187 1 is_stmt 0 view .LVU160
+ 472 0038 FBE7     		b	.L25
+ 473              	.L30:
+ 474 003a 00BF     		.align	2
+ 475              	.L29:
+ 476 003c 00000000 		.word	.LANCHOR1
+ 477 0040 003C0040 		.word	1073757184
+ 478              		.cfi_endproc
+ 479              	.LFE241:
+ 481              		.section	.text.MX_TIM1_Init,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	MX_TIM1_Init
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 488              	MX_TIM1_Init:
+ 489              	.LFB242:
+ 188:App/Src/c/config.c **** 
+ 189:App/Src/c/config.c **** /**
+ 190:App/Src/c/config.c ****   * @brief TIM1 Initialization Function
+ 191:App/Src/c/config.c ****   * @param None
+ 192:App/Src/c/config.c ****   * @retval None
+ 193:App/Src/c/config.c ****   */
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 13
+
+
+ 194:App/Src/c/config.c **** void MX_TIM1_Init(void)
+ 195:App/Src/c/config.c **** {
+ 490              		.loc 1 195 1 is_stmt 1 view -0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 88
+ 493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 494 0000 10B5     		push	{r4, lr}
+ 495              	.LCFI9:
+ 496              		.cfi_def_cfa_offset 8
+ 497              		.cfi_offset 4, -8
+ 498              		.cfi_offset 14, -4
+ 499 0002 96B0     		sub	sp, sp, #88
+ 500              	.LCFI10:
+ 501              		.cfi_def_cfa_offset 96
+ 196:App/Src/c/config.c **** 
+ 197:App/Src/c/config.c ****   /* USER CODE BEGIN TIM1_Init 0 */
+ 198:App/Src/c/config.c **** 
+ 199:App/Src/c/config.c ****   /* USER CODE END TIM1_Init 0 */
+ 200:App/Src/c/config.c **** 
+ 201:App/Src/c/config.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 502              		.loc 1 201 3 view .LVU162
+ 503              		.loc 1 201 26 is_stmt 0 view .LVU163
+ 504 0004 0024     		movs	r4, #0
+ 505 0006 1294     		str	r4, [sp, #72]
+ 506 0008 1394     		str	r4, [sp, #76]
+ 507 000a 1494     		str	r4, [sp, #80]
+ 508 000c 1594     		str	r4, [sp, #84]
+ 202:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 509              		.loc 1 202 3 is_stmt 1 view .LVU164
+ 510              		.loc 1 202 27 is_stmt 0 view .LVU165
+ 511 000e 1094     		str	r4, [sp, #64]
+ 512 0010 1194     		str	r4, [sp, #68]
+ 203:App/Src/c/config.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 513              		.loc 1 203 3 is_stmt 1 view .LVU166
+ 514              		.loc 1 203 22 is_stmt 0 view .LVU167
+ 515 0012 0994     		str	r4, [sp, #36]
+ 516 0014 0A94     		str	r4, [sp, #40]
+ 517 0016 0B94     		str	r4, [sp, #44]
+ 518 0018 0C94     		str	r4, [sp, #48]
+ 519 001a 0D94     		str	r4, [sp, #52]
+ 520 001c 0E94     		str	r4, [sp, #56]
+ 521 001e 0F94     		str	r4, [sp, #60]
+ 204:App/Src/c/config.c ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+ 522              		.loc 1 204 3 is_stmt 1 view .LVU168
+ 523              		.loc 1 204 34 is_stmt 0 view .LVU169
+ 524 0020 2022     		movs	r2, #32
+ 525 0022 2146     		mov	r1, r4
+ 526 0024 01A8     		add	r0, sp, #4
+ 527 0026 FFF7FEFF 		bl	memset
+ 528              	.LVL19:
+ 205:App/Src/c/config.c **** 
+ 206:App/Src/c/config.c ****   /* USER CODE BEGIN TIM1_Init 1 */
+ 207:App/Src/c/config.c **** 
+ 208:App/Src/c/config.c ****   /* USER CODE END TIM1_Init 1 */
+ 209:App/Src/c/config.c ****   htim1.Instance = TIM1;
+ 529              		.loc 1 209 3 is_stmt 1 view .LVU170
+ 530              		.loc 1 209 18 is_stmt 0 view .LVU171
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 14
+
+
+ 531 002a 2B48     		ldr	r0, .L45
+ 532 002c 2B4B     		ldr	r3, .L45+4
+ 533 002e 0360     		str	r3, [r0]
+ 210:App/Src/c/config.c ****   htim1.Init.Prescaler = 84-1;
+ 534              		.loc 1 210 3 is_stmt 1 view .LVU172
+ 535              		.loc 1 210 24 is_stmt 0 view .LVU173
+ 536 0030 5323     		movs	r3, #83
+ 537 0032 4360     		str	r3, [r0, #4]
+ 211:App/Src/c/config.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 538              		.loc 1 211 3 is_stmt 1 view .LVU174
+ 539              		.loc 1 211 26 is_stmt 0 view .LVU175
+ 540 0034 8460     		str	r4, [r0, #8]
+ 212:App/Src/c/config.c ****   htim1.Init.Period = 1000-1;
+ 541              		.loc 1 212 3 is_stmt 1 view .LVU176
+ 542              		.loc 1 212 21 is_stmt 0 view .LVU177
+ 543 0036 40F2E733 		movw	r3, #999
+ 544 003a C360     		str	r3, [r0, #12]
+ 213:App/Src/c/config.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 545              		.loc 1 213 3 is_stmt 1 view .LVU178
+ 546              		.loc 1 213 28 is_stmt 0 view .LVU179
+ 547 003c 0461     		str	r4, [r0, #16]
+ 214:App/Src/c/config.c ****   htim1.Init.RepetitionCounter = 0;
+ 548              		.loc 1 214 3 is_stmt 1 view .LVU180
+ 549              		.loc 1 214 32 is_stmt 0 view .LVU181
+ 550 003e 4461     		str	r4, [r0, #20]
+ 215:App/Src/c/config.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 551              		.loc 1 215 3 is_stmt 1 view .LVU182
+ 552              		.loc 1 215 32 is_stmt 0 view .LVU183
+ 553 0040 8461     		str	r4, [r0, #24]
+ 216:App/Src/c/config.c ****   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+ 554              		.loc 1 216 3 is_stmt 1 view .LVU184
+ 555              		.loc 1 216 7 is_stmt 0 view .LVU185
+ 556 0042 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 557              	.LVL20:
+ 558              		.loc 1 216 6 view .LVU186
+ 559 0046 0028     		cmp	r0, #0
+ 560 0048 33D1     		bne	.L39
+ 561              	.L32:
+ 217:App/Src/c/config.c ****   {
+ 218:App/Src/c/config.c ****     Error_Handler();
+ 219:App/Src/c/config.c ****   }
+ 220:App/Src/c/config.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 562              		.loc 1 220 3 is_stmt 1 view .LVU187
+ 563              		.loc 1 220 34 is_stmt 0 view .LVU188
+ 564 004a 4FF48053 		mov	r3, #4096
+ 565 004e 1293     		str	r3, [sp, #72]
+ 221:App/Src/c/config.c ****   if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+ 566              		.loc 1 221 3 is_stmt 1 view .LVU189
+ 567              		.loc 1 221 7 is_stmt 0 view .LVU190
+ 568 0050 12A9     		add	r1, sp, #72
+ 569 0052 2148     		ldr	r0, .L45
+ 570 0054 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 571              	.LVL21:
+ 572              		.loc 1 221 6 view .LVU191
+ 573 0058 0028     		cmp	r0, #0
+ 574 005a 2DD1     		bne	.L40
+ 575              	.L33:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 15
+
+
+ 222:App/Src/c/config.c ****   {
+ 223:App/Src/c/config.c ****     Error_Handler();
+ 224:App/Src/c/config.c ****   }
+ 225:App/Src/c/config.c ****   if (HAL_TIM_OC_Init(&htim1) != HAL_OK)
+ 576              		.loc 1 225 3 is_stmt 1 view .LVU192
+ 577              		.loc 1 225 7 is_stmt 0 view .LVU193
+ 578 005c 1E48     		ldr	r0, .L45
+ 579 005e FFF7FEFF 		bl	HAL_TIM_OC_Init
+ 580              	.LVL22:
+ 581              		.loc 1 225 6 view .LVU194
+ 582 0062 0028     		cmp	r0, #0
+ 583 0064 2BD1     		bne	.L41
+ 584              	.L34:
+ 226:App/Src/c/config.c ****   {
+ 227:App/Src/c/config.c ****     Error_Handler();
+ 228:App/Src/c/config.c ****   }
+ 229:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 585              		.loc 1 229 3 is_stmt 1 view .LVU195
+ 586              		.loc 1 229 37 is_stmt 0 view .LVU196
+ 587 0066 0023     		movs	r3, #0
+ 588 0068 1093     		str	r3, [sp, #64]
+ 230:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 589              		.loc 1 230 3 is_stmt 1 view .LVU197
+ 590              		.loc 1 230 33 is_stmt 0 view .LVU198
+ 591 006a 1193     		str	r3, [sp, #68]
+ 231:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 592              		.loc 1 231 3 is_stmt 1 view .LVU199
+ 593              		.loc 1 231 7 is_stmt 0 view .LVU200
+ 594 006c 10A9     		add	r1, sp, #64
+ 595 006e 1A48     		ldr	r0, .L45
+ 596 0070 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 597              	.LVL23:
+ 598              		.loc 1 231 6 view .LVU201
+ 599 0074 30BB     		cbnz	r0, .L42
+ 600              	.L35:
+ 232:App/Src/c/config.c ****   {
+ 233:App/Src/c/config.c ****     Error_Handler();
+ 234:App/Src/c/config.c ****   }
+ 235:App/Src/c/config.c ****   sConfigOC.OCMode = TIM_OCMODE_TIMING;
+ 601              		.loc 1 235 3 is_stmt 1 view .LVU202
+ 602              		.loc 1 235 20 is_stmt 0 view .LVU203
+ 603 0076 0022     		movs	r2, #0
+ 604 0078 0992     		str	r2, [sp, #36]
+ 236:App/Src/c/config.c ****   sConfigOC.Pulse = 0;
+ 605              		.loc 1 236 3 is_stmt 1 view .LVU204
+ 606              		.loc 1 236 19 is_stmt 0 view .LVU205
+ 607 007a 0A92     		str	r2, [sp, #40]
+ 237:App/Src/c/config.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 608              		.loc 1 237 3 is_stmt 1 view .LVU206
+ 609              		.loc 1 237 24 is_stmt 0 view .LVU207
+ 610 007c 0B92     		str	r2, [sp, #44]
+ 238:App/Src/c/config.c ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+ 611              		.loc 1 238 3 is_stmt 1 view .LVU208
+ 612              		.loc 1 238 25 is_stmt 0 view .LVU209
+ 613 007e 0C92     		str	r2, [sp, #48]
+ 239:App/Src/c/config.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 614              		.loc 1 239 3 is_stmt 1 view .LVU210
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 16
+
+
+ 615              		.loc 1 239 24 is_stmt 0 view .LVU211
+ 616 0080 0D92     		str	r2, [sp, #52]
+ 240:App/Src/c/config.c ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 617              		.loc 1 240 3 is_stmt 1 view .LVU212
+ 618              		.loc 1 240 25 is_stmt 0 view .LVU213
+ 619 0082 0E92     		str	r2, [sp, #56]
+ 241:App/Src/c/config.c ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ 620              		.loc 1 241 3 is_stmt 1 view .LVU214
+ 621              		.loc 1 241 26 is_stmt 0 view .LVU215
+ 622 0084 0F92     		str	r2, [sp, #60]
+ 242:App/Src/c/config.c ****   if (HAL_TIM_OC_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 623              		.loc 1 242 3 is_stmt 1 view .LVU216
+ 624              		.loc 1 242 7 is_stmt 0 view .LVU217
+ 625 0086 09A9     		add	r1, sp, #36
+ 626 0088 1348     		ldr	r0, .L45
+ 627 008a FFF7FEFF 		bl	HAL_TIM_OC_ConfigChannel
+ 628              	.LVL24:
+ 629              		.loc 1 242 6 view .LVU218
+ 630 008e E0B9     		cbnz	r0, .L43
+ 631              	.L36:
+ 243:App/Src/c/config.c ****   {
+ 244:App/Src/c/config.c ****     Error_Handler();
+ 245:App/Src/c/config.c ****   }
+ 246:App/Src/c/config.c ****   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+ 632              		.loc 1 246 3 is_stmt 1 view .LVU219
+ 633              		.loc 1 246 40 is_stmt 0 view .LVU220
+ 634 0090 0023     		movs	r3, #0
+ 635 0092 0193     		str	r3, [sp, #4]
+ 247:App/Src/c/config.c ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+ 636              		.loc 1 247 3 is_stmt 1 view .LVU221
+ 637              		.loc 1 247 41 is_stmt 0 view .LVU222
+ 638 0094 0293     		str	r3, [sp, #8]
+ 248:App/Src/c/config.c ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+ 639              		.loc 1 248 3 is_stmt 1 view .LVU223
+ 640              		.loc 1 248 34 is_stmt 0 view .LVU224
+ 641 0096 0393     		str	r3, [sp, #12]
+ 249:App/Src/c/config.c ****   sBreakDeadTimeConfig.DeadTime = 0;
+ 642              		.loc 1 249 3 is_stmt 1 view .LVU225
+ 643              		.loc 1 249 33 is_stmt 0 view .LVU226
+ 644 0098 0493     		str	r3, [sp, #16]
+ 250:App/Src/c/config.c ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+ 645              		.loc 1 250 3 is_stmt 1 view .LVU227
+ 646              		.loc 1 250 35 is_stmt 0 view .LVU228
+ 647 009a 0593     		str	r3, [sp, #20]
+ 251:App/Src/c/config.c ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+ 648              		.loc 1 251 3 is_stmt 1 view .LVU229
+ 649              		.loc 1 251 38 is_stmt 0 view .LVU230
+ 650 009c 4FF40052 		mov	r2, #8192
+ 651 00a0 0692     		str	r2, [sp, #24]
+ 252:App/Src/c/config.c ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+ 652              		.loc 1 252 3 is_stmt 1 view .LVU231
+ 653              		.loc 1 252 40 is_stmt 0 view .LVU232
+ 654 00a2 0893     		str	r3, [sp, #32]
+ 253:App/Src/c/config.c ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
+ 655              		.loc 1 253 3 is_stmt 1 view .LVU233
+ 656              		.loc 1 253 7 is_stmt 0 view .LVU234
+ 657 00a4 01A9     		add	r1, sp, #4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 17
+
+
+ 658 00a6 0C48     		ldr	r0, .L45
+ 659 00a8 FFF7FEFF 		bl	HAL_TIMEx_ConfigBreakDeadTime
+ 660              	.LVL25:
+ 661              		.loc 1 253 6 view .LVU235
+ 662 00ac 80B9     		cbnz	r0, .L44
+ 663              	.L31:
+ 254:App/Src/c/config.c ****   {
+ 255:App/Src/c/config.c ****     Error_Handler();
+ 256:App/Src/c/config.c ****   }
+ 257:App/Src/c/config.c ****   /* USER CODE BEGIN TIM1_Init 2 */
+ 258:App/Src/c/config.c **** 
+ 259:App/Src/c/config.c ****   /* USER CODE END TIM1_Init 2 */
+ 260:App/Src/c/config.c **** 
+ 261:App/Src/c/config.c **** }
+ 664              		.loc 1 261 1 view .LVU236
+ 665 00ae 16B0     		add	sp, sp, #88
+ 666              	.LCFI11:
+ 667              		.cfi_remember_state
+ 668              		.cfi_def_cfa_offset 8
+ 669              		@ sp needed
+ 670 00b0 10BD     		pop	{r4, pc}
+ 671              	.L39:
+ 672              	.LCFI12:
+ 673              		.cfi_restore_state
+ 218:App/Src/c/config.c ****   }
+ 674              		.loc 1 218 5 is_stmt 1 view .LVU237
+ 675 00b2 FFF7FEFF 		bl	Error_Handler
+ 676              	.LVL26:
+ 677 00b6 C8E7     		b	.L32
+ 678              	.L40:
+ 223:App/Src/c/config.c ****   }
+ 679              		.loc 1 223 5 view .LVU238
+ 680 00b8 FFF7FEFF 		bl	Error_Handler
+ 681              	.LVL27:
+ 682 00bc CEE7     		b	.L33
+ 683              	.L41:
+ 227:App/Src/c/config.c ****   }
+ 684              		.loc 1 227 5 view .LVU239
+ 685 00be FFF7FEFF 		bl	Error_Handler
+ 686              	.LVL28:
+ 687 00c2 D0E7     		b	.L34
+ 688              	.L42:
+ 233:App/Src/c/config.c ****   }
+ 689              		.loc 1 233 5 view .LVU240
+ 690 00c4 FFF7FEFF 		bl	Error_Handler
+ 691              	.LVL29:
+ 692 00c8 D5E7     		b	.L35
+ 693              	.L43:
+ 244:App/Src/c/config.c ****   }
+ 694              		.loc 1 244 5 view .LVU241
+ 695 00ca FFF7FEFF 		bl	Error_Handler
+ 696              	.LVL30:
+ 697 00ce DFE7     		b	.L36
+ 698              	.L44:
+ 255:App/Src/c/config.c ****   }
+ 699              		.loc 1 255 5 view .LVU242
+ 700 00d0 FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 18
+
+
+ 701              	.LVL31:
+ 702              		.loc 1 261 1 is_stmt 0 view .LVU243
+ 703 00d4 EBE7     		b	.L31
+ 704              	.L46:
+ 705 00d6 00BF     		.align	2
+ 706              	.L45:
+ 707 00d8 00000000 		.word	.LANCHOR2
+ 708 00dc 00000140 		.word	1073807360
+ 709              		.cfi_endproc
+ 710              	.LFE242:
+ 712              		.section	.text.MX_TIM2_Init,"ax",%progbits
+ 713              		.align	1
+ 714              		.global	MX_TIM2_Init
+ 715              		.syntax unified
+ 716              		.thumb
+ 717              		.thumb_func
+ 719              	MX_TIM2_Init:
+ 720              	.LFB243:
+ 262:App/Src/c/config.c **** 
+ 263:App/Src/c/config.c **** /**
+ 264:App/Src/c/config.c ****   * @brief TIM2 Initialization Function
+ 265:App/Src/c/config.c ****   * @param None
+ 266:App/Src/c/config.c ****   * @retval None
+ 267:App/Src/c/config.c ****   */
+ 268:App/Src/c/config.c **** void MX_TIM2_Init(void)
+ 269:App/Src/c/config.c **** {
+ 721              		.loc 1 269 1 is_stmt 1 view -0
+ 722              		.cfi_startproc
+ 723              		@ args = 0, pretend = 0, frame = 56
+ 724              		@ frame_needed = 0, uses_anonymous_args = 0
+ 725 0000 00B5     		push	{lr}
+ 726              	.LCFI13:
+ 727              		.cfi_def_cfa_offset 4
+ 728              		.cfi_offset 14, -4
+ 729 0002 8FB0     		sub	sp, sp, #60
+ 730              	.LCFI14:
+ 731              		.cfi_def_cfa_offset 64
+ 270:App/Src/c/config.c **** 
+ 271:App/Src/c/config.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+ 272:App/Src/c/config.c **** 
+ 273:App/Src/c/config.c ****   /* USER CODE END TIM2_Init 0 */
+ 274:App/Src/c/config.c **** 
+ 275:App/Src/c/config.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 732              		.loc 1 275 3 view .LVU245
+ 733              		.loc 1 275 26 is_stmt 0 view .LVU246
+ 734 0004 0023     		movs	r3, #0
+ 735 0006 0A93     		str	r3, [sp, #40]
+ 736 0008 0B93     		str	r3, [sp, #44]
+ 737 000a 0C93     		str	r3, [sp, #48]
+ 738 000c 0D93     		str	r3, [sp, #52]
+ 276:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 739              		.loc 1 276 3 is_stmt 1 view .LVU247
+ 740              		.loc 1 276 27 is_stmt 0 view .LVU248
+ 741 000e 0893     		str	r3, [sp, #32]
+ 742 0010 0993     		str	r3, [sp, #36]
+ 277:App/Src/c/config.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 743              		.loc 1 277 3 is_stmt 1 view .LVU249
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 19
+
+
+ 744              		.loc 1 277 22 is_stmt 0 view .LVU250
+ 745 0012 0193     		str	r3, [sp, #4]
+ 746 0014 0293     		str	r3, [sp, #8]
+ 747 0016 0393     		str	r3, [sp, #12]
+ 748 0018 0493     		str	r3, [sp, #16]
+ 749 001a 0593     		str	r3, [sp, #20]
+ 750 001c 0693     		str	r3, [sp, #24]
+ 751 001e 0793     		str	r3, [sp, #28]
+ 278:App/Src/c/config.c **** 
+ 279:App/Src/c/config.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+ 280:App/Src/c/config.c **** 
+ 281:App/Src/c/config.c ****   /* USER CODE END TIM2_Init 1 */
+ 282:App/Src/c/config.c ****   htim2.Instance = TIM2;
+ 752              		.loc 1 282 3 is_stmt 1 view .LVU251
+ 753              		.loc 1 282 18 is_stmt 0 view .LVU252
+ 754 0020 2548     		ldr	r0, .L61
+ 755 0022 4FF08042 		mov	r2, #1073741824
+ 756 0026 0260     		str	r2, [r0]
+ 283:App/Src/c/config.c ****   htim2.Init.Prescaler = 0;
+ 757              		.loc 1 283 3 is_stmt 1 view .LVU253
+ 758              		.loc 1 283 24 is_stmt 0 view .LVU254
+ 759 0028 4360     		str	r3, [r0, #4]
+ 284:App/Src/c/config.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 760              		.loc 1 284 3 is_stmt 1 view .LVU255
+ 761              		.loc 1 284 26 is_stmt 0 view .LVU256
+ 762 002a 8360     		str	r3, [r0, #8]
+ 285:App/Src/c/config.c ****   htim2.Init.Period = 1000-1;
+ 763              		.loc 1 285 3 is_stmt 1 view .LVU257
+ 764              		.loc 1 285 21 is_stmt 0 view .LVU258
+ 765 002c 40F2E732 		movw	r2, #999
+ 766 0030 C260     		str	r2, [r0, #12]
+ 286:App/Src/c/config.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 767              		.loc 1 286 3 is_stmt 1 view .LVU259
+ 768              		.loc 1 286 28 is_stmt 0 view .LVU260
+ 769 0032 0361     		str	r3, [r0, #16]
+ 287:App/Src/c/config.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 770              		.loc 1 287 3 is_stmt 1 view .LVU261
+ 771              		.loc 1 287 32 is_stmt 0 view .LVU262
+ 772 0034 8361     		str	r3, [r0, #24]
+ 288:App/Src/c/config.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 773              		.loc 1 288 3 is_stmt 1 view .LVU263
+ 774              		.loc 1 288 7 is_stmt 0 view .LVU264
+ 775 0036 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 776              	.LVL32:
+ 777              		.loc 1 288 6 view .LVU265
+ 778 003a 50BB     		cbnz	r0, .L55
+ 779              	.L48:
+ 289:App/Src/c/config.c ****   {
+ 290:App/Src/c/config.c ****     Error_Handler();
+ 291:App/Src/c/config.c ****   }
+ 292:App/Src/c/config.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 780              		.loc 1 292 3 is_stmt 1 view .LVU266
+ 781              		.loc 1 292 34 is_stmt 0 view .LVU267
+ 782 003c 4FF48053 		mov	r3, #4096
+ 783 0040 0A93     		str	r3, [sp, #40]
+ 293:App/Src/c/config.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 784              		.loc 1 293 3 is_stmt 1 view .LVU268
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 20
+
+
+ 785              		.loc 1 293 7 is_stmt 0 view .LVU269
+ 786 0042 0AA9     		add	r1, sp, #40
+ 787 0044 1C48     		ldr	r0, .L61
+ 788 0046 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 789              	.LVL33:
+ 790              		.loc 1 293 6 view .LVU270
+ 791 004a 28BB     		cbnz	r0, .L56
+ 792              	.L49:
+ 294:App/Src/c/config.c ****   {
+ 295:App/Src/c/config.c ****     Error_Handler();
+ 296:App/Src/c/config.c ****   }
+ 297:App/Src/c/config.c ****   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+ 793              		.loc 1 297 3 is_stmt 1 view .LVU271
+ 794              		.loc 1 297 7 is_stmt 0 view .LVU272
+ 795 004c 1A48     		ldr	r0, .L61
+ 796 004e FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 797              	.LVL34:
+ 798              		.loc 1 297 6 view .LVU273
+ 799 0052 20BB     		cbnz	r0, .L57
+ 800              	.L50:
+ 298:App/Src/c/config.c ****   {
+ 299:App/Src/c/config.c ****     Error_Handler();
+ 300:App/Src/c/config.c ****   }
+ 301:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 801              		.loc 1 301 3 is_stmt 1 view .LVU274
+ 802              		.loc 1 301 37 is_stmt 0 view .LVU275
+ 803 0054 0023     		movs	r3, #0
+ 804 0056 0893     		str	r3, [sp, #32]
+ 302:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 805              		.loc 1 302 3 is_stmt 1 view .LVU276
+ 806              		.loc 1 302 33 is_stmt 0 view .LVU277
+ 807 0058 0993     		str	r3, [sp, #36]
+ 303:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 808              		.loc 1 303 3 is_stmt 1 view .LVU278
+ 809              		.loc 1 303 7 is_stmt 0 view .LVU279
+ 810 005a 08A9     		add	r1, sp, #32
+ 811 005c 1648     		ldr	r0, .L61
+ 812 005e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 813              	.LVL35:
+ 814              		.loc 1 303 6 view .LVU280
+ 815 0062 F8B9     		cbnz	r0, .L58
+ 816              	.L51:
+ 304:App/Src/c/config.c ****   {
+ 305:App/Src/c/config.c ****     Error_Handler();
+ 306:App/Src/c/config.c ****   }
+ 307:App/Src/c/config.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 817              		.loc 1 307 3 is_stmt 1 view .LVU281
+ 818              		.loc 1 307 20 is_stmt 0 view .LVU282
+ 819 0064 6023     		movs	r3, #96
+ 820 0066 0193     		str	r3, [sp, #4]
+ 308:App/Src/c/config.c ****   sConfigOC.Pulse = 0;
+ 821              		.loc 1 308 3 is_stmt 1 view .LVU283
+ 822              		.loc 1 308 19 is_stmt 0 view .LVU284
+ 823 0068 0022     		movs	r2, #0
+ 824 006a 0292     		str	r2, [sp, #8]
+ 309:App/Src/c/config.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 825              		.loc 1 309 3 is_stmt 1 view .LVU285
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 21
+
+
+ 826              		.loc 1 309 24 is_stmt 0 view .LVU286
+ 827 006c 0392     		str	r2, [sp, #12]
+ 310:App/Src/c/config.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 828              		.loc 1 310 3 is_stmt 1 view .LVU287
+ 829              		.loc 1 310 24 is_stmt 0 view .LVU288
+ 830 006e 0592     		str	r2, [sp, #20]
+ 311:App/Src/c/config.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 831              		.loc 1 311 3 is_stmt 1 view .LVU289
+ 832              		.loc 1 311 7 is_stmt 0 view .LVU290
+ 833 0070 01A9     		add	r1, sp, #4
+ 834 0072 1148     		ldr	r0, .L61
+ 835 0074 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 836              	.LVL36:
+ 837              		.loc 1 311 6 view .LVU291
+ 838 0078 B8B9     		cbnz	r0, .L59
+ 839              	.L52:
+ 312:App/Src/c/config.c ****   {
+ 313:App/Src/c/config.c ****     Error_Handler();
+ 314:App/Src/c/config.c ****   }
+ 315:App/Src/c/config.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+ 840              		.loc 1 315 3 is_stmt 1 view .LVU292
+ 841              		.loc 1 315 7 is_stmt 0 view .LVU293
+ 842 007a 0C22     		movs	r2, #12
+ 843 007c 01A9     		add	r1, sp, #4
+ 844 007e 0E48     		ldr	r0, .L61
+ 845 0080 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 846              	.LVL37:
+ 847              		.loc 1 315 6 view .LVU294
+ 848 0084 A0B9     		cbnz	r0, .L60
+ 849              	.L53:
+ 316:App/Src/c/config.c ****   {
+ 317:App/Src/c/config.c ****     Error_Handler();
+ 318:App/Src/c/config.c ****   }
+ 319:App/Src/c/config.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ 320:App/Src/c/config.c **** 
+ 321:App/Src/c/config.c ****   /* USER CODE END TIM2_Init 2 */
+ 322:App/Src/c/config.c ****   HAL_TIM_MspPostInit(&htim2);
+ 850              		.loc 1 322 3 is_stmt 1 view .LVU295
+ 851 0086 0C48     		ldr	r0, .L61
+ 852 0088 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 853              	.LVL38:
+ 323:App/Src/c/config.c **** 
+ 324:App/Src/c/config.c **** }
+ 854              		.loc 1 324 1 is_stmt 0 view .LVU296
+ 855 008c 0FB0     		add	sp, sp, #60
+ 856              	.LCFI15:
+ 857              		.cfi_remember_state
+ 858              		.cfi_def_cfa_offset 4
+ 859              		@ sp needed
+ 860 008e 5DF804FB 		ldr	pc, [sp], #4
+ 861              	.L55:
+ 862              	.LCFI16:
+ 863              		.cfi_restore_state
+ 290:App/Src/c/config.c ****   }
+ 864              		.loc 1 290 5 is_stmt 1 view .LVU297
+ 865 0092 FFF7FEFF 		bl	Error_Handler
+ 866              	.LVL39:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 22
+
+
+ 867 0096 D1E7     		b	.L48
+ 868              	.L56:
+ 295:App/Src/c/config.c ****   }
+ 869              		.loc 1 295 5 view .LVU298
+ 870 0098 FFF7FEFF 		bl	Error_Handler
+ 871              	.LVL40:
+ 872 009c D6E7     		b	.L49
+ 873              	.L57:
+ 299:App/Src/c/config.c ****   }
+ 874              		.loc 1 299 5 view .LVU299
+ 875 009e FFF7FEFF 		bl	Error_Handler
+ 876              	.LVL41:
+ 877 00a2 D7E7     		b	.L50
+ 878              	.L58:
+ 305:App/Src/c/config.c ****   }
+ 879              		.loc 1 305 5 view .LVU300
+ 880 00a4 FFF7FEFF 		bl	Error_Handler
+ 881              	.LVL42:
+ 882 00a8 DCE7     		b	.L51
+ 883              	.L59:
+ 313:App/Src/c/config.c ****   }
+ 884              		.loc 1 313 5 view .LVU301
+ 885 00aa FFF7FEFF 		bl	Error_Handler
+ 886              	.LVL43:
+ 887 00ae E4E7     		b	.L52
+ 888              	.L60:
+ 317:App/Src/c/config.c ****   }
+ 889              		.loc 1 317 5 view .LVU302
+ 890 00b0 FFF7FEFF 		bl	Error_Handler
+ 891              	.LVL44:
+ 892 00b4 E7E7     		b	.L53
+ 893              	.L62:
+ 894 00b6 00BF     		.align	2
+ 895              	.L61:
+ 896 00b8 00000000 		.word	.LANCHOR3
+ 897              		.cfi_endproc
+ 898              	.LFE243:
+ 900              		.section	.text.MX_TIM3_Init,"ax",%progbits
+ 901              		.align	1
+ 902              		.global	MX_TIM3_Init
+ 903              		.syntax unified
+ 904              		.thumb
+ 905              		.thumb_func
+ 907              	MX_TIM3_Init:
+ 908              	.LFB244:
+ 325:App/Src/c/config.c **** 
+ 326:App/Src/c/config.c **** /**
+ 327:App/Src/c/config.c ****   * @brief TIM3 Initialization Function
+ 328:App/Src/c/config.c ****   * @param None
+ 329:App/Src/c/config.c ****   * @retval None
+ 330:App/Src/c/config.c ****   */
+ 331:App/Src/c/config.c **** void MX_TIM3_Init(void)
+ 332:App/Src/c/config.c **** {
+ 909              		.loc 1 332 1 view -0
+ 910              		.cfi_startproc
+ 911              		@ args = 0, pretend = 0, frame = 56
+ 912              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 23
+
+
+ 913 0000 00B5     		push	{lr}
+ 914              	.LCFI17:
+ 915              		.cfi_def_cfa_offset 4
+ 916              		.cfi_offset 14, -4
+ 917 0002 8FB0     		sub	sp, sp, #60
+ 918              	.LCFI18:
+ 919              		.cfi_def_cfa_offset 64
+ 333:App/Src/c/config.c **** 
+ 334:App/Src/c/config.c ****   /* USER CODE BEGIN TIM3_Init 0 */
+ 335:App/Src/c/config.c **** 
+ 336:App/Src/c/config.c ****   /* USER CODE END TIM3_Init 0 */
+ 337:App/Src/c/config.c **** 
+ 338:App/Src/c/config.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 920              		.loc 1 338 3 view .LVU304
+ 921              		.loc 1 338 26 is_stmt 0 view .LVU305
+ 922 0004 0023     		movs	r3, #0
+ 923 0006 0A93     		str	r3, [sp, #40]
+ 924 0008 0B93     		str	r3, [sp, #44]
+ 925 000a 0C93     		str	r3, [sp, #48]
+ 926 000c 0D93     		str	r3, [sp, #52]
+ 339:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 927              		.loc 1 339 3 is_stmt 1 view .LVU306
+ 928              		.loc 1 339 27 is_stmt 0 view .LVU307
+ 929 000e 0893     		str	r3, [sp, #32]
+ 930 0010 0993     		str	r3, [sp, #36]
+ 340:App/Src/c/config.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 931              		.loc 1 340 3 is_stmt 1 view .LVU308
+ 932              		.loc 1 340 22 is_stmt 0 view .LVU309
+ 933 0012 0193     		str	r3, [sp, #4]
+ 934 0014 0293     		str	r3, [sp, #8]
+ 935 0016 0393     		str	r3, [sp, #12]
+ 936 0018 0493     		str	r3, [sp, #16]
+ 937 001a 0593     		str	r3, [sp, #20]
+ 938 001c 0693     		str	r3, [sp, #24]
+ 939 001e 0793     		str	r3, [sp, #28]
+ 341:App/Src/c/config.c **** 
+ 342:App/Src/c/config.c ****   /* USER CODE BEGIN TIM3_Init 1 */
+ 343:App/Src/c/config.c **** 
+ 344:App/Src/c/config.c ****   /* USER CODE END TIM3_Init 1 */
+ 345:App/Src/c/config.c ****   htim3.Instance = TIM3;
+ 940              		.loc 1 345 3 is_stmt 1 view .LVU310
+ 941              		.loc 1 345 18 is_stmt 0 view .LVU311
+ 942 0020 2548     		ldr	r0, .L77
+ 943 0022 264A     		ldr	r2, .L77+4
+ 944 0024 0260     		str	r2, [r0]
+ 346:App/Src/c/config.c ****   htim3.Init.Prescaler = 84-1;
+ 945              		.loc 1 346 3 is_stmt 1 view .LVU312
+ 946              		.loc 1 346 24 is_stmt 0 view .LVU313
+ 947 0026 5322     		movs	r2, #83
+ 948 0028 4260     		str	r2, [r0, #4]
+ 347:App/Src/c/config.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 949              		.loc 1 347 3 is_stmt 1 view .LVU314
+ 950              		.loc 1 347 26 is_stmt 0 view .LVU315
+ 951 002a 8360     		str	r3, [r0, #8]
+ 348:App/Src/c/config.c ****   htim3.Init.Period = 1000-1;
+ 952              		.loc 1 348 3 is_stmt 1 view .LVU316
+ 953              		.loc 1 348 21 is_stmt 0 view .LVU317
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 24
+
+
+ 954 002c 40F2E732 		movw	r2, #999
+ 955 0030 C260     		str	r2, [r0, #12]
+ 349:App/Src/c/config.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 956              		.loc 1 349 3 is_stmt 1 view .LVU318
+ 957              		.loc 1 349 28 is_stmt 0 view .LVU319
+ 958 0032 0361     		str	r3, [r0, #16]
+ 350:App/Src/c/config.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 959              		.loc 1 350 3 is_stmt 1 view .LVU320
+ 960              		.loc 1 350 32 is_stmt 0 view .LVU321
+ 961 0034 8361     		str	r3, [r0, #24]
+ 351:App/Src/c/config.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 962              		.loc 1 351 3 is_stmt 1 view .LVU322
+ 963              		.loc 1 351 7 is_stmt 0 view .LVU323
+ 964 0036 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 965              	.LVL45:
+ 966              		.loc 1 351 6 view .LVU324
+ 967 003a 58BB     		cbnz	r0, .L71
+ 968              	.L64:
+ 352:App/Src/c/config.c ****   {
+ 353:App/Src/c/config.c ****     Error_Handler();
+ 354:App/Src/c/config.c ****   }
+ 355:App/Src/c/config.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 969              		.loc 1 355 3 is_stmt 1 view .LVU325
+ 970              		.loc 1 355 34 is_stmt 0 view .LVU326
+ 971 003c 4FF48053 		mov	r3, #4096
+ 972 0040 0A93     		str	r3, [sp, #40]
+ 356:App/Src/c/config.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 973              		.loc 1 356 3 is_stmt 1 view .LVU327
+ 974              		.loc 1 356 7 is_stmt 0 view .LVU328
+ 975 0042 0AA9     		add	r1, sp, #40
+ 976 0044 1C48     		ldr	r0, .L77
+ 977 0046 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 978              	.LVL46:
+ 979              		.loc 1 356 6 view .LVU329
+ 980 004a 30BB     		cbnz	r0, .L72
+ 981              	.L65:
+ 357:App/Src/c/config.c ****   {
+ 358:App/Src/c/config.c ****     Error_Handler();
+ 359:App/Src/c/config.c ****   }
+ 360:App/Src/c/config.c ****   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+ 982              		.loc 1 360 3 is_stmt 1 view .LVU330
+ 983              		.loc 1 360 7 is_stmt 0 view .LVU331
+ 984 004c 1A48     		ldr	r0, .L77
+ 985 004e FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 986              	.LVL47:
+ 987              		.loc 1 360 6 view .LVU332
+ 988 0052 28BB     		cbnz	r0, .L73
+ 989              	.L66:
+ 361:App/Src/c/config.c ****   {
+ 362:App/Src/c/config.c ****     Error_Handler();
+ 363:App/Src/c/config.c ****   }
+ 364:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 990              		.loc 1 364 3 is_stmt 1 view .LVU333
+ 991              		.loc 1 364 37 is_stmt 0 view .LVU334
+ 992 0054 0023     		movs	r3, #0
+ 993 0056 0893     		str	r3, [sp, #32]
+ 365:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 25
+
+
+ 994              		.loc 1 365 3 is_stmt 1 view .LVU335
+ 995              		.loc 1 365 33 is_stmt 0 view .LVU336
+ 996 0058 0993     		str	r3, [sp, #36]
+ 366:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 997              		.loc 1 366 3 is_stmt 1 view .LVU337
+ 998              		.loc 1 366 7 is_stmt 0 view .LVU338
+ 999 005a 08A9     		add	r1, sp, #32
+ 1000 005c 1648     		ldr	r0, .L77
+ 1001 005e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1002              	.LVL48:
+ 1003              		.loc 1 366 6 view .LVU339
+ 1004 0062 00BB     		cbnz	r0, .L74
+ 1005              	.L67:
+ 367:App/Src/c/config.c ****   {
+ 368:App/Src/c/config.c ****     Error_Handler();
+ 369:App/Src/c/config.c ****   }
+ 370:App/Src/c/config.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 1006              		.loc 1 370 3 is_stmt 1 view .LVU340
+ 1007              		.loc 1 370 20 is_stmt 0 view .LVU341
+ 1008 0064 6023     		movs	r3, #96
+ 1009 0066 0193     		str	r3, [sp, #4]
+ 371:App/Src/c/config.c ****   sConfigOC.Pulse = 0;
+ 1010              		.loc 1 371 3 is_stmt 1 view .LVU342
+ 1011              		.loc 1 371 19 is_stmt 0 view .LVU343
+ 1012 0068 0022     		movs	r2, #0
+ 1013 006a 0292     		str	r2, [sp, #8]
+ 372:App/Src/c/config.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1014              		.loc 1 372 3 is_stmt 1 view .LVU344
+ 1015              		.loc 1 372 24 is_stmt 0 view .LVU345
+ 1016 006c 0392     		str	r2, [sp, #12]
+ 373:App/Src/c/config.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1017              		.loc 1 373 3 is_stmt 1 view .LVU346
+ 1018              		.loc 1 373 24 is_stmt 0 view .LVU347
+ 1019 006e 0592     		str	r2, [sp, #20]
+ 374:App/Src/c/config.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1020              		.loc 1 374 3 is_stmt 1 view .LVU348
+ 1021              		.loc 1 374 7 is_stmt 0 view .LVU349
+ 1022 0070 01A9     		add	r1, sp, #4
+ 1023 0072 1148     		ldr	r0, .L77
+ 1024 0074 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1025              	.LVL49:
+ 1026              		.loc 1 374 6 view .LVU350
+ 1027 0078 C0B9     		cbnz	r0, .L75
+ 1028              	.L68:
+ 375:App/Src/c/config.c ****   {
+ 376:App/Src/c/config.c ****     Error_Handler();
+ 377:App/Src/c/config.c ****   }
+ 378:App/Src/c/config.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 1029              		.loc 1 378 3 is_stmt 1 view .LVU351
+ 1030              		.loc 1 378 7 is_stmt 0 view .LVU352
+ 1031 007a 0422     		movs	r2, #4
+ 1032 007c 0DEB0201 		add	r1, sp, r2
+ 1033 0080 0D48     		ldr	r0, .L77
+ 1034 0082 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1035              	.LVL50:
+ 1036              		.loc 1 378 6 view .LVU353
+ 1037 0086 A0B9     		cbnz	r0, .L76
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 26
+
+
+ 1038              	.L69:
+ 379:App/Src/c/config.c ****   {
+ 380:App/Src/c/config.c ****     Error_Handler();
+ 381:App/Src/c/config.c ****   }
+ 382:App/Src/c/config.c ****   /* USER CODE BEGIN TIM3_Init 2 */
+ 383:App/Src/c/config.c **** 
+ 384:App/Src/c/config.c ****   /* USER CODE END TIM3_Init 2 */
+ 385:App/Src/c/config.c ****   HAL_TIM_MspPostInit(&htim3);
+ 1039              		.loc 1 385 3 is_stmt 1 view .LVU354
+ 1040 0088 0B48     		ldr	r0, .L77
+ 1041 008a FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 1042              	.LVL51:
+ 386:App/Src/c/config.c **** 
+ 387:App/Src/c/config.c **** }
+ 1043              		.loc 1 387 1 is_stmt 0 view .LVU355
+ 1044 008e 0FB0     		add	sp, sp, #60
+ 1045              	.LCFI19:
+ 1046              		.cfi_remember_state
+ 1047              		.cfi_def_cfa_offset 4
+ 1048              		@ sp needed
+ 1049 0090 5DF804FB 		ldr	pc, [sp], #4
+ 1050              	.L71:
+ 1051              	.LCFI20:
+ 1052              		.cfi_restore_state
+ 353:App/Src/c/config.c ****   }
+ 1053              		.loc 1 353 5 is_stmt 1 view .LVU356
+ 1054 0094 FFF7FEFF 		bl	Error_Handler
+ 1055              	.LVL52:
+ 1056 0098 D0E7     		b	.L64
+ 1057              	.L72:
+ 358:App/Src/c/config.c ****   }
+ 1058              		.loc 1 358 5 view .LVU357
+ 1059 009a FFF7FEFF 		bl	Error_Handler
+ 1060              	.LVL53:
+ 1061 009e D5E7     		b	.L65
+ 1062              	.L73:
+ 362:App/Src/c/config.c ****   }
+ 1063              		.loc 1 362 5 view .LVU358
+ 1064 00a0 FFF7FEFF 		bl	Error_Handler
+ 1065              	.LVL54:
+ 1066 00a4 D6E7     		b	.L66
+ 1067              	.L74:
+ 368:App/Src/c/config.c ****   }
+ 1068              		.loc 1 368 5 view .LVU359
+ 1069 00a6 FFF7FEFF 		bl	Error_Handler
+ 1070              	.LVL55:
+ 1071 00aa DBE7     		b	.L67
+ 1072              	.L75:
+ 376:App/Src/c/config.c ****   }
+ 1073              		.loc 1 376 5 view .LVU360
+ 1074 00ac FFF7FEFF 		bl	Error_Handler
+ 1075              	.LVL56:
+ 1076 00b0 E3E7     		b	.L68
+ 1077              	.L76:
+ 380:App/Src/c/config.c ****   }
+ 1078              		.loc 1 380 5 view .LVU361
+ 1079 00b2 FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 27
+
+
+ 1080              	.LVL57:
+ 1081 00b6 E7E7     		b	.L69
+ 1082              	.L78:
+ 1083              		.align	2
+ 1084              	.L77:
+ 1085 00b8 00000000 		.word	.LANCHOR4
+ 1086 00bc 00040040 		.word	1073742848
+ 1087              		.cfi_endproc
+ 1088              	.LFE244:
+ 1090              		.section	.text.MX_TIM4_Init,"ax",%progbits
+ 1091              		.align	1
+ 1092              		.global	MX_TIM4_Init
+ 1093              		.syntax unified
+ 1094              		.thumb
+ 1095              		.thumb_func
+ 1097              	MX_TIM4_Init:
+ 1098              	.LFB245:
+ 388:App/Src/c/config.c **** 
+ 389:App/Src/c/config.c **** /**
+ 390:App/Src/c/config.c ****   * @brief TIM4 Initialization Function
+ 391:App/Src/c/config.c ****   * @param None
+ 392:App/Src/c/config.c ****   * @retval None
+ 393:App/Src/c/config.c ****   */
+ 394:App/Src/c/config.c **** void MX_TIM4_Init(void)
+ 395:App/Src/c/config.c **** {
+ 1099              		.loc 1 395 1 view -0
+ 1100              		.cfi_startproc
+ 1101              		@ args = 0, pretend = 0, frame = 72
+ 1102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1103 0000 00B5     		push	{lr}
+ 1104              	.LCFI21:
+ 1105              		.cfi_def_cfa_offset 4
+ 1106              		.cfi_offset 14, -4
+ 1107 0002 93B0     		sub	sp, sp, #76
+ 1108              	.LCFI22:
+ 1109              		.cfi_def_cfa_offset 80
+ 396:App/Src/c/config.c **** 
+ 397:App/Src/c/config.c ****   /* USER CODE BEGIN TIM4_Init 0 */
+ 398:App/Src/c/config.c **** 
+ 399:App/Src/c/config.c ****   /* USER CODE END TIM4_Init 0 */
+ 400:App/Src/c/config.c **** 
+ 401:App/Src/c/config.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 1110              		.loc 1 401 3 view .LVU363
+ 1111              		.loc 1 401 27 is_stmt 0 view .LVU364
+ 1112 0004 2422     		movs	r2, #36
+ 1113 0006 0021     		movs	r1, #0
+ 1114 0008 0DEB0200 		add	r0, sp, r2
+ 1115 000c FFF7FEFF 		bl	memset
+ 1116              	.LVL58:
+ 402:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1117              		.loc 1 402 3 is_stmt 1 view .LVU365
+ 1118              		.loc 1 402 27 is_stmt 0 view .LVU366
+ 1119 0010 0023     		movs	r3, #0
+ 1120 0012 0793     		str	r3, [sp, #28]
+ 1121 0014 0893     		str	r3, [sp, #32]
+ 403:App/Src/c/config.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1122              		.loc 1 403 3 is_stmt 1 view .LVU367
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 28
+
+
+ 1123              		.loc 1 403 22 is_stmt 0 view .LVU368
+ 1124 0016 0093     		str	r3, [sp]
+ 1125 0018 0193     		str	r3, [sp, #4]
+ 1126 001a 0293     		str	r3, [sp, #8]
+ 1127 001c 0393     		str	r3, [sp, #12]
+ 1128 001e 0493     		str	r3, [sp, #16]
+ 1129 0020 0593     		str	r3, [sp, #20]
+ 1130 0022 0693     		str	r3, [sp, #24]
+ 404:App/Src/c/config.c **** 
+ 405:App/Src/c/config.c ****   /* USER CODE BEGIN TIM4_Init 1 */
+ 406:App/Src/c/config.c **** 
+ 407:App/Src/c/config.c ****   /* USER CODE END TIM4_Init 1 */
+ 408:App/Src/c/config.c ****   htim4.Instance = TIM4;
+ 1131              		.loc 1 408 3 is_stmt 1 view .LVU369
+ 1132              		.loc 1 408 18 is_stmt 0 view .LVU370
+ 1133 0024 1F48     		ldr	r0, .L89
+ 1134 0026 204A     		ldr	r2, .L89+4
+ 1135 0028 0260     		str	r2, [r0]
+ 409:App/Src/c/config.c ****   htim4.Init.Prescaler = 0;
+ 1136              		.loc 1 409 3 is_stmt 1 view .LVU371
+ 1137              		.loc 1 409 24 is_stmt 0 view .LVU372
+ 1138 002a 4360     		str	r3, [r0, #4]
+ 410:App/Src/c/config.c ****   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1139              		.loc 1 410 3 is_stmt 1 view .LVU373
+ 1140              		.loc 1 410 26 is_stmt 0 view .LVU374
+ 1141 002c 8360     		str	r3, [r0, #8]
+ 411:App/Src/c/config.c ****   htim4.Init.Period = 60000-1;
+ 1142              		.loc 1 411 3 is_stmt 1 view .LVU375
+ 1143              		.loc 1 411 21 is_stmt 0 view .LVU376
+ 1144 002e 4EF65F22 		movw	r2, #59999
+ 1145 0032 C260     		str	r2, [r0, #12]
+ 412:App/Src/c/config.c ****   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1146              		.loc 1 412 3 is_stmt 1 view .LVU377
+ 1147              		.loc 1 412 28 is_stmt 0 view .LVU378
+ 1148 0034 0361     		str	r3, [r0, #16]
+ 413:App/Src/c/config.c ****   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1149              		.loc 1 413 3 is_stmt 1 view .LVU379
+ 1150              		.loc 1 413 32 is_stmt 0 view .LVU380
+ 1151 0036 8361     		str	r3, [r0, #24]
+ 414:App/Src/c/config.c ****   if (HAL_TIM_OC_Init(&htim4) != HAL_OK)
+ 1152              		.loc 1 414 3 is_stmt 1 view .LVU381
+ 1153              		.loc 1 414 7 is_stmt 0 view .LVU382
+ 1154 0038 FFF7FEFF 		bl	HAL_TIM_OC_Init
+ 1155              	.LVL59:
+ 1156              		.loc 1 414 6 view .LVU383
+ 1157 003c 30BB     		cbnz	r0, .L85
+ 1158              	.L80:
+ 415:App/Src/c/config.c ****   {
+ 416:App/Src/c/config.c ****     Error_Handler();
+ 417:App/Src/c/config.c ****   }
+ 418:App/Src/c/config.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+ 1159              		.loc 1 418 3 is_stmt 1 view .LVU384
+ 1160              		.loc 1 418 23 is_stmt 0 view .LVU385
+ 1161 003e 0323     		movs	r3, #3
+ 1162 0040 0993     		str	r3, [sp, #36]
+ 419:App/Src/c/config.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 1163              		.loc 1 419 3 is_stmt 1 view .LVU386
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 29
+
+
+ 1164              		.loc 1 419 23 is_stmt 0 view .LVU387
+ 1165 0042 0023     		movs	r3, #0
+ 1166 0044 0A93     		str	r3, [sp, #40]
+ 420:App/Src/c/config.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 1167              		.loc 1 420 3 is_stmt 1 view .LVU388
+ 1168              		.loc 1 420 24 is_stmt 0 view .LVU389
+ 1169 0046 0122     		movs	r2, #1
+ 1170 0048 0B92     		str	r2, [sp, #44]
+ 421:App/Src/c/config.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 1171              		.loc 1 421 3 is_stmt 1 view .LVU390
+ 1172              		.loc 1 421 24 is_stmt 0 view .LVU391
+ 1173 004a 0C93     		str	r3, [sp, #48]
+ 422:App/Src/c/config.c ****   sConfig.IC1Filter = 0;
+ 1174              		.loc 1 422 3 is_stmt 1 view .LVU392
+ 1175              		.loc 1 422 21 is_stmt 0 view .LVU393
+ 1176 004c 0D93     		str	r3, [sp, #52]
+ 423:App/Src/c/config.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 1177              		.loc 1 423 3 is_stmt 1 view .LVU394
+ 1178              		.loc 1 423 23 is_stmt 0 view .LVU395
+ 1179 004e 0E93     		str	r3, [sp, #56]
+ 424:App/Src/c/config.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 1180              		.loc 1 424 3 is_stmt 1 view .LVU396
+ 1181              		.loc 1 424 24 is_stmt 0 view .LVU397
+ 1182 0050 0F92     		str	r2, [sp, #60]
+ 425:App/Src/c/config.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 1183              		.loc 1 425 3 is_stmt 1 view .LVU398
+ 1184              		.loc 1 425 24 is_stmt 0 view .LVU399
+ 1185 0052 1093     		str	r3, [sp, #64]
+ 426:App/Src/c/config.c ****   sConfig.IC2Filter = 0;
+ 1186              		.loc 1 426 3 is_stmt 1 view .LVU400
+ 1187              		.loc 1 426 21 is_stmt 0 view .LVU401
+ 1188 0054 1193     		str	r3, [sp, #68]
+ 427:App/Src/c/config.c ****   if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+ 1189              		.loc 1 427 3 is_stmt 1 view .LVU402
+ 1190              		.loc 1 427 7 is_stmt 0 view .LVU403
+ 1191 0056 09A9     		add	r1, sp, #36
+ 1192 0058 1248     		ldr	r0, .L89
+ 1193 005a FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 1194              	.LVL60:
+ 1195              		.loc 1 427 6 view .LVU404
+ 1196 005e C0B9     		cbnz	r0, .L86
+ 1197              	.L81:
+ 428:App/Src/c/config.c ****   {
+ 429:App/Src/c/config.c ****     Error_Handler();
+ 430:App/Src/c/config.c ****   }
+ 431:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1198              		.loc 1 431 3 is_stmt 1 view .LVU405
+ 1199              		.loc 1 431 37 is_stmt 0 view .LVU406
+ 1200 0060 0023     		movs	r3, #0
+ 1201 0062 0793     		str	r3, [sp, #28]
+ 432:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1202              		.loc 1 432 3 is_stmt 1 view .LVU407
+ 1203              		.loc 1 432 33 is_stmt 0 view .LVU408
+ 1204 0064 0893     		str	r3, [sp, #32]
+ 433:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+ 1205              		.loc 1 433 3 is_stmt 1 view .LVU409
+ 1206              		.loc 1 433 7 is_stmt 0 view .LVU410
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 30
+
+
+ 1207 0066 07A9     		add	r1, sp, #28
+ 1208 0068 0E48     		ldr	r0, .L89
+ 1209 006a FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1210              	.LVL61:
+ 1211              		.loc 1 433 6 view .LVU411
+ 1212 006e 98B9     		cbnz	r0, .L87
+ 1213              	.L82:
+ 434:App/Src/c/config.c ****   {
+ 435:App/Src/c/config.c ****     Error_Handler();
+ 436:App/Src/c/config.c ****   }
+ 437:App/Src/c/config.c ****   sConfigOC.OCMode = TIM_OCMODE_TIMING;
+ 1214              		.loc 1 437 3 is_stmt 1 view .LVU412
+ 1215              		.loc 1 437 20 is_stmt 0 view .LVU413
+ 1216 0070 0023     		movs	r3, #0
+ 1217 0072 0093     		str	r3, [sp]
+ 438:App/Src/c/config.c ****   sConfigOC.Pulse = 0;
+ 1218              		.loc 1 438 3 is_stmt 1 view .LVU414
+ 1219              		.loc 1 438 19 is_stmt 0 view .LVU415
+ 1220 0074 0193     		str	r3, [sp, #4]
+ 439:App/Src/c/config.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1221              		.loc 1 439 3 is_stmt 1 view .LVU416
+ 1222              		.loc 1 439 24 is_stmt 0 view .LVU417
+ 1223 0076 0293     		str	r3, [sp, #8]
+ 440:App/Src/c/config.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1224              		.loc 1 440 3 is_stmt 1 view .LVU418
+ 1225              		.loc 1 440 24 is_stmt 0 view .LVU419
+ 1226 0078 0493     		str	r3, [sp, #16]
+ 441:App/Src/c/config.c ****   if (HAL_TIM_OC_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+ 1227              		.loc 1 441 3 is_stmt 1 view .LVU420
+ 1228              		.loc 1 441 7 is_stmt 0 view .LVU421
+ 1229 007a 0822     		movs	r2, #8
+ 1230 007c 6946     		mov	r1, sp
+ 1231 007e 0948     		ldr	r0, .L89
+ 1232 0080 FFF7FEFF 		bl	HAL_TIM_OC_ConfigChannel
+ 1233              	.LVL62:
+ 1234              		.loc 1 441 6 view .LVU422
+ 1235 0084 58B9     		cbnz	r0, .L88
+ 1236              	.L79:
+ 442:App/Src/c/config.c ****   {
+ 443:App/Src/c/config.c ****     Error_Handler();
+ 444:App/Src/c/config.c ****   }
+ 445:App/Src/c/config.c ****   /* USER CODE BEGIN TIM4_Init 2 */
+ 446:App/Src/c/config.c **** 
+ 447:App/Src/c/config.c ****   /* USER CODE END TIM4_Init 2 */
+ 448:App/Src/c/config.c **** 
+ 449:App/Src/c/config.c **** }
+ 1237              		.loc 1 449 1 view .LVU423
+ 1238 0086 13B0     		add	sp, sp, #76
+ 1239              	.LCFI23:
+ 1240              		.cfi_remember_state
+ 1241              		.cfi_def_cfa_offset 4
+ 1242              		@ sp needed
+ 1243 0088 5DF804FB 		ldr	pc, [sp], #4
+ 1244              	.L85:
+ 1245              	.LCFI24:
+ 1246              		.cfi_restore_state
+ 416:App/Src/c/config.c ****   }
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 31
+
+
+ 1247              		.loc 1 416 5 is_stmt 1 view .LVU424
+ 1248 008c FFF7FEFF 		bl	Error_Handler
+ 1249              	.LVL63:
+ 1250 0090 D5E7     		b	.L80
+ 1251              	.L86:
+ 429:App/Src/c/config.c ****   }
+ 1252              		.loc 1 429 5 view .LVU425
+ 1253 0092 FFF7FEFF 		bl	Error_Handler
+ 1254              	.LVL64:
+ 1255 0096 E3E7     		b	.L81
+ 1256              	.L87:
+ 435:App/Src/c/config.c ****   }
+ 1257              		.loc 1 435 5 view .LVU426
+ 1258 0098 FFF7FEFF 		bl	Error_Handler
+ 1259              	.LVL65:
+ 1260 009c E8E7     		b	.L82
+ 1261              	.L88:
+ 443:App/Src/c/config.c ****   }
+ 1262              		.loc 1 443 5 view .LVU427
+ 1263 009e FFF7FEFF 		bl	Error_Handler
+ 1264              	.LVL66:
+ 1265              		.loc 1 449 1 is_stmt 0 view .LVU428
+ 1266 00a2 F0E7     		b	.L79
+ 1267              	.L90:
+ 1268              		.align	2
+ 1269              	.L89:
+ 1270 00a4 00000000 		.word	.LANCHOR5
+ 1271 00a8 00080040 		.word	1073743872
+ 1272              		.cfi_endproc
+ 1273              	.LFE245:
+ 1275              		.section	.text.MX_TIM5_Init,"ax",%progbits
+ 1276              		.align	1
+ 1277              		.global	MX_TIM5_Init
+ 1278              		.syntax unified
+ 1279              		.thumb
+ 1280              		.thumb_func
+ 1282              	MX_TIM5_Init:
+ 1283              	.LFB246:
+ 450:App/Src/c/config.c **** 
+ 451:App/Src/c/config.c **** /**
+ 452:App/Src/c/config.c ****   * @brief TIM5 Initialization Function
+ 453:App/Src/c/config.c ****   * @param None
+ 454:App/Src/c/config.c ****   * @retval None
+ 455:App/Src/c/config.c ****   */
+ 456:App/Src/c/config.c **** void MX_TIM5_Init(void)
+ 457:App/Src/c/config.c **** {
+ 1284              		.loc 1 457 1 is_stmt 1 view -0
+ 1285              		.cfi_startproc
+ 1286              		@ args = 0, pretend = 0, frame = 24
+ 1287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1288 0000 00B5     		push	{lr}
+ 1289              	.LCFI25:
+ 1290              		.cfi_def_cfa_offset 4
+ 1291              		.cfi_offset 14, -4
+ 1292 0002 87B0     		sub	sp, sp, #28
+ 1293              	.LCFI26:
+ 1294              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 32
+
+
+ 458:App/Src/c/config.c **** 
+ 459:App/Src/c/config.c **** /* USER CODE BEGIN TIM5_Init 0 */
+ 460:App/Src/c/config.c **** 
+ 461:App/Src/c/config.c ****   /* USER CODE END TIM5_Init 0 */
+ 462:App/Src/c/config.c **** 
+ 463:App/Src/c/config.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 1295              		.loc 1 463 3 view .LVU430
+ 1296              		.loc 1 463 26 is_stmt 0 view .LVU431
+ 1297 0004 0023     		movs	r3, #0
+ 1298 0006 0293     		str	r3, [sp, #8]
+ 1299 0008 0393     		str	r3, [sp, #12]
+ 1300 000a 0493     		str	r3, [sp, #16]
+ 1301 000c 0593     		str	r3, [sp, #20]
+ 464:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1302              		.loc 1 464 3 is_stmt 1 view .LVU432
+ 1303              		.loc 1 464 27 is_stmt 0 view .LVU433
+ 1304 000e 0093     		str	r3, [sp]
+ 1305 0010 0193     		str	r3, [sp, #4]
+ 465:App/Src/c/config.c **** 
+ 466:App/Src/c/config.c ****   /* USER CODE BEGIN TIM5_Init 1 */
+ 467:App/Src/c/config.c **** 
+ 468:App/Src/c/config.c ****   /* USER CODE END TIM5_Init 1 */
+ 469:App/Src/c/config.c ****   htim5.Instance = TIM5;
+ 1306              		.loc 1 469 3 is_stmt 1 view .LVU434
+ 1307              		.loc 1 469 18 is_stmt 0 view .LVU435
+ 1308 0012 1548     		ldr	r0, .L99
+ 1309 0014 154A     		ldr	r2, .L99+4
+ 1310 0016 0260     		str	r2, [r0]
+ 470:App/Src/c/config.c ****   htim5.Init.Prescaler = 84-1;
+ 1311              		.loc 1 470 3 is_stmt 1 view .LVU436
+ 1312              		.loc 1 470 24 is_stmt 0 view .LVU437
+ 1313 0018 5322     		movs	r2, #83
+ 1314 001a 4260     		str	r2, [r0, #4]
+ 471:App/Src/c/config.c ****   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1315              		.loc 1 471 3 is_stmt 1 view .LVU438
+ 1316              		.loc 1 471 26 is_stmt 0 view .LVU439
+ 1317 001c 8360     		str	r3, [r0, #8]
+ 472:App/Src/c/config.c ****   htim5.Init.Period = 1000-1;//1000
+ 1318              		.loc 1 472 3 is_stmt 1 view .LVU440
+ 1319              		.loc 1 472 21 is_stmt 0 view .LVU441
+ 1320 001e 40F2E732 		movw	r2, #999
+ 1321 0022 C260     		str	r2, [r0, #12]
+ 473:App/Src/c/config.c ****   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1322              		.loc 1 473 3 is_stmt 1 view .LVU442
+ 1323              		.loc 1 473 28 is_stmt 0 view .LVU443
+ 1324 0024 0361     		str	r3, [r0, #16]
+ 474:App/Src/c/config.c ****   htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1325              		.loc 1 474 3 is_stmt 1 view .LVU444
+ 1326              		.loc 1 474 32 is_stmt 0 view .LVU445
+ 1327 0026 8361     		str	r3, [r0, #24]
+ 475:App/Src/c/config.c ****   if (HAL_TIM_Base_Init(&htim5) != HAL_OK)
+ 1328              		.loc 1 475 3 is_stmt 1 view .LVU446
+ 1329              		.loc 1 475 7 is_stmt 0 view .LVU447
+ 1330 0028 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1331              	.LVL67:
+ 1332              		.loc 1 475 6 view .LVU448
+ 1333 002c 90B9     		cbnz	r0, .L96
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 33
+
+
+ 1334              	.L92:
+ 476:App/Src/c/config.c ****   {
+ 477:App/Src/c/config.c ****     Error_Handler();
+ 478:App/Src/c/config.c ****   }
+ 479:App/Src/c/config.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 1335              		.loc 1 479 3 is_stmt 1 view .LVU449
+ 1336              		.loc 1 479 34 is_stmt 0 view .LVU450
+ 1337 002e 4FF48053 		mov	r3, #4096
+ 1338 0032 0293     		str	r3, [sp, #8]
+ 480:App/Src/c/config.c ****   if (HAL_TIM_ConfigClockSource(&htim5, &sClockSourceConfig) != HAL_OK)
+ 1339              		.loc 1 480 3 is_stmt 1 view .LVU451
+ 1340              		.loc 1 480 7 is_stmt 0 view .LVU452
+ 1341 0034 02A9     		add	r1, sp, #8
+ 1342 0036 0C48     		ldr	r0, .L99
+ 1343 0038 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1344              	.LVL68:
+ 1345              		.loc 1 480 6 view .LVU453
+ 1346 003c 68B9     		cbnz	r0, .L97
+ 1347              	.L93:
+ 481:App/Src/c/config.c ****   {
+ 482:App/Src/c/config.c ****     Error_Handler();
+ 483:App/Src/c/config.c ****   }
+ 484:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1348              		.loc 1 484 3 is_stmt 1 view .LVU454
+ 1349              		.loc 1 484 37 is_stmt 0 view .LVU455
+ 1350 003e 0023     		movs	r3, #0
+ 1351 0040 0093     		str	r3, [sp]
+ 485:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1352              		.loc 1 485 3 is_stmt 1 view .LVU456
+ 1353              		.loc 1 485 33 is_stmt 0 view .LVU457
+ 1354 0042 0193     		str	r3, [sp, #4]
+ 486:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+ 1355              		.loc 1 486 3 is_stmt 1 view .LVU458
+ 1356              		.loc 1 486 7 is_stmt 0 view .LVU459
+ 1357 0044 6946     		mov	r1, sp
+ 1358 0046 0848     		ldr	r0, .L99
+ 1359 0048 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1360              	.LVL69:
+ 1361              		.loc 1 486 6 view .LVU460
+ 1362 004c 40B9     		cbnz	r0, .L98
+ 1363              	.L91:
+ 487:App/Src/c/config.c ****   {
+ 488:App/Src/c/config.c ****     Error_Handler();
+ 489:App/Src/c/config.c ****   }
+ 490:App/Src/c/config.c ****   /* USER CODE BEGIN TIM5_Init 2 */
+ 491:App/Src/c/config.c **** 
+ 492:App/Src/c/config.c **** 
+ 493:App/Src/c/config.c ****   /* USER CODE END TIM5_Init 2 */
+ 494:App/Src/c/config.c **** 
+ 495:App/Src/c/config.c **** }
+ 1364              		.loc 1 495 1 view .LVU461
+ 1365 004e 07B0     		add	sp, sp, #28
+ 1366              	.LCFI27:
+ 1367              		.cfi_remember_state
+ 1368              		.cfi_def_cfa_offset 4
+ 1369              		@ sp needed
+ 1370 0050 5DF804FB 		ldr	pc, [sp], #4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 34
+
+
+ 1371              	.L96:
+ 1372              	.LCFI28:
+ 1373              		.cfi_restore_state
+ 477:App/Src/c/config.c ****   }
+ 1374              		.loc 1 477 5 is_stmt 1 view .LVU462
+ 1375 0054 FFF7FEFF 		bl	Error_Handler
+ 1376              	.LVL70:
+ 1377 0058 E9E7     		b	.L92
+ 1378              	.L97:
+ 482:App/Src/c/config.c ****   }
+ 1379              		.loc 1 482 5 view .LVU463
+ 1380 005a FFF7FEFF 		bl	Error_Handler
+ 1381              	.LVL71:
+ 1382 005e EEE7     		b	.L93
+ 1383              	.L98:
+ 488:App/Src/c/config.c ****   }
+ 1384              		.loc 1 488 5 view .LVU464
+ 1385 0060 FFF7FEFF 		bl	Error_Handler
+ 1386              	.LVL72:
+ 1387              		.loc 1 495 1 is_stmt 0 view .LVU465
+ 1388 0064 F3E7     		b	.L91
+ 1389              	.L100:
+ 1390 0066 00BF     		.align	2
+ 1391              	.L99:
+ 1392 0068 00000000 		.word	.LANCHOR6
+ 1393 006c 000C0040 		.word	1073744896
+ 1394              		.cfi_endproc
+ 1395              	.LFE246:
+ 1397              		.section	.text.MX_TIM8_Init,"ax",%progbits
+ 1398              		.align	1
+ 1399              		.global	MX_TIM8_Init
+ 1400              		.syntax unified
+ 1401              		.thumb
+ 1402              		.thumb_func
+ 1404              	MX_TIM8_Init:
+ 1405              	.LFB247:
+ 496:App/Src/c/config.c **** 
+ 497:App/Src/c/config.c **** /**
+ 498:App/Src/c/config.c ****   * @brief TIM8 Initialization Function
+ 499:App/Src/c/config.c ****   * @param None
+ 500:App/Src/c/config.c ****   * @retval None
+ 501:App/Src/c/config.c ****   */
+ 502:App/Src/c/config.c **** void MX_TIM8_Init(void)
+ 503:App/Src/c/config.c **** {
+ 1406              		.loc 1 503 1 is_stmt 1 view -0
+ 1407              		.cfi_startproc
+ 1408              		@ args = 0, pretend = 0, frame = 48
+ 1409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1410 0000 00B5     		push	{lr}
+ 1411              	.LCFI29:
+ 1412              		.cfi_def_cfa_offset 4
+ 1413              		.cfi_offset 14, -4
+ 1414 0002 8DB0     		sub	sp, sp, #52
+ 1415              	.LCFI30:
+ 1416              		.cfi_def_cfa_offset 56
+ 504:App/Src/c/config.c **** 
+ 505:App/Src/c/config.c ****   /* USER CODE BEGIN TIM8_Init 0 */
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 35
+
+
+ 506:App/Src/c/config.c **** 
+ 507:App/Src/c/config.c ****   /* USER CODE END TIM8_Init 0 */
+ 508:App/Src/c/config.c **** 
+ 509:App/Src/c/config.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 1417              		.loc 1 509 3 view .LVU467
+ 1418              		.loc 1 509 27 is_stmt 0 view .LVU468
+ 1419 0004 2422     		movs	r2, #36
+ 1420 0006 0021     		movs	r1, #0
+ 1421 0008 03A8     		add	r0, sp, #12
+ 1422 000a FFF7FEFF 		bl	memset
+ 1423              	.LVL73:
+ 510:App/Src/c/config.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1424              		.loc 1 510 3 is_stmt 1 view .LVU469
+ 1425              		.loc 1 510 27 is_stmt 0 view .LVU470
+ 1426 000e 0023     		movs	r3, #0
+ 1427 0010 0193     		str	r3, [sp, #4]
+ 1428 0012 0293     		str	r3, [sp, #8]
+ 511:App/Src/c/config.c **** 
+ 512:App/Src/c/config.c ****   /* USER CODE BEGIN TIM8_Init 1 */
+ 513:App/Src/c/config.c **** 
+ 514:App/Src/c/config.c ****   /* USER CODE END TIM8_Init 1 */
+ 515:App/Src/c/config.c ****   htim8.Instance = TIM8;
+ 1429              		.loc 1 515 3 is_stmt 1 view .LVU471
+ 1430              		.loc 1 515 18 is_stmt 0 view .LVU472
+ 1431 0014 1248     		ldr	r0, .L107
+ 1432 0016 134A     		ldr	r2, .L107+4
+ 1433 0018 0260     		str	r2, [r0]
+ 516:App/Src/c/config.c ****   htim8.Init.Prescaler = 0;
+ 1434              		.loc 1 516 3 is_stmt 1 view .LVU473
+ 1435              		.loc 1 516 24 is_stmt 0 view .LVU474
+ 1436 001a 4360     		str	r3, [r0, #4]
+ 517:App/Src/c/config.c ****   htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1437              		.loc 1 517 3 is_stmt 1 view .LVU475
+ 1438              		.loc 1 517 26 is_stmt 0 view .LVU476
+ 1439 001c 8360     		str	r3, [r0, #8]
+ 518:App/Src/c/config.c ****   htim8.Init.Period = 60000-1;
+ 1440              		.loc 1 518 3 is_stmt 1 view .LVU477
+ 1441              		.loc 1 518 21 is_stmt 0 view .LVU478
+ 1442 001e 4EF65F22 		movw	r2, #59999
+ 1443 0022 C260     		str	r2, [r0, #12]
+ 519:App/Src/c/config.c ****   htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1444              		.loc 1 519 3 is_stmt 1 view .LVU479
+ 1445              		.loc 1 519 28 is_stmt 0 view .LVU480
+ 1446 0024 0361     		str	r3, [r0, #16]
+ 520:App/Src/c/config.c ****   htim8.Init.RepetitionCounter = 0;
+ 1447              		.loc 1 520 3 is_stmt 1 view .LVU481
+ 1448              		.loc 1 520 32 is_stmt 0 view .LVU482
+ 1449 0026 4361     		str	r3, [r0, #20]
+ 521:App/Src/c/config.c ****   htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1450              		.loc 1 521 3 is_stmt 1 view .LVU483
+ 1451              		.loc 1 521 32 is_stmt 0 view .LVU484
+ 1452 0028 8361     		str	r3, [r0, #24]
+ 522:App/Src/c/config.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+ 1453              		.loc 1 522 3 is_stmt 1 view .LVU485
+ 1454              		.loc 1 522 23 is_stmt 0 view .LVU486
+ 1455 002a 0323     		movs	r3, #3
+ 1456 002c 0393     		str	r3, [sp, #12]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 36
+
+
+ 523:App/Src/c/config.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 1457              		.loc 1 523 3 is_stmt 1 view .LVU487
+ 524:App/Src/c/config.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 1458              		.loc 1 524 3 view .LVU488
+ 1459              		.loc 1 524 24 is_stmt 0 view .LVU489
+ 1460 002e 0123     		movs	r3, #1
+ 1461 0030 0593     		str	r3, [sp, #20]
+ 525:App/Src/c/config.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 1462              		.loc 1 525 3 is_stmt 1 view .LVU490
+ 526:App/Src/c/config.c ****   sConfig.IC1Filter = 0;
+ 1463              		.loc 1 526 3 view .LVU491
+ 527:App/Src/c/config.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 1464              		.loc 1 527 3 view .LVU492
+ 528:App/Src/c/config.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 1465              		.loc 1 528 3 view .LVU493
+ 1466              		.loc 1 528 24 is_stmt 0 view .LVU494
+ 1467 0032 0993     		str	r3, [sp, #36]
+ 529:App/Src/c/config.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 1468              		.loc 1 529 3 is_stmt 1 view .LVU495
+ 530:App/Src/c/config.c ****   sConfig.IC2Filter = 0;
+ 1469              		.loc 1 530 3 view .LVU496
+ 531:App/Src/c/config.c ****   if (HAL_TIM_Encoder_Init(&htim8, &sConfig) != HAL_OK)
+ 1470              		.loc 1 531 3 view .LVU497
+ 1471              		.loc 1 531 7 is_stmt 0 view .LVU498
+ 1472 0034 03A9     		add	r1, sp, #12
+ 1473 0036 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 1474              	.LVL74:
+ 1475              		.loc 1 531 6 view .LVU499
+ 1476 003a 50B9     		cbnz	r0, .L105
+ 1477              	.L102:
+ 532:App/Src/c/config.c ****   {
+ 533:App/Src/c/config.c ****     Error_Handler();
+ 534:App/Src/c/config.c ****   }
+ 535:App/Src/c/config.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 1478              		.loc 1 535 3 is_stmt 1 view .LVU500
+ 1479              		.loc 1 535 37 is_stmt 0 view .LVU501
+ 1480 003c 0023     		movs	r3, #0
+ 1481 003e 0193     		str	r3, [sp, #4]
+ 536:App/Src/c/config.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1482              		.loc 1 536 3 is_stmt 1 view .LVU502
+ 1483              		.loc 1 536 33 is_stmt 0 view .LVU503
+ 1484 0040 0293     		str	r3, [sp, #8]
+ 537:App/Src/c/config.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
+ 1485              		.loc 1 537 3 is_stmt 1 view .LVU504
+ 1486              		.loc 1 537 7 is_stmt 0 view .LVU505
+ 1487 0042 01A9     		add	r1, sp, #4
+ 1488 0044 0648     		ldr	r0, .L107
+ 1489 0046 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1490              	.LVL75:
+ 1491              		.loc 1 537 6 view .LVU506
+ 1492 004a 28B9     		cbnz	r0, .L106
+ 1493              	.L101:
+ 538:App/Src/c/config.c ****   {
+ 539:App/Src/c/config.c ****     Error_Handler();
+ 540:App/Src/c/config.c ****   }
+ 541:App/Src/c/config.c ****   /* USER CODE BEGIN TIM8_Init 2 */
+ 542:App/Src/c/config.c **** 
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 37
+
+
+ 543:App/Src/c/config.c ****   /* USER CODE END TIM8_Init 2 */
+ 544:App/Src/c/config.c **** 
+ 545:App/Src/c/config.c **** }
+ 1494              		.loc 1 545 1 view .LVU507
+ 1495 004c 0DB0     		add	sp, sp, #52
+ 1496              	.LCFI31:
+ 1497              		.cfi_remember_state
+ 1498              		.cfi_def_cfa_offset 4
+ 1499              		@ sp needed
+ 1500 004e 5DF804FB 		ldr	pc, [sp], #4
+ 1501              	.L105:
+ 1502              	.LCFI32:
+ 1503              		.cfi_restore_state
+ 533:App/Src/c/config.c ****   }
+ 1504              		.loc 1 533 5 is_stmt 1 view .LVU508
+ 1505 0052 FFF7FEFF 		bl	Error_Handler
+ 1506              	.LVL76:
+ 1507 0056 F1E7     		b	.L102
+ 1508              	.L106:
+ 539:App/Src/c/config.c ****   }
+ 1509              		.loc 1 539 5 view .LVU509
+ 1510 0058 FFF7FEFF 		bl	Error_Handler
+ 1511              	.LVL77:
+ 1512              		.loc 1 545 1 is_stmt 0 view .LVU510
+ 1513 005c F6E7     		b	.L101
+ 1514              	.L108:
+ 1515 005e 00BF     		.align	2
+ 1516              	.L107:
+ 1517 0060 00000000 		.word	.LANCHOR7
+ 1518 0064 00040140 		.word	1073808384
+ 1519              		.cfi_endproc
+ 1520              	.LFE247:
+ 1522              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
+ 1523              		.align	1
+ 1524              		.global	MX_USART1_UART_Init
+ 1525              		.syntax unified
+ 1526              		.thumb
+ 1527              		.thumb_func
+ 1529              	MX_USART1_UART_Init:
+ 1530              	.LFB248:
+ 546:App/Src/c/config.c **** 
+ 547:App/Src/c/config.c **** /**
+ 548:App/Src/c/config.c ****   * @brief USART1 Initialization Function
+ 549:App/Src/c/config.c ****   * @param None
+ 550:App/Src/c/config.c ****   * @retval None
+ 551:App/Src/c/config.c ****   */
+ 552:App/Src/c/config.c **** void MX_USART1_UART_Init(void)
+ 553:App/Src/c/config.c **** {
+ 1531              		.loc 1 553 1 is_stmt 1 view -0
+ 1532              		.cfi_startproc
+ 1533              		@ args = 0, pretend = 0, frame = 0
+ 1534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1535 0000 08B5     		push	{r3, lr}
+ 1536              	.LCFI33:
+ 1537              		.cfi_def_cfa_offset 8
+ 1538              		.cfi_offset 3, -8
+ 1539              		.cfi_offset 14, -4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 38
+
+
+ 554:App/Src/c/config.c **** 
+ 555:App/Src/c/config.c ****   /* USER CODE BEGIN USART1_Init 0 */
+ 556:App/Src/c/config.c **** 
+ 557:App/Src/c/config.c ****   /* USER CODE END USART1_Init 0 */
+ 558:App/Src/c/config.c **** 
+ 559:App/Src/c/config.c ****   /* USER CODE BEGIN USART1_Init 1 */
+ 560:App/Src/c/config.c **** 
+ 561:App/Src/c/config.c ****   /* USER CODE END USART1_Init 1 */
+ 562:App/Src/c/config.c ****   huart1.Instance = USART1;
+ 1540              		.loc 1 562 3 view .LVU512
+ 1541              		.loc 1 562 19 is_stmt 0 view .LVU513
+ 1542 0002 0A48     		ldr	r0, .L113
+ 1543 0004 0A4B     		ldr	r3, .L113+4
+ 1544 0006 0360     		str	r3, [r0]
+ 563:App/Src/c/config.c ****   huart1.Init.BaudRate = 115200;
+ 1545              		.loc 1 563 3 is_stmt 1 view .LVU514
+ 1546              		.loc 1 563 24 is_stmt 0 view .LVU515
+ 1547 0008 4FF4E133 		mov	r3, #115200
+ 1548 000c 4360     		str	r3, [r0, #4]
+ 564:App/Src/c/config.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 1549              		.loc 1 564 3 is_stmt 1 view .LVU516
+ 1550              		.loc 1 564 26 is_stmt 0 view .LVU517
+ 1551 000e 0023     		movs	r3, #0
+ 1552 0010 8360     		str	r3, [r0, #8]
+ 565:App/Src/c/config.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 1553              		.loc 1 565 3 is_stmt 1 view .LVU518
+ 1554              		.loc 1 565 24 is_stmt 0 view .LVU519
+ 1555 0012 C360     		str	r3, [r0, #12]
+ 566:App/Src/c/config.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 1556              		.loc 1 566 3 is_stmt 1 view .LVU520
+ 1557              		.loc 1 566 22 is_stmt 0 view .LVU521
+ 1558 0014 0361     		str	r3, [r0, #16]
+ 567:App/Src/c/config.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 1559              		.loc 1 567 3 is_stmt 1 view .LVU522
+ 1560              		.loc 1 567 20 is_stmt 0 view .LVU523
+ 1561 0016 0C22     		movs	r2, #12
+ 1562 0018 4261     		str	r2, [r0, #20]
+ 568:App/Src/c/config.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 1563              		.loc 1 568 3 is_stmt 1 view .LVU524
+ 1564              		.loc 1 568 25 is_stmt 0 view .LVU525
+ 1565 001a 8361     		str	r3, [r0, #24]
+ 569:App/Src/c/config.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 1566              		.loc 1 569 3 is_stmt 1 view .LVU526
+ 1567              		.loc 1 569 28 is_stmt 0 view .LVU527
+ 1568 001c C361     		str	r3, [r0, #28]
+ 570:App/Src/c/config.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
+ 1569              		.loc 1 570 3 is_stmt 1 view .LVU528
+ 1570              		.loc 1 570 7 is_stmt 0 view .LVU529
+ 1571 001e FFF7FEFF 		bl	HAL_UART_Init
+ 1572              	.LVL78:
+ 1573              		.loc 1 570 6 view .LVU530
+ 1574 0022 00B9     		cbnz	r0, .L112
+ 1575              	.L109:
+ 571:App/Src/c/config.c ****   {
+ 572:App/Src/c/config.c ****     Error_Handler();
+ 573:App/Src/c/config.c ****   }
+ 574:App/Src/c/config.c ****   /* USER CODE BEGIN USART1_Init 2 */
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 39
+
+
+ 575:App/Src/c/config.c **** 
+ 576:App/Src/c/config.c ****   /* USER CODE END USART1_Init 2 */
+ 577:App/Src/c/config.c **** 
+ 578:App/Src/c/config.c **** }
+ 1576              		.loc 1 578 1 view .LVU531
+ 1577 0024 08BD     		pop	{r3, pc}
+ 1578              	.L112:
+ 572:App/Src/c/config.c ****   }
+ 1579              		.loc 1 572 5 is_stmt 1 view .LVU532
+ 1580 0026 FFF7FEFF 		bl	Error_Handler
+ 1581              	.LVL79:
+ 1582              		.loc 1 578 1 is_stmt 0 view .LVU533
+ 1583 002a FBE7     		b	.L109
+ 1584              	.L114:
+ 1585              		.align	2
+ 1586              	.L113:
+ 1587 002c 00000000 		.word	.LANCHOR8
+ 1588 0030 00100140 		.word	1073811456
+ 1589              		.cfi_endproc
+ 1590              	.LFE248:
+ 1592              		.section	.text.MX_DMA_Init,"ax",%progbits
+ 1593              		.align	1
+ 1594              		.global	MX_DMA_Init
+ 1595              		.syntax unified
+ 1596              		.thumb
+ 1597              		.thumb_func
+ 1599              	MX_DMA_Init:
+ 1600              	.LFB249:
+ 579:App/Src/c/config.c **** 
+ 580:App/Src/c/config.c **** /**
+ 581:App/Src/c/config.c ****   * Enable DMA controller clock
+ 582:App/Src/c/config.c ****   */
+ 583:App/Src/c/config.c **** void MX_DMA_Init(void)
+ 584:App/Src/c/config.c **** {
+ 1601              		.loc 1 584 1 is_stmt 1 view -0
+ 1602              		.cfi_startproc
+ 1603              		@ args = 0, pretend = 0, frame = 8
+ 1604              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1605 0000 00B5     		push	{lr}
+ 1606              	.LCFI34:
+ 1607              		.cfi_def_cfa_offset 4
+ 1608              		.cfi_offset 14, -4
+ 1609 0002 83B0     		sub	sp, sp, #12
+ 1610              	.LCFI35:
+ 1611              		.cfi_def_cfa_offset 16
+ 585:App/Src/c/config.c **** 
+ 586:App/Src/c/config.c ****   /* DMA controller clock enable */
+ 587:App/Src/c/config.c ****   __HAL_RCC_DMA2_CLK_ENABLE();
+ 1612              		.loc 1 587 3 view .LVU535
+ 1613              	.LBB4:
+ 1614              		.loc 1 587 3 view .LVU536
+ 1615 0004 0021     		movs	r1, #0
+ 1616 0006 0191     		str	r1, [sp, #4]
+ 1617              		.loc 1 587 3 view .LVU537
+ 1618 0008 094B     		ldr	r3, .L117
+ 1619 000a 1A6B     		ldr	r2, [r3, #48]
+ 1620 000c 42F48002 		orr	r2, r2, #4194304
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 40
+
+
+ 1621 0010 1A63     		str	r2, [r3, #48]
+ 1622              		.loc 1 587 3 view .LVU538
+ 1623 0012 1B6B     		ldr	r3, [r3, #48]
+ 1624 0014 03F48003 		and	r3, r3, #4194304
+ 1625 0018 0193     		str	r3, [sp, #4]
+ 1626              		.loc 1 587 3 view .LVU539
+ 1627 001a 019B     		ldr	r3, [sp, #4]
+ 1628              	.LBE4:
+ 1629              		.loc 1 587 3 view .LVU540
+ 588:App/Src/c/config.c **** 
+ 589:App/Src/c/config.c ****   /* DMA interrupt init */
+ 590:App/Src/c/config.c ****   /* DMA2_Stream0_IRQn interrupt configuration */
+ 591:App/Src/c/config.c ****   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+ 1630              		.loc 1 591 3 view .LVU541
+ 1631 001c 0A46     		mov	r2, r1
+ 1632 001e 3820     		movs	r0, #56
+ 1633 0020 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 1634              	.LVL80:
+ 592:App/Src/c/config.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+ 1635              		.loc 1 592 3 view .LVU542
+ 1636 0024 3820     		movs	r0, #56
+ 1637 0026 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 1638              	.LVL81:
+ 593:App/Src/c/config.c **** 
+ 594:App/Src/c/config.c **** }
+ 1639              		.loc 1 594 1 is_stmt 0 view .LVU543
+ 1640 002a 03B0     		add	sp, sp, #12
+ 1641              	.LCFI36:
+ 1642              		.cfi_def_cfa_offset 4
+ 1643              		@ sp needed
+ 1644 002c 5DF804FB 		ldr	pc, [sp], #4
+ 1645              	.L118:
+ 1646              		.align	2
+ 1647              	.L117:
+ 1648 0030 00380240 		.word	1073887232
+ 1649              		.cfi_endproc
+ 1650              	.LFE249:
+ 1652              		.section	.text.MX_GPIO_Init,"ax",%progbits
+ 1653              		.align	1
+ 1654              		.global	MX_GPIO_Init
+ 1655              		.syntax unified
+ 1656              		.thumb
+ 1657              		.thumb_func
+ 1659              	MX_GPIO_Init:
+ 1660              	.LFB250:
+ 595:App/Src/c/config.c **** 
+ 596:App/Src/c/config.c **** /**
+ 597:App/Src/c/config.c ****   * @brief GPIO Initialization Function
+ 598:App/Src/c/config.c ****   * @param None
+ 599:App/Src/c/config.c ****   * @retval None
+ 600:App/Src/c/config.c ****   */
+ 601:App/Src/c/config.c **** void MX_GPIO_Init(void)
+ 602:App/Src/c/config.c **** {
+ 1661              		.loc 1 602 1 is_stmt 1 view -0
+ 1662              		.cfi_startproc
+ 1663              		@ args = 0, pretend = 0, frame = 40
+ 1664              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 41
+
+
+ 1665 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 1666              	.LCFI37:
+ 1667              		.cfi_def_cfa_offset 32
+ 1668              		.cfi_offset 4, -32
+ 1669              		.cfi_offset 5, -28
+ 1670              		.cfi_offset 6, -24
+ 1671              		.cfi_offset 7, -20
+ 1672              		.cfi_offset 8, -16
+ 1673              		.cfi_offset 9, -12
+ 1674              		.cfi_offset 10, -8
+ 1675              		.cfi_offset 14, -4
+ 1676 0004 8AB0     		sub	sp, sp, #40
+ 1677              	.LCFI38:
+ 1678              		.cfi_def_cfa_offset 72
+ 603:App/Src/c/config.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 1679              		.loc 1 603 3 view .LVU545
+ 1680              		.loc 1 603 20 is_stmt 0 view .LVU546
+ 1681 0006 0024     		movs	r4, #0
+ 1682 0008 0594     		str	r4, [sp, #20]
+ 1683 000a 0694     		str	r4, [sp, #24]
+ 1684 000c 0794     		str	r4, [sp, #28]
+ 1685 000e 0894     		str	r4, [sp, #32]
+ 1686 0010 0994     		str	r4, [sp, #36]
+ 604:App/Src/c/config.c **** /* USER CODE BEGIN MX_GPIO_Init_1 */
+ 605:App/Src/c/config.c **** /* USER CODE END MX_GPIO_Init_1 */
+ 606:App/Src/c/config.c **** 
+ 607:App/Src/c/config.c ****   /* GPIO Ports Clock Enable */
+ 608:App/Src/c/config.c ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+ 1687              		.loc 1 608 3 is_stmt 1 view .LVU547
+ 1688              	.LBB5:
+ 1689              		.loc 1 608 3 view .LVU548
+ 1690 0012 0094     		str	r4, [sp]
+ 1691              		.loc 1 608 3 view .LVU549
+ 1692 0014 484B     		ldr	r3, .L121
+ 1693 0016 1A6B     		ldr	r2, [r3, #48]
+ 1694 0018 42F00402 		orr	r2, r2, #4
+ 1695 001c 1A63     		str	r2, [r3, #48]
+ 1696              		.loc 1 608 3 view .LVU550
+ 1697 001e 1A6B     		ldr	r2, [r3, #48]
+ 1698 0020 02F00402 		and	r2, r2, #4
+ 1699 0024 0092     		str	r2, [sp]
+ 1700              		.loc 1 608 3 view .LVU551
+ 1701 0026 009A     		ldr	r2, [sp]
+ 1702              	.LBE5:
+ 1703              		.loc 1 608 3 view .LVU552
+ 609:App/Src/c/config.c ****   __HAL_RCC_GPIOH_CLK_ENABLE();
+ 1704              		.loc 1 609 3 view .LVU553
+ 1705              	.LBB6:
+ 1706              		.loc 1 609 3 view .LVU554
+ 1707 0028 0194     		str	r4, [sp, #4]
+ 1708              		.loc 1 609 3 view .LVU555
+ 1709 002a 1A6B     		ldr	r2, [r3, #48]
+ 1710 002c 42F08002 		orr	r2, r2, #128
+ 1711 0030 1A63     		str	r2, [r3, #48]
+ 1712              		.loc 1 609 3 view .LVU556
+ 1713 0032 1A6B     		ldr	r2, [r3, #48]
+ 1714 0034 02F08002 		and	r2, r2, #128
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 42
+
+
+ 1715 0038 0192     		str	r2, [sp, #4]
+ 1716              		.loc 1 609 3 view .LVU557
+ 1717 003a 019A     		ldr	r2, [sp, #4]
+ 1718              	.LBE6:
+ 1719              		.loc 1 609 3 view .LVU558
+ 610:App/Src/c/config.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 1720              		.loc 1 610 3 view .LVU559
+ 1721              	.LBB7:
+ 1722              		.loc 1 610 3 view .LVU560
+ 1723 003c 0294     		str	r4, [sp, #8]
+ 1724              		.loc 1 610 3 view .LVU561
+ 1725 003e 1A6B     		ldr	r2, [r3, #48]
+ 1726 0040 42F00102 		orr	r2, r2, #1
+ 1727 0044 1A63     		str	r2, [r3, #48]
+ 1728              		.loc 1 610 3 view .LVU562
+ 1729 0046 1A6B     		ldr	r2, [r3, #48]
+ 1730 0048 02F00102 		and	r2, r2, #1
+ 1731 004c 0292     		str	r2, [sp, #8]
+ 1732              		.loc 1 610 3 view .LVU563
+ 1733 004e 029A     		ldr	r2, [sp, #8]
+ 1734              	.LBE7:
+ 1735              		.loc 1 610 3 view .LVU564
+ 611:App/Src/c/config.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 1736              		.loc 1 611 3 view .LVU565
+ 1737              	.LBB8:
+ 1738              		.loc 1 611 3 view .LVU566
+ 1739 0050 0394     		str	r4, [sp, #12]
+ 1740              		.loc 1 611 3 view .LVU567
+ 1741 0052 1A6B     		ldr	r2, [r3, #48]
+ 1742 0054 42F00202 		orr	r2, r2, #2
+ 1743 0058 1A63     		str	r2, [r3, #48]
+ 1744              		.loc 1 611 3 view .LVU568
+ 1745 005a 1A6B     		ldr	r2, [r3, #48]
+ 1746 005c 02F00202 		and	r2, r2, #2
+ 1747 0060 0392     		str	r2, [sp, #12]
+ 1748              		.loc 1 611 3 view .LVU569
+ 1749 0062 039A     		ldr	r2, [sp, #12]
+ 1750              	.LBE8:
+ 1751              		.loc 1 611 3 view .LVU570
+ 612:App/Src/c/config.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
+ 1752              		.loc 1 612 3 view .LVU571
+ 1753              	.LBB9:
+ 1754              		.loc 1 612 3 view .LVU572
+ 1755 0064 0494     		str	r4, [sp, #16]
+ 1756              		.loc 1 612 3 view .LVU573
+ 1757 0066 1A6B     		ldr	r2, [r3, #48]
+ 1758 0068 42F00802 		orr	r2, r2, #8
+ 1759 006c 1A63     		str	r2, [r3, #48]
+ 1760              		.loc 1 612 3 view .LVU574
+ 1761 006e 1B6B     		ldr	r3, [r3, #48]
+ 1762 0070 03F00803 		and	r3, r3, #8
+ 1763 0074 0493     		str	r3, [sp, #16]
+ 1764              		.loc 1 612 3 view .LVU575
+ 1765 0076 049B     		ldr	r3, [sp, #16]
+ 1766              	.LBE9:
+ 1767              		.loc 1 612 3 view .LVU576
+ 613:App/Src/c/config.c **** 
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 43
+
+
+ 614:App/Src/c/config.c ****   /*Configure GPIO pin Output Level */
+ 615:App/Src/c/config.c ****   HAL_GPIO_WritePin(GPIOC, IR_L_Pin|IR_FL_Pin, GPIO_PIN_RESET);
+ 1768              		.loc 1 615 3 view .LVU577
+ 1769 0078 304E     		ldr	r6, .L121+4
+ 1770 007a 2246     		mov	r2, r4
+ 1771 007c 4FF44041 		mov	r1, #49152
+ 1772 0080 3046     		mov	r0, r6
+ 1773 0082 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1774              	.LVL82:
+ 616:App/Src/c/config.c **** 
+ 617:App/Src/c/config.c ****   /*Configure GPIO pin Output Level */
+ 618:App/Src/c/config.c ****   HAL_GPIO_WritePin(GPIOH, IR_R_Pin|IR_FR_Pin, GPIO_PIN_RESET);
+ 1775              		.loc 1 618 3 view .LVU578
+ 1776 0086 DFF8BCA0 		ldr	r10, .L121+12
+ 1777 008a 2246     		mov	r2, r4
+ 1778 008c 0321     		movs	r1, #3
+ 1779 008e 5046     		mov	r0, r10
+ 1780 0090 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1781              	.LVL83:
+ 619:App/Src/c/config.c **** 
+ 620:App/Src/c/config.c ****   /*Configure GPIO pin Output Level */
+ 621:App/Src/c/config.c ****   HAL_GPIO_WritePin(GPIOA, LED_4_Pin|LED_6_Pin|LED_5_Pin|LED_7_Pin, GPIO_PIN_RESET);
+ 1782              		.loc 1 621 3 view .LVU579
+ 1783 0094 DFF8B090 		ldr	r9, .L121+16
+ 1784 0098 2246     		mov	r2, r4
+ 1785 009a 49F64001 		movw	r1, #38976
+ 1786 009e 4846     		mov	r0, r9
+ 1787 00a0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1788              	.LVL84:
+ 622:App/Src/c/config.c **** 
+ 623:App/Src/c/config.c ****   /*Configure GPIO pin Output Level */
+ 624:App/Src/c/config.c ****   HAL_GPIO_WritePin(GPIOB, MOTOR_STBY_Pin|MOTOR_R_CW_Pin|MOTOR_R_CCW_Pin|LED_1_Pin
+ 1789              		.loc 1 624 3 view .LVU580
+ 1790 00a4 DFF8A480 		ldr	r8, .L121+20
+ 1791 00a8 2246     		mov	r2, r4
+ 1792 00aa 4BF20341 		movw	r1, #46083
+ 1793 00ae 4046     		mov	r0, r8
+ 1794 00b0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1795              	.LVL85:
+ 625:App/Src/c/config.c ****                           |LED_2_Pin|LED_3_Pin, GPIO_PIN_RESET);
+ 626:App/Src/c/config.c **** 
+ 627:App/Src/c/config.c ****   /*Configure GPIO pin Output Level */
+ 628:App/Src/c/config.c ****   HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+ 1796              		.loc 1 628 3 view .LVU581
+ 1797 00b4 224F     		ldr	r7, .L121+8
+ 1798 00b6 2246     		mov	r2, r4
+ 1799 00b8 0421     		movs	r1, #4
+ 1800 00ba 3846     		mov	r0, r7
+ 1801 00bc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1802              	.LVL86:
+ 629:App/Src/c/config.c **** 
+ 630:App/Src/c/config.c ****   /*Configure GPIO pins : IR_L_Pin IR_FL_Pin */
+ 631:App/Src/c/config.c ****   GPIO_InitStruct.Pin = IR_L_Pin|IR_FL_Pin;
+ 1803              		.loc 1 631 3 view .LVU582
+ 1804              		.loc 1 631 23 is_stmt 0 view .LVU583
+ 1805 00c0 4FF44043 		mov	r3, #49152
+ 1806 00c4 0593     		str	r3, [sp, #20]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 44
+
+
+ 632:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1807              		.loc 1 632 3 is_stmt 1 view .LVU584
+ 1808              		.loc 1 632 24 is_stmt 0 view .LVU585
+ 1809 00c6 0125     		movs	r5, #1
+ 1810 00c8 0695     		str	r5, [sp, #24]
+ 633:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1811              		.loc 1 633 3 is_stmt 1 view .LVU586
+ 1812              		.loc 1 633 24 is_stmt 0 view .LVU587
+ 1813 00ca 0794     		str	r4, [sp, #28]
+ 634:App/Src/c/config.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1814              		.loc 1 634 3 is_stmt 1 view .LVU588
+ 1815              		.loc 1 634 25 is_stmt 0 view .LVU589
+ 1816 00cc 0894     		str	r4, [sp, #32]
+ 635:App/Src/c/config.c ****   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 1817              		.loc 1 635 3 is_stmt 1 view .LVU590
+ 1818 00ce 05A9     		add	r1, sp, #20
+ 1819 00d0 3046     		mov	r0, r6
+ 1820 00d2 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1821              	.LVL87:
+ 636:App/Src/c/config.c **** 
+ 637:App/Src/c/config.c ****   /*Configure GPIO pins : IR_R_Pin IR_FR_Pin */
+ 638:App/Src/c/config.c ****   GPIO_InitStruct.Pin = IR_R_Pin|IR_FR_Pin;
+ 1822              		.loc 1 638 3 view .LVU591
+ 1823              		.loc 1 638 23 is_stmt 0 view .LVU592
+ 1824 00d6 0323     		movs	r3, #3
+ 1825 00d8 0593     		str	r3, [sp, #20]
+ 639:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1826              		.loc 1 639 3 is_stmt 1 view .LVU593
+ 1827              		.loc 1 639 24 is_stmt 0 view .LVU594
+ 1828 00da 0695     		str	r5, [sp, #24]
+ 640:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1829              		.loc 1 640 3 is_stmt 1 view .LVU595
+ 1830              		.loc 1 640 24 is_stmt 0 view .LVU596
+ 1831 00dc 0794     		str	r4, [sp, #28]
+ 641:App/Src/c/config.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1832              		.loc 1 641 3 is_stmt 1 view .LVU597
+ 1833              		.loc 1 641 25 is_stmt 0 view .LVU598
+ 1834 00de 0894     		str	r4, [sp, #32]
+ 642:App/Src/c/config.c ****   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+ 1835              		.loc 1 642 3 is_stmt 1 view .LVU599
+ 1836 00e0 05A9     		add	r1, sp, #20
+ 1837 00e2 5046     		mov	r0, r10
+ 1838 00e4 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1839              	.LVL88:
+ 643:App/Src/c/config.c **** 
+ 644:App/Src/c/config.c ****   /*Configure GPIO pins : PUSH_IN_1_Pin SW_POWER_Pin PUSH_IN_3_Pin MOTOR_L_CCW_Pin
+ 645:App/Src/c/config.c ****                            MOTOR_L_CW_Pin */
+ 646:App/Src/c/config.c ****   GPIO_InitStruct.Pin = PUSH_IN_1_Pin|SW_POWER_Pin|PUSH_IN_3_Pin|MOTOR_L_CCW_Pin
+ 1840              		.loc 1 646 3 view .LVU600
+ 1841              		.loc 1 646 23 is_stmt 0 view .LVU601
+ 1842 00e8 3E23     		movs	r3, #62
+ 1843 00ea 0593     		str	r3, [sp, #20]
+ 647:App/Src/c/config.c ****                           |MOTOR_L_CW_Pin;
+ 648:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 1844              		.loc 1 648 3 is_stmt 1 view .LVU602
+ 1845              		.loc 1 648 24 is_stmt 0 view .LVU603
+ 1846 00ec 0694     		str	r4, [sp, #24]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 45
+
+
+ 649:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1847              		.loc 1 649 3 is_stmt 1 view .LVU604
+ 1848              		.loc 1 649 24 is_stmt 0 view .LVU605
+ 1849 00ee 0794     		str	r4, [sp, #28]
+ 650:App/Src/c/config.c ****   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+ 1850              		.loc 1 650 3 is_stmt 1 view .LVU606
+ 1851 00f0 05A9     		add	r1, sp, #20
+ 1852 00f2 3046     		mov	r0, r6
+ 1853 00f4 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1854              	.LVL89:
+ 651:App/Src/c/config.c **** 
+ 652:App/Src/c/config.c ****   /*Configure GPIO pins : LED_4_Pin LED_6_Pin LED_5_Pin LED_7_Pin */
+ 653:App/Src/c/config.c ****   GPIO_InitStruct.Pin = LED_4_Pin|LED_6_Pin|LED_5_Pin|LED_7_Pin;
+ 1855              		.loc 1 653 3 view .LVU607
+ 1856              		.loc 1 653 23 is_stmt 0 view .LVU608
+ 1857 00f8 49F64003 		movw	r3, #38976
+ 1858 00fc 0593     		str	r3, [sp, #20]
+ 654:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1859              		.loc 1 654 3 is_stmt 1 view .LVU609
+ 1860              		.loc 1 654 24 is_stmt 0 view .LVU610
+ 1861 00fe 0695     		str	r5, [sp, #24]
+ 655:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1862              		.loc 1 655 3 is_stmt 1 view .LVU611
+ 1863              		.loc 1 655 24 is_stmt 0 view .LVU612
+ 1864 0100 0794     		str	r4, [sp, #28]
+ 656:App/Src/c/config.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1865              		.loc 1 656 3 is_stmt 1 view .LVU613
+ 1866              		.loc 1 656 25 is_stmt 0 view .LVU614
+ 1867 0102 0894     		str	r4, [sp, #32]
+ 657:App/Src/c/config.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 1868              		.loc 1 657 3 is_stmt 1 view .LVU615
+ 1869 0104 05A9     		add	r1, sp, #20
+ 1870 0106 4846     		mov	r0, r9
+ 1871 0108 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1872              	.LVL90:
+ 658:App/Src/c/config.c **** 
+ 659:App/Src/c/config.c ****   /*Configure GPIO pins : MOTOR_STBY_Pin MOTOR_R_CW_Pin MOTOR_R_CCW_Pin LED_1_Pin
+ 660:App/Src/c/config.c ****                            LED_2_Pin LED_3_Pin */
+ 661:App/Src/c/config.c ****   GPIO_InitStruct.Pin = MOTOR_STBY_Pin|MOTOR_R_CW_Pin|MOTOR_R_CCW_Pin|LED_1_Pin
+ 1873              		.loc 1 661 3 view .LVU616
+ 1874              		.loc 1 661 23 is_stmt 0 view .LVU617
+ 1875 010c 4BF20343 		movw	r3, #46083
+ 1876 0110 0593     		str	r3, [sp, #20]
+ 662:App/Src/c/config.c ****                           |LED_2_Pin|LED_3_Pin;
+ 663:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1877              		.loc 1 663 3 is_stmt 1 view .LVU618
+ 1878              		.loc 1 663 24 is_stmt 0 view .LVU619
+ 1879 0112 0695     		str	r5, [sp, #24]
+ 664:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1880              		.loc 1 664 3 is_stmt 1 view .LVU620
+ 1881              		.loc 1 664 24 is_stmt 0 view .LVU621
+ 1882 0114 0794     		str	r4, [sp, #28]
+ 665:App/Src/c/config.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1883              		.loc 1 665 3 is_stmt 1 view .LVU622
+ 1884              		.loc 1 665 25 is_stmt 0 view .LVU623
+ 1885 0116 0894     		str	r4, [sp, #32]
+ 666:App/Src/c/config.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 46
+
+
+ 1886              		.loc 1 666 3 is_stmt 1 view .LVU624
+ 1887 0118 05A9     		add	r1, sp, #20
+ 1888 011a 4046     		mov	r0, r8
+ 1889 011c FFF7FEFF 		bl	HAL_GPIO_Init
+ 1890              	.LVL91:
+ 667:App/Src/c/config.c **** 
+ 668:App/Src/c/config.c ****   /*Configure GPIO pin : CS_Pin */
+ 669:App/Src/c/config.c ****   GPIO_InitStruct.Pin = CS_Pin;
+ 1891              		.loc 1 669 3 view .LVU625
+ 1892              		.loc 1 669 23 is_stmt 0 view .LVU626
+ 1893 0120 0423     		movs	r3, #4
+ 1894 0122 0593     		str	r3, [sp, #20]
+ 670:App/Src/c/config.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1895              		.loc 1 670 3 is_stmt 1 view .LVU627
+ 1896              		.loc 1 670 24 is_stmt 0 view .LVU628
+ 1897 0124 0695     		str	r5, [sp, #24]
+ 671:App/Src/c/config.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1898              		.loc 1 671 3 is_stmt 1 view .LVU629
+ 1899              		.loc 1 671 24 is_stmt 0 view .LVU630
+ 1900 0126 0794     		str	r4, [sp, #28]
+ 672:App/Src/c/config.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 1901              		.loc 1 672 3 is_stmt 1 view .LVU631
+ 1902              		.loc 1 672 25 is_stmt 0 view .LVU632
+ 1903 0128 0894     		str	r4, [sp, #32]
+ 673:App/Src/c/config.c ****   HAL_GPIO_Init(CS_GPIO_Port, &GPIO_InitStruct);
+ 1904              		.loc 1 673 3 is_stmt 1 view .LVU633
+ 1905 012a 05A9     		add	r1, sp, #20
+ 1906 012c 3846     		mov	r0, r7
+ 1907 012e FFF7FEFF 		bl	HAL_GPIO_Init
+ 1908              	.LVL92:
+ 674:App/Src/c/config.c **** 
+ 675:App/Src/c/config.c **** /* USER CODE BEGIN MX_GPIO_Init_2 */
+ 676:App/Src/c/config.c **** /* USER CODE END MX_GPIO_Init_2 */
+ 677:App/Src/c/config.c **** }
+ 1909              		.loc 1 677 1 is_stmt 0 view .LVU634
+ 1910 0132 0AB0     		add	sp, sp, #40
+ 1911              	.LCFI39:
+ 1912              		.cfi_def_cfa_offset 32
+ 1913              		@ sp needed
+ 1914 0134 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 1915              	.L122:
+ 1916              		.align	2
+ 1917              	.L121:
+ 1918 0138 00380240 		.word	1073887232
+ 1919 013c 00080240 		.word	1073874944
+ 1920 0140 000C0240 		.word	1073875968
+ 1921 0144 001C0240 		.word	1073880064
+ 1922 0148 00000240 		.word	1073872896
+ 1923 014c 00040240 		.word	1073873920
+ 1924              		.cfi_endproc
+ 1925              	.LFE250:
+ 1927              		.global	huart1
+ 1928              		.global	htim8
+ 1929              		.global	htim5
+ 1930              		.global	htim4
+ 1931              		.global	htim3
+ 1932              		.global	htim2
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 47
+
+
+ 1933              		.global	htim1
+ 1934              		.global	hspi3
+ 1935              		.global	hdma_adc1
+ 1936              		.global	hadc1
+ 1937              		.section	.bss.hadc1,"aw",%nobits
+ 1938              		.align	2
+ 1939              		.set	.LANCHOR0,. + 0
+ 1942              	hadc1:
+ 1943 0000 00000000 		.space	72
+ 1943      00000000 
+ 1943      00000000 
+ 1943      00000000 
+ 1943      00000000 
+ 1944              		.section	.bss.hdma_adc1,"aw",%nobits
+ 1945              		.align	2
+ 1948              	hdma_adc1:
+ 1949 0000 00000000 		.space	96
+ 1949      00000000 
+ 1949      00000000 
+ 1949      00000000 
+ 1949      00000000 
+ 1950              		.section	.bss.hspi3,"aw",%nobits
+ 1951              		.align	2
+ 1952              		.set	.LANCHOR1,. + 0
+ 1955              	hspi3:
+ 1956 0000 00000000 		.space	88
+ 1956      00000000 
+ 1956      00000000 
+ 1956      00000000 
+ 1956      00000000 
+ 1957              		.section	.bss.htim1,"aw",%nobits
+ 1958              		.align	2
+ 1959              		.set	.LANCHOR2,. + 0
+ 1962              	htim1:
+ 1963 0000 00000000 		.space	72
+ 1963      00000000 
+ 1963      00000000 
+ 1963      00000000 
+ 1963      00000000 
+ 1964              		.section	.bss.htim2,"aw",%nobits
+ 1965              		.align	2
+ 1966              		.set	.LANCHOR3,. + 0
+ 1969              	htim2:
+ 1970 0000 00000000 		.space	72
+ 1970      00000000 
+ 1970      00000000 
+ 1970      00000000 
+ 1970      00000000 
+ 1971              		.section	.bss.htim3,"aw",%nobits
+ 1972              		.align	2
+ 1973              		.set	.LANCHOR4,. + 0
+ 1976              	htim3:
+ 1977 0000 00000000 		.space	72
+ 1977      00000000 
+ 1977      00000000 
+ 1977      00000000 
+ 1977      00000000 
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 48
+
+
+ 1978              		.section	.bss.htim4,"aw",%nobits
+ 1979              		.align	2
+ 1980              		.set	.LANCHOR5,. + 0
+ 1983              	htim4:
+ 1984 0000 00000000 		.space	72
+ 1984      00000000 
+ 1984      00000000 
+ 1984      00000000 
+ 1984      00000000 
+ 1985              		.section	.bss.htim5,"aw",%nobits
+ 1986              		.align	2
+ 1987              		.set	.LANCHOR6,. + 0
+ 1990              	htim5:
+ 1991 0000 00000000 		.space	72
+ 1991      00000000 
+ 1991      00000000 
+ 1991      00000000 
+ 1991      00000000 
+ 1992              		.section	.bss.htim8,"aw",%nobits
+ 1993              		.align	2
+ 1994              		.set	.LANCHOR7,. + 0
+ 1997              	htim8:
+ 1998 0000 00000000 		.space	72
+ 1998      00000000 
+ 1998      00000000 
+ 1998      00000000 
+ 1998      00000000 
+ 1999              		.section	.bss.huart1,"aw",%nobits
+ 2000              		.align	2
+ 2001              		.set	.LANCHOR8,. + 0
+ 2004              	huart1:
+ 2005 0000 00000000 		.space	72
+ 2005      00000000 
+ 2005      00000000 
+ 2005      00000000 
+ 2005      00000000 
+ 2006              		.text
+ 2007              	.Letext0:
+ 2008              		.file 2 "c:\\tools\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 2009              		.file 3 "c:\\tools\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+ 2010              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 2011              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 2012              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 2013              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 2014              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 2015              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 2016              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 2017              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 2018              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 2019              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 2020              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 2021              		.file 15 "App/Inc/c/config.h"
+ 2022              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 2023              		.file 17 "Core/Inc/main.h"
+ 2024              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
+ 2025              		.file 19 "<built-in>"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 49
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 config.c
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:20     .text.SystemClock_Config:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:26     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:181    .text.SystemClock_Config:0000009c $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:187    .text.MX_ADC1_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:193    .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:392    .text.MX_ADC1_Init:000000c4 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:398    .text.MX_SPI3_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:404    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:476    .text.MX_SPI3_Init:0000003c $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:482    .text.MX_TIM1_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:488    .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:707    .text.MX_TIM1_Init:000000d8 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:713    .text.MX_TIM2_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:719    .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:896    .text.MX_TIM2_Init:000000b8 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:901    .text.MX_TIM3_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:907    .text.MX_TIM3_Init:00000000 MX_TIM3_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1085   .text.MX_TIM3_Init:000000b8 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1091   .text.MX_TIM4_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1097   .text.MX_TIM4_Init:00000000 MX_TIM4_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1270   .text.MX_TIM4_Init:000000a4 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1276   .text.MX_TIM5_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1282   .text.MX_TIM5_Init:00000000 MX_TIM5_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1392   .text.MX_TIM5_Init:00000068 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1398   .text.MX_TIM8_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1404   .text.MX_TIM8_Init:00000000 MX_TIM8_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1517   .text.MX_TIM8_Init:00000060 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1523   .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1529   .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1587   .text.MX_USART1_UART_Init:0000002c $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1593   .text.MX_DMA_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1599   .text.MX_DMA_Init:00000000 MX_DMA_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1648   .text.MX_DMA_Init:00000030 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1653   .text.MX_GPIO_Init:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1659   .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1918   .text.MX_GPIO_Init:00000138 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:2004   .bss.huart1:00000000 huart1
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1997   .bss.htim8:00000000 htim8
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1990   .bss.htim5:00000000 htim5
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1983   .bss.htim4:00000000 htim4
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1976   .bss.htim3:00000000 htim3
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1969   .bss.htim2:00000000 htim2
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1962   .bss.htim1:00000000 htim1
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1955   .bss.hspi3:00000000 hspi3
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1948   .bss.hdma_adc1:00000000 hdma_adc1
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1942   .bss.hadc1:00000000 hadc1
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1938   .bss.hadc1:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1945   .bss.hdma_adc1:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1951   .bss.hspi3:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1958   .bss.htim1:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1965   .bss.htim2:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1972   .bss.htim3:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1979   .bss.htim4:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1986   .bss.htim5:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:1993   .bss.htim8:00000000 $d
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s 			page 50
+
+
+C:\Users\MHONDA~1\AppData\Local\Temp\ccqIQwQH.s:2000   .bss.huart1:00000000 $d
+
+UNDEFINED SYMBOLS
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+Error_Handler
+HAL_ADC_Init
+HAL_ADC_ConfigChannel
+HAL_SPI_Init
+HAL_TIM_Base_Init
+HAL_TIM_ConfigClockSource
+HAL_TIM_OC_Init
+HAL_TIMEx_MasterConfigSynchronization
+HAL_TIM_OC_ConfigChannel
+HAL_TIMEx_ConfigBreakDeadTime
+HAL_TIM_PWM_Init
+HAL_TIM_PWM_ConfigChannel
+HAL_TIM_MspPostInit
+HAL_TIM_Encoder_Init
+HAL_UART_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_WritePin
+HAL_GPIO_Init

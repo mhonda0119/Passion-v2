@@ -1,0 +1,374 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"led.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3378:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS
+  55              		.align	1
+  56              		.global	_ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 2
+
+
+  61              	_ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:
+  62              		.fnstart
+  63              	.LFB2828:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0246     		mov	r2, r0
+  68 0002 0623     		movs	r3, #6
+  69 0004 002B     		cmp	r3, #0
+  70 0006 0CDB     		blt	.L18
+  71 0008 10B4     		push	{r4}
+  72              	.L16:
+  73 000a 0C68     		ldr	r4, [r1]
+  74 000c 42F8044B 		str	r4, [r2], #4
+  75 0010 0024     		movs	r4, #0
+  76 0012 41F8044B 		str	r4, [r1], #4
+  77 0016 013B     		subs	r3, r3, #1
+  78 0018 002B     		cmp	r3, #0
+  79 001a F6DA     		bge	.L16
+  80 001c 5DF8044B 		ldr	r4, [sp], #4
+  81 0020 7047     		bx	lr
+  82              	.L18:
+  83 0022 7047     		bx	lr
+  84              		.cantunwind
+  85              		.fnend
+  87              		.global	_ZN9indicator3LEDC1ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7
+  88              		.thumb_set _ZN9indicator3LEDC1ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EE
+  89              		.section	.text._ZN9indicator3LED2OnEh,"ax",%progbits
+  90              		.align	1
+  91              		.global	_ZN9indicator3LED2OnEh
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  96              	_ZN9indicator3LED2OnEh:
+  97              		.fnstart
+  98              	.LFB2830:
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101 0000 38B5     		push	{r3, r4, r5, lr}
+ 102              		.save {r3, r4, r5, lr}
+ 103 0002 0446     		mov	r4, r0
+ 104 0004 0139     		subs	r1, r1, #1
+ 105 0006 0729     		cmp	r1, #7
+ 106 0008 08D8     		bhi	.L19
+ 107 000a DFE801F0 		tbb	[pc, r1]
+ 108              	.L22:
+ 109 000e 04       		.byte	(.L29-.L22)/2
+ 110 000f 08       		.byte	(.L28-.L22)/2
+ 111 0010 0C       		.byte	(.L27-.L22)/2
+ 112 0011 10       		.byte	(.L26-.L22)/2
+ 113 0012 14       		.byte	(.L25-.L22)/2
+ 114 0013 18       		.byte	(.L24-.L22)/2
+ 115 0014 1C       		.byte	(.L23-.L22)/2
+ 116 0015 20       		.byte	(.L30-.L22)/2
+ 117              		.p2align 1
+ 118              	.L29:
+ 119 0016 0068     		ldr	r0, [r0]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 3
+
+
+ 120 0018 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 121              	.L19:
+ 122 001c 38BD     		pop	{r3, r4, r5, pc}
+ 123              	.L28:
+ 124 001e 4068     		ldr	r0, [r0, #4]
+ 125 0020 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 126 0024 FAE7     		b	.L19
+ 127              	.L27:
+ 128 0026 8068     		ldr	r0, [r0, #8]
+ 129 0028 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 130 002c F6E7     		b	.L19
+ 131              	.L26:
+ 132 002e C068     		ldr	r0, [r0, #12]
+ 133 0030 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 134 0034 F2E7     		b	.L19
+ 135              	.L25:
+ 136 0036 0069     		ldr	r0, [r0, #16]
+ 137 0038 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 138 003c EEE7     		b	.L19
+ 139              	.L24:
+ 140 003e 4069     		ldr	r0, [r0, #20]
+ 141 0040 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 142 0044 EAE7     		b	.L19
+ 143              	.L23:
+ 144 0046 8069     		ldr	r0, [r0, #24]
+ 145 0048 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 146 004c E6E7     		b	.L19
+ 147              	.L30:
+ 148 004e 0025     		movs	r5, #0
+ 149              	.L21:
+ 150 0050 062D     		cmp	r5, #6
+ 151 0052 E3DC     		bgt	.L19
+ 152 0054 54F82500 		ldr	r0, [r4, r5, lsl #2]
+ 153 0058 FFF7FEFF 		bl	_ZN10peripheral4GPIO2OnEv
+ 154 005c 0135     		adds	r5, r5, #1
+ 155 005e F7E7     		b	.L21
+ 156              		.fnend
+ 158              		.section	.text._ZN9indicator3LED3OffEh,"ax",%progbits
+ 159              		.align	1
+ 160              		.global	_ZN9indicator3LED3OffEh
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 165              	_ZN9indicator3LED3OffEh:
+ 166              		.fnstart
+ 167              	.LFB2831:
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170 0000 38B5     		push	{r3, r4, r5, lr}
+ 171              		.save {r3, r4, r5, lr}
+ 172 0002 0446     		mov	r4, r0
+ 173 0004 0139     		subs	r1, r1, #1
+ 174 0006 0729     		cmp	r1, #7
+ 175 0008 08D8     		bhi	.L32
+ 176 000a DFE801F0 		tbb	[pc, r1]
+ 177              	.L35:
+ 178 000e 04       		.byte	(.L42-.L35)/2
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 4
+
+
+ 179 000f 08       		.byte	(.L41-.L35)/2
+ 180 0010 0C       		.byte	(.L40-.L35)/2
+ 181 0011 10       		.byte	(.L39-.L35)/2
+ 182 0012 14       		.byte	(.L38-.L35)/2
+ 183 0013 18       		.byte	(.L37-.L35)/2
+ 184 0014 1C       		.byte	(.L36-.L35)/2
+ 185 0015 20       		.byte	(.L43-.L35)/2
+ 186              		.p2align 1
+ 187              	.L42:
+ 188 0016 0068     		ldr	r0, [r0]
+ 189 0018 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 190              	.L32:
+ 191 001c 38BD     		pop	{r3, r4, r5, pc}
+ 192              	.L41:
+ 193 001e 4068     		ldr	r0, [r0, #4]
+ 194 0020 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 195 0024 FAE7     		b	.L32
+ 196              	.L40:
+ 197 0026 8068     		ldr	r0, [r0, #8]
+ 198 0028 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 199 002c F6E7     		b	.L32
+ 200              	.L39:
+ 201 002e C068     		ldr	r0, [r0, #12]
+ 202 0030 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 203 0034 F2E7     		b	.L32
+ 204              	.L38:
+ 205 0036 0069     		ldr	r0, [r0, #16]
+ 206 0038 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 207 003c EEE7     		b	.L32
+ 208              	.L37:
+ 209 003e 4069     		ldr	r0, [r0, #20]
+ 210 0040 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 211 0044 EAE7     		b	.L32
+ 212              	.L36:
+ 213 0046 8069     		ldr	r0, [r0, #24]
+ 214 0048 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 215 004c E6E7     		b	.L32
+ 216              	.L43:
+ 217 004e 0025     		movs	r5, #0
+ 218              	.L34:
+ 219 0050 062D     		cmp	r5, #6
+ 220 0052 E3DC     		bgt	.L32
+ 221 0054 54F82500 		ldr	r0, [r4, r5, lsl #2]
+ 222 0058 FFF7FEFF 		bl	_ZN10peripheral4GPIO3OffEv
+ 223 005c 0135     		adds	r5, r5, #1
+ 224 005e F7E7     		b	.L34
+ 225              		.fnend
+ 227              		.section	.text._ZN9indicator3LED6ToggleEh,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	_ZN9indicator3LED6ToggleEh
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 234              	_ZN9indicator3LED6ToggleEh:
+ 235              		.fnstart
+ 236              	.LFB2832:
+ 237              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 5
+
+
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239 0000 38B5     		push	{r3, r4, r5, lr}
+ 240              		.save {r3, r4, r5, lr}
+ 241 0002 0446     		mov	r4, r0
+ 242 0004 0139     		subs	r1, r1, #1
+ 243 0006 0729     		cmp	r1, #7
+ 244 0008 08D8     		bhi	.L45
+ 245 000a DFE801F0 		tbb	[pc, r1]
+ 246              	.L48:
+ 247 000e 04       		.byte	(.L55-.L48)/2
+ 248 000f 08       		.byte	(.L54-.L48)/2
+ 249 0010 0C       		.byte	(.L53-.L48)/2
+ 250 0011 10       		.byte	(.L52-.L48)/2
+ 251 0012 14       		.byte	(.L51-.L48)/2
+ 252 0013 18       		.byte	(.L50-.L48)/2
+ 253 0014 1C       		.byte	(.L49-.L48)/2
+ 254 0015 20       		.byte	(.L56-.L48)/2
+ 255              		.p2align 1
+ 256              	.L55:
+ 257 0016 0068     		ldr	r0, [r0]
+ 258 0018 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 259              	.L45:
+ 260 001c 38BD     		pop	{r3, r4, r5, pc}
+ 261              	.L54:
+ 262 001e 4068     		ldr	r0, [r0, #4]
+ 263 0020 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 264 0024 FAE7     		b	.L45
+ 265              	.L53:
+ 266 0026 8068     		ldr	r0, [r0, #8]
+ 267 0028 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 268 002c F6E7     		b	.L45
+ 269              	.L52:
+ 270 002e C068     		ldr	r0, [r0, #12]
+ 271 0030 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 272 0034 F2E7     		b	.L45
+ 273              	.L51:
+ 274 0036 0069     		ldr	r0, [r0, #16]
+ 275 0038 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 276 003c EEE7     		b	.L45
+ 277              	.L50:
+ 278 003e 4069     		ldr	r0, [r0, #20]
+ 279 0040 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 280 0044 EAE7     		b	.L45
+ 281              	.L49:
+ 282 0046 8069     		ldr	r0, [r0, #24]
+ 283 0048 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 284 004c E6E7     		b	.L45
+ 285              	.L56:
+ 286 004e 0025     		movs	r5, #0
+ 287              	.L47:
+ 288 0050 062D     		cmp	r5, #6
+ 289 0052 E3DC     		bgt	.L45
+ 290 0054 54F82500 		ldr	r0, [r4, r5, lsl #2]
+ 291 0058 FFF7FEFF 		bl	_ZN10peripheral4GPIO6ToggleEv
+ 292 005c 0135     		adds	r5, r5, #1
+ 293 005e F7E7     		b	.L47
+ 294              		.fnend
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 6
+
+
+ 296              		.section	.text._GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14d
+ 297              		.align	1
+ 298              		.syntax unified
+ 299              		.thumb
+ 300              		.thumb_func
+ 302              	_GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4
+ 303              		.fnstart
+ 304              	.LFB3379:
+ 305              		@ args = 0, pretend = 0, frame = 0
+ 306              		@ frame_needed = 0, uses_anonymous_args = 0
+ 307 0000 08B5     		push	{r3, lr}
+ 308 0002 4FF6FF71 		movw	r1, #65535
+ 309 0006 0120     		movs	r0, #1
+ 310 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 311 000c 08BD     		pop	{r3, pc}
+ 312              		.cantunwind
+ 313              		.fnend
+ 315              		.section	.init_array,"aw",%init_array
+ 316              		.align	2
+ 317 0000 00000000 		.word	_GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_de
+ 318              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 319              		.align	2
+ 320              		.set	.LANCHOR0,. + 0
+ 323              	_ZStL8__ioinit:
+ 324 0000 00       		.space	1
+ 325              		.hidden	__dso_handle
+ 326              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 led.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:55     .text._ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:61     .text._ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 _ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE
+.ARM.exidx.text._ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:61     .text._ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 _ZN9indicator3LEDC1ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:90     .text._ZN9indicator3LED2OnEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:96     .text._ZN9indicator3LED2OnEh:00000000 _ZN9indicator3LED2OnEh
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:109    .text._ZN9indicator3LED2OnEh:0000000e $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:117    .text._ZN9indicator3LED2OnEh:00000016 $t
+.ARM.exidx.text._ZN9indicator3LED2OnEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:159    .text._ZN9indicator3LED3OffEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:165    .text._ZN9indicator3LED3OffEh:00000000 _ZN9indicator3LED3OffEh
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:178    .text._ZN9indicator3LED3OffEh:0000000e $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:186    .text._ZN9indicator3LED3OffEh:00000016 $t
+.ARM.exidx.text._ZN9indicator3LED3OffEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:228    .text._ZN9indicator3LED6ToggleEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:234    .text._ZN9indicator3LED6ToggleEh:00000000 _ZN9indicator3LED6ToggleEh
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:247    .text._ZN9indicator3LED6ToggleEh:0000000e $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:255    .text._ZN9indicator3LED6ToggleEh:00000016 $t
+.ARM.exidx.text._ZN9indicator3LED6ToggleEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:297    .text._GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:302    .text._GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 _GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE
+.ARM.exidx.text._GLOBAL__sub_I__ZN9indicator3LEDC2ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:316    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:319    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccwUr59g.s:323    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_ZN10peripheral4GPIO2OnEv
+__aeabi_unwind_cpp_pr0
+_ZN10peripheral4GPIO3OffEv
+_ZN10peripheral4GPIO6ToggleEv

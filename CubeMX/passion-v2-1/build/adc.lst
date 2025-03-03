@@ -1,0 +1,183 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"adc.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB2413:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral3ADCC2EP17ADC_HandleTypeDef,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral3ADCC2EP17ADC_HandleTypeDef
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s 			page 2
+
+
+  61              	_ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:
+  62              		.fnstart
+  63              	.LFB1929:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0346     		mov	r3, r0
+  68 0002 43F8041B 		str	r1, [r3], #4
+  69 0006 0021     		movs	r1, #0
+  70 0008 4160     		str	r1, [r0, #4]
+  71 000a 5960     		str	r1, [r3, #4]
+  72 000c 9960     		str	r1, [r3, #8]
+  73 000e D960     		str	r1, [r3, #12]
+  74 0010 1961     		str	r1, [r3, #16]
+  75 0012 0523     		movs	r3, #5
+  76 0014 8361     		str	r3, [r0, #24]
+  77 0016 7047     		bx	lr
+  78              		.cantunwind
+  79              		.fnend
+  81              		.global	_ZN10peripheral3ADCC1EP17ADC_HandleTypeDef
+  82              		.thumb_set _ZN10peripheral3ADCC1EP17ADC_HandleTypeDef,_ZN10peripheral3ADCC2EP17ADC_HandleTypeDef
+  83              		.section	.text._ZN10peripheral3ADC7ReadValEv,"ax",%progbits
+  84              		.align	1
+  85              		.global	_ZN10peripheral3ADC7ReadValEv
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	_ZN10peripheral3ADC7ReadValEv:
+  91              		.fnstart
+  92              	.LFB1931:
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95 0000 08B5     		push	{r3, lr}
+  96              		.save {r3, lr}
+  97 0002 8269     		ldr	r2, [r0, #24]
+  98 0004 011D     		adds	r1, r0, #4
+  99 0006 0068     		ldr	r0, [r0]
+ 100 0008 FFF7FEFF 		bl	HAL_ADC_Start_DMA
+ 101 000c 08BD     		pop	{r3, pc}
+ 102              		.fnend
+ 104              		.section	.text._ZN10peripheral3ADC11get_val_ptrEv,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	_ZN10peripheral3ADC11get_val_ptrEv
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 111              	_ZN10peripheral3ADC11get_val_ptrEv:
+ 112              		.fnstart
+ 113              	.LFB1932:
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+ 117 0000 0430     		adds	r0, r0, #4
+ 118 0002 7047     		bx	lr
+ 119              		.cantunwind
+ 120              		.fnend
+ 122              		.section	.text._GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef,"ax",%progbits
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s 			page 3
+
+
+ 123              		.align	1
+ 124              		.syntax unified
+ 125              		.thumb
+ 126              		.thumb_func
+ 128              	_GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:
+ 129              		.fnstart
+ 130              	.LFB2414:
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133 0000 08B5     		push	{r3, lr}
+ 134 0002 4FF6FF71 		movw	r1, #65535
+ 135 0006 0120     		movs	r0, #1
+ 136 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 137 000c 08BD     		pop	{r3, pc}
+ 138              		.cantunwind
+ 139              		.fnend
+ 141              		.section	.init_array,"aw",%init_array
+ 142              		.align	2
+ 143 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef(target1)
+ 144              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 145              		.align	2
+ 146              		.set	.LANCHOR0,. + 0
+ 149              	_ZStL8__ioinit:
+ 150 0000 00       		.space	1
+ 151              		.hidden	__dso_handle
+ 152              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:55     .text._ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:61     .text._ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 _ZN10peripheral3ADCC2EP17ADC_HandleTypeDef
+.ARM.exidx.text._ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:61     .text._ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 _ZN10peripheral3ADCC1EP17ADC_HandleTypeDef
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:84     .text._ZN10peripheral3ADC7ReadValEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:90     .text._ZN10peripheral3ADC7ReadValEv:00000000 _ZN10peripheral3ADC7ReadValEv
+.ARM.extab.text._ZN10peripheral3ADC7ReadValEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral3ADC7ReadValEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:105    .text._ZN10peripheral3ADC11get_val_ptrEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:111    .text._ZN10peripheral3ADC11get_val_ptrEv:00000000 _ZN10peripheral3ADC11get_val_ptrEv
+.ARM.exidx.text._ZN10peripheral3ADC11get_val_ptrEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:123    .text._GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:128    .text._GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 _GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral3ADCC2EP17ADC_HandleTypeDef:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:142    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:145    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cco2QUow.s:149    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+HAL_ADC_Start_DMA
+__aeabi_unwind_cpp_pr1

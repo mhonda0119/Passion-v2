@@ -1,0 +1,96 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"stdout.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.__io_putchar,"ax",%progbits
+  20              		.align	1
+  21              		.global	__io_putchar
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	__io_putchar:
+  27              	.LVL0:
+  28              	.LFB239:
+  29              		.file 1 "App/Src/c/stdout.c"
+   1:App/Src/c/stdout.c **** #include "stdint.h"
+   2:App/Src/c/stdout.c **** #include "stdout.h"
+   3:App/Src/c/stdout.c **** #include "config.h"
+   4:App/Src/c/stdout.c **** 
+   5:App/Src/c/stdout.c **** void __io_putchar(uint8_t ch) {
+  30              		.loc 1 5 31 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 8
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 5 31 is_stmt 0 view .LVU1
+  35 0000 00B5     		push	{lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 4
+  38              		.cfi_offset 14, -4
+  39 0002 83B0     		sub	sp, sp, #12
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 16
+  42 0004 8DF80700 		strb	r0, [sp, #7]
+   6:App/Src/c/stdout.c **** 	HAL_UART_Transmit(&huart1, &ch, 1, 1);
+  43              		.loc 1 6 2 is_stmt 1 view .LVU2
+  44 0008 0123     		movs	r3, #1
+  45 000a 1A46     		mov	r2, r3
+  46 000c 0DF10701 		add	r1, sp, #7
+  47 0010 0248     		ldr	r0, .L3
+  48              	.LVL1:
+  49              		.loc 1 6 2 is_stmt 0 view .LVU3
+  50 0012 FFF7FEFF 		bl	HAL_UART_Transmit
+  51              	.LVL2:
+   7:App/Src/c/stdout.c **** }
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s 			page 2
+
+
+  52              		.loc 1 7 1 view .LVU4
+  53 0016 03B0     		add	sp, sp, #12
+  54              	.LCFI2:
+  55              		.cfi_def_cfa_offset 4
+  56              		@ sp needed
+  57 0018 5DF804FB 		ldr	pc, [sp], #4
+  58              	.L4:
+  59              		.align	2
+  60              	.L3:
+  61 001c 00000000 		.word	huart1
+  62              		.cfi_endproc
+  63              	.LFE239:
+  65              		.text
+  66              	.Letext0:
+  67              		.file 2 "c:\\tools\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+  68              		.file 3 "c:\\tools\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none
+  69              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+  70              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  71              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  72              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+  73              		.file 8 "App/Inc/c/config.h"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stdout.c
+C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s:20     .text.__io_putchar:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s:26     .text.__io_putchar:00000000 __io_putchar
+C:\Users\MHONDA~1\AppData\Local\Temp\ccshrnw7.s:61     .text.__io_putchar:0000001c $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Transmit
+huart1

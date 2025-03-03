@@ -1,0 +1,888 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"test.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3587:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev,"axG",%progbits,_
+  55              		.align	1
+  56              		.weak	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 2
+
+
+  61              	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev:
+  62              		.fnstart
+  63              	.LFB3206:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 10B5     		push	{r4, lr}
+  67 0002 0446     		mov	r4, r0
+  68 0004 0068     		ldr	r0, [r0]
+  69 0006 10B1     		cbz	r0, .L11
+  70 0008 0821     		movs	r1, #8
+  71 000a FFF7FEFF 		bl	_ZdlPvj
+  72              	.L11:
+  73 000e 0023     		movs	r3, #0
+  74 0010 2360     		str	r3, [r4]
+  75 0012 2046     		mov	r0, r4
+  76 0014 10BD     		pop	{r4, pc}
+  77              		.cantunwind
+  78              		.fnend
+  80              		.weak	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev
+  81              		.thumb_set _ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev,_ZNSt10unique_ptrIN10
+  82              		.section	.text._ZN4Test3LEDEv,"ax",%progbits
+  83              		.align	1
+  84              		.global	_ZN4Test3LEDEv
+  85              		.syntax unified
+  86              		.thumb
+  87              		.thumb_func
+  89              	_ZN4Test3LEDEv:
+  90              		.fnstart
+  91              	.LFB2925:
+  92              		@ args = 0, pretend = 0, frame = 88
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94 0000 30B5     		push	{r4, r5, lr}
+  95              		.save {r4, r5, lr}
+  96              		.pad #92
+  97 0002 97B0     		sub	sp, sp, #92
+  98 0004 0820     		movs	r0, #8
+  99              	.LEHB0:
+ 100 0006 FFF7FEFF 		bl	_Znwj
+ 101              	.LEHE0:
+ 102 000a 0446     		mov	r4, r0
+ 103 000c 4FF48052 		mov	r2, #4096
+ 104 0010 A749     		ldr	r1, .L127
+ 105              	.LEHB1:
+ 106 0012 FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 107              	.LEHE1:
+ 108 0016 0EE0     		b	.L114
+ 109              	.L95:
+ 110 0018 0623     		movs	r3, #6
+ 111              	.L16:
+ 112 001a C3F10603 		rsb	r3, r3, #6
+ 113 001e 08AA     		add	r2, sp, #32
+ 114 0020 02EB8304 		add	r4, r2, r3, lsl #2
+ 115              	.L67:
+ 116 0024 08AB     		add	r3, sp, #32
+ 117 0026 9C42     		cmp	r4, r3
+ 118 0028 00F02581 		beq	.L66
+ 119 002c 043C     		subs	r4, r4, #4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 3
+
+
+ 120 002e 2046     		mov	r0, r4
+ 121 0030 FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev
+ 122 0034 F6E7     		b	.L67
+ 123              	.L114:
+ 124 0036 0023     		movs	r3, #0
+ 125 0038 0893     		str	r3, [sp, #32]
+ 126 003a 0894     		str	r4, [sp, #32]
+ 127 003c 0820     		movs	r0, #8
+ 128              	.LEHB2:
+ 129 003e FFF7FEFF 		bl	_Znwj
+ 130              	.LEHE2:
+ 131 0042 0446     		mov	r4, r0
+ 132 0044 4FF40052 		mov	r2, #8192
+ 133 0048 9949     		ldr	r1, .L127
+ 134              	.LEHB3:
+ 135 004a FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 136              	.LEHE3:
+ 137 004e 07E0     		b	.L115
+ 138              	.L80:
+ 139 0050 0523     		movs	r3, #5
+ 140 0052 E2E7     		b	.L16
+ 141              	.L82:
+ 142 0054 0821     		movs	r1, #8
+ 143 0056 2046     		mov	r0, r4
+ 144 0058 FFF7FEFF 		bl	_ZdlPvj
+ 145 005c 0623     		movs	r3, #6
+ 146 005e DCE7     		b	.L16
+ 147              	.L115:
+ 148 0060 0023     		movs	r3, #0
+ 149 0062 0993     		str	r3, [sp, #36]
+ 150 0064 0994     		str	r4, [sp, #36]
+ 151 0066 0820     		movs	r0, #8
+ 152              	.LEHB4:
+ 153 0068 FFF7FEFF 		bl	_Znwj
+ 154              	.LEHE4:
+ 155 006c 0446     		mov	r4, r0
+ 156 006e 4FF40042 		mov	r2, #32768
+ 157 0072 8F49     		ldr	r1, .L127
+ 158              	.LEHB5:
+ 159 0074 FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 160              	.LEHE5:
+ 161 0078 07E0     		b	.L116
+ 162              	.L94:
+ 163 007a 0423     		movs	r3, #4
+ 164 007c CDE7     		b	.L16
+ 165              	.L83:
+ 166 007e 0821     		movs	r1, #8
+ 167 0080 2046     		mov	r0, r4
+ 168 0082 FFF7FEFF 		bl	_ZdlPvj
+ 169 0086 0523     		movs	r3, #5
+ 170 0088 C7E7     		b	.L16
+ 171              	.L116:
+ 172 008a 0023     		movs	r3, #0
+ 173 008c 0A93     		str	r3, [sp, #40]
+ 174 008e 0A94     		str	r4, [sp, #40]
+ 175 0090 0820     		movs	r0, #8
+ 176              	.LEHB6:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 4
+
+
+ 177 0092 FFF7FEFF 		bl	_Znwj
+ 178              	.LEHE6:
+ 179 0096 0446     		mov	r4, r0
+ 180 0098 4022     		movs	r2, #64
+ 181 009a 8649     		ldr	r1, .L127+4
+ 182              	.LEHB7:
+ 183 009c FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 184              	.LEHE7:
+ 185 00a0 05E0     		b	.L117
+ 186              	.L84:
+ 187 00a2 0821     		movs	r1, #8
+ 188 00a4 2046     		mov	r0, r4
+ 189 00a6 FFF7FEFF 		bl	_ZdlPvj
+ 190 00aa 0423     		movs	r3, #4
+ 191 00ac B5E7     		b	.L16
+ 192              	.L117:
+ 193 00ae 0023     		movs	r3, #0
+ 194 00b0 0B93     		str	r3, [sp, #44]
+ 195 00b2 0B94     		str	r4, [sp, #44]
+ 196 00b4 0820     		movs	r0, #8
+ 197              	.LEHB8:
+ 198 00b6 FFF7FEFF 		bl	_Znwj
+ 199              	.LEHE8:
+ 200 00ba 0446     		mov	r4, r0
+ 201 00bc 4FF48052 		mov	r2, #4096
+ 202 00c0 7C49     		ldr	r1, .L127+4
+ 203              	.LEHB9:
+ 204 00c2 FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 205              	.LEHE9:
+ 206 00c6 07E0     		b	.L118
+ 207              	.L92:
+ 208 00c8 0223     		movs	r3, #2
+ 209 00ca A6E7     		b	.L16
+ 210              	.L85:
+ 211 00cc 0821     		movs	r1, #8
+ 212 00ce 2046     		mov	r0, r4
+ 213 00d0 FFF7FEFF 		bl	_ZdlPvj
+ 214 00d4 0323     		movs	r3, #3
+ 215 00d6 A0E7     		b	.L16
+ 216              	.L118:
+ 217 00d8 0023     		movs	r3, #0
+ 218 00da 0C93     		str	r3, [sp, #48]
+ 219 00dc 0C94     		str	r4, [sp, #48]
+ 220 00de 0820     		movs	r0, #8
+ 221              	.LEHB10:
+ 222 00e0 FFF7FEFF 		bl	_Znwj
+ 223              	.LEHE10:
+ 224 00e4 0446     		mov	r4, r0
+ 225 00e6 4FF40062 		mov	r2, #2048
+ 226 00ea 7249     		ldr	r1, .L127+4
+ 227              	.LEHB11:
+ 228 00ec FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 229              	.LEHE11:
+ 230 00f0 07E0     		b	.L119
+ 231              	.L93:
+ 232 00f2 0123     		movs	r3, #1
+ 233 00f4 91E7     		b	.L16
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 5
+
+
+ 234              	.L86:
+ 235 00f6 0821     		movs	r1, #8
+ 236 00f8 2046     		mov	r0, r4
+ 237 00fa FFF7FEFF 		bl	_ZdlPvj
+ 238 00fe 0223     		movs	r3, #2
+ 239 0100 8BE7     		b	.L16
+ 240              	.L119:
+ 241 0102 0023     		movs	r3, #0
+ 242 0104 0D93     		str	r3, [sp, #52]
+ 243 0106 0D94     		str	r4, [sp, #52]
+ 244 0108 0820     		movs	r0, #8
+ 245              	.LEHB12:
+ 246 010a FFF7FEFF 		bl	_Znwj
+ 247              	.LEHE12:
+ 248 010e 0446     		mov	r4, r0
+ 249 0110 4FF40042 		mov	r2, #32768
+ 250 0114 6749     		ldr	r1, .L127+4
+ 251              	.LEHB13:
+ 252 0116 FFF7FEFF 		bl	_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+ 253              	.LEHE13:
+ 254 011a 07E0     		b	.L120
+ 255              	.L91:
+ 256 011c 0023     		movs	r3, #0
+ 257 011e 7CE7     		b	.L16
+ 258              	.L87:
+ 259 0120 0821     		movs	r1, #8
+ 260 0122 2046     		mov	r0, r4
+ 261 0124 FFF7FEFF 		bl	_ZdlPvj
+ 262 0128 0123     		movs	r3, #1
+ 263 012a 76E7     		b	.L16
+ 264              	.L120:
+ 265 012c 0023     		movs	r3, #0
+ 266 012e 0E93     		str	r3, [sp, #56]
+ 267 0130 0E94     		str	r4, [sp, #56]
+ 268 0132 08AA     		add	r2, sp, #32
+ 269 0134 0623     		movs	r3, #6
+ 270 0136 0FA9     		add	r1, sp, #60
+ 271              	.L34:
+ 272 0138 002B     		cmp	r3, #0
+ 273 013a 0DDB     		blt	.L36
+ 274 013c 1068     		ldr	r0, [r2]
+ 275 013e 41F8040B 		str	r0, [r1], #4
+ 276 0142 0020     		movs	r0, #0
+ 277 0144 42F8040B 		str	r0, [r2], #4
+ 278 0148 013B     		subs	r3, r3, #1
+ 279 014a F5E7     		b	.L34
+ 280              	.L88:
+ 281 014c 0821     		movs	r1, #8
+ 282 014e 2046     		mov	r0, r4
+ 283 0150 FFF7FEFF 		bl	_ZdlPvj
+ 284 0154 0023     		movs	r3, #0
+ 285 0156 60E7     		b	.L16
+ 286              	.L36:
+ 287 0158 0FA9     		add	r1, sp, #60
+ 288 015a 01A8     		add	r0, sp, #4
+ 289              	.LEHB14:
+ 290 015c FFF7FEFF 		bl	_ZN9indicator3LEDC1ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 6
+
+
+ 291              	.LEHE14:
+ 292 0160 16AC     		add	r4, sp, #88
+ 293 0162 01E0     		b	.L39
+ 294              	.L38:
+ 295 0164 0023     		movs	r3, #0
+ 296 0166 2360     		str	r3, [r4]
+ 297              	.L39:
+ 298 0168 0FAB     		add	r3, sp, #60
+ 299 016a 9C42     		cmp	r4, r3
+ 300 016c 07D0     		beq	.L37
+ 301 016e 54F8040D 		ldr	r0, [r4, #-4]!
+ 302 0172 0028     		cmp	r0, #0
+ 303 0174 F6D0     		beq	.L38
+ 304 0176 0821     		movs	r1, #8
+ 305 0178 FFF7FEFF 		bl	_ZdlPvj
+ 306 017c F2E7     		b	.L38
+ 307              	.L37:
+ 308 017e 0124     		movs	r4, #1
+ 309 0180 19E0     		b	.L46
+ 310              	.L123:
+ 311 0182 6420     		movs	r0, #100
+ 312              	.LEHB15:
+ 313 0184 FFF7FEFF 		bl	HAL_Delay
+ 314              	.LEHE15:
+ 315 0188 0DE0     		b	.L121
+ 316              	.L98:
+ 317 018a 08AC     		add	r4, sp, #32
+ 318              	.L75:
+ 319 018c 01AB     		add	r3, sp, #4
+ 320 018e 9C42     		cmp	r4, r3
+ 321 0190 00F08780 		beq	.L73
+ 322 0194 54F8040D 		ldr	r0, [r4, #-4]!
+ 323 0198 10B1     		cbz	r0, .L74
+ 324 019a 0821     		movs	r1, #8
+ 325 019c FFF7FEFF 		bl	_ZdlPvj
+ 326              	.L74:
+ 327 01a0 0023     		movs	r3, #0
+ 328 01a2 2360     		str	r3, [r4]
+ 329 01a4 F2E7     		b	.L75
+ 330              	.L121:
+ 331 01a6 2946     		mov	r1, r5
+ 332 01a8 01A8     		add	r0, sp, #4
+ 333              	.LEHB16:
+ 334 01aa FFF7FEFF 		bl	_ZN9indicator3LED3OffEh
+ 335              	.LEHE16:
+ 336 01ae 01E0     		b	.L122
+ 337              	.L97:
+ 338 01b0 08AC     		add	r4, sp, #32
+ 339 01b2 EBE7     		b	.L75
+ 340              	.L122:
+ 341 01b4 0134     		adds	r4, r4, #1
+ 342              	.L46:
+ 343 01b6 072C     		cmp	r4, #7
+ 344 01b8 05DC     		bgt	.L78
+ 345 01ba E5B2     		uxtb	r5, r4
+ 346 01bc 2946     		mov	r1, r5
+ 347 01be 01A8     		add	r0, sp, #4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 7
+
+
+ 348              	.LEHB17:
+ 349 01c0 FFF7FEFF 		bl	_ZN9indicator3LED2OnEh
+ 350              	.LEHE17:
+ 351 01c4 DDE7     		b	.L123
+ 352              	.L78:
+ 353 01c6 0124     		movs	r4, #1
+ 354 01c8 0FE0     		b	.L40
+ 355              	.L89:
+ 356 01ca 08AC     		add	r4, sp, #32
+ 357 01cc DEE7     		b	.L75
+ 358              	.L126:
+ 359 01ce 6420     		movs	r0, #100
+ 360              	.LEHB18:
+ 361 01d0 FFF7FEFF 		bl	HAL_Delay
+ 362              	.LEHE18:
+ 363 01d4 01E0     		b	.L124
+ 364              	.L99:
+ 365 01d6 08AC     		add	r4, sp, #32
+ 366 01d8 D8E7     		b	.L75
+ 367              	.L124:
+ 368 01da 2946     		mov	r1, r5
+ 369 01dc 01A8     		add	r0, sp, #4
+ 370              	.LEHB19:
+ 371 01de FFF7FEFF 		bl	_ZN9indicator3LED6ToggleEh
+ 372              	.LEHE19:
+ 373 01e2 01E0     		b	.L125
+ 374              	.L100:
+ 375 01e4 08AC     		add	r4, sp, #32
+ 376 01e6 D1E7     		b	.L75
+ 377              	.L125:
+ 378 01e8 0134     		adds	r4, r4, #1
+ 379              	.L40:
+ 380 01ea 082C     		cmp	r4, #8
+ 381 01ec 05DC     		bgt	.L79
+ 382 01ee E5B2     		uxtb	r5, r4
+ 383 01f0 2946     		mov	r1, r5
+ 384 01f2 01A8     		add	r0, sp, #4
+ 385              	.LEHB20:
+ 386 01f4 FFF7FEFF 		bl	_ZN9indicator3LED6ToggleEh
+ 387              	.LEHE20:
+ 388 01f8 E9E7     		b	.L126
+ 389              	.L79:
+ 390 01fa 0FAC     		add	r4, sp, #60
+ 391 01fc 01E0     		b	.L47
+ 392              	.L55:
+ 393 01fe 0023     		movs	r3, #0
+ 394 0200 2360     		str	r3, [r4]
+ 395              	.L47:
+ 396 0202 08AB     		add	r3, sp, #32
+ 397 0204 9C42     		cmp	r4, r3
+ 398 0206 07D0     		beq	.L54
+ 399 0208 54F8040D 		ldr	r0, [r4, #-4]!
+ 400 020c 0028     		cmp	r0, #0
+ 401 020e F6D0     		beq	.L55
+ 402 0210 0821     		movs	r1, #8
+ 403 0212 FFF7FEFF 		bl	_ZdlPvj
+ 404 0216 F2E7     		b	.L55
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 8
+
+
+ 405              	.L54:
+ 406 0218 08AC     		add	r4, sp, #32
+ 407 021a 01E0     		b	.L58
+ 408              	.L57:
+ 409 021c 0023     		movs	r3, #0
+ 410 021e 2360     		str	r3, [r4]
+ 411              	.L58:
+ 412 0220 01AB     		add	r3, sp, #4
+ 413 0222 9C42     		cmp	r4, r3
+ 414 0224 07D0     		beq	.L56
+ 415 0226 54F8040D 		ldr	r0, [r4, #-4]!
+ 416 022a 0028     		cmp	r0, #0
+ 417 022c F6D0     		beq	.L57
+ 418 022e 0821     		movs	r1, #8
+ 419 0230 FFF7FEFF 		bl	_ZdlPvj
+ 420 0234 F2E7     		b	.L57
+ 421              	.L56:
+ 422 0236 08AC     		add	r4, sp, #32
+ 423 0238 01E0     		b	.L61
+ 424              	.L60:
+ 425 023a 0023     		movs	r3, #0
+ 426 023c 2360     		str	r3, [r4]
+ 427              	.L61:
+ 428 023e 01AB     		add	r3, sp, #4
+ 429 0240 9C42     		cmp	r4, r3
+ 430 0242 07D0     		beq	.L59
+ 431 0244 54F8040D 		ldr	r0, [r4, #-4]!
+ 432 0248 0028     		cmp	r0, #0
+ 433 024a F6D0     		beq	.L60
+ 434 024c 0821     		movs	r1, #8
+ 435 024e FFF7FEFF 		bl	_ZdlPvj
+ 436 0252 F2E7     		b	.L60
+ 437              	.L59:
+ 438 0254 0FAC     		add	r4, sp, #60
+ 439 0256 01E0     		b	.L64
+ 440              	.L63:
+ 441 0258 0023     		movs	r3, #0
+ 442 025a 2360     		str	r3, [r4]
+ 443              	.L64:
+ 444 025c 08AB     		add	r3, sp, #32
+ 445 025e 9C42     		cmp	r4, r3
+ 446 0260 23D0     		beq	.L13
+ 447 0262 54F8040D 		ldr	r0, [r4, #-4]!
+ 448 0266 0028     		cmp	r0, #0
+ 449 0268 F6D0     		beq	.L63
+ 450 026a 0821     		movs	r1, #8
+ 451 026c FFF7FEFF 		bl	_ZdlPvj
+ 452 0270 F2E7     		b	.L63
+ 453              	.L90:
+ 454 0272 0323     		movs	r3, #3
+ 455 0274 D1E6     		b	.L16
+ 456              	.L66:
+ 457              	.LEHB21:
+ 458 0276 FFF7FEFF 		bl	__cxa_end_cleanup
+ 459              	.L81:
+ 460 027a 16AC     		add	r4, sp, #88
+ 461              	.L69:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 9
+
+
+ 462 027c 0FAB     		add	r3, sp, #60
+ 463 027e 9C42     		cmp	r4, r3
+ 464 0280 04D0     		beq	.L70
+ 465 0282 043C     		subs	r4, r4, #4
+ 466 0284 2046     		mov	r0, r4
+ 467 0286 FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev
+ 468 028a F7E7     		b	.L69
+ 469              	.L70:
+ 470 028c 0FAC     		add	r4, sp, #60
+ 471              	.L77:
+ 472 028e 08AB     		add	r3, sp, #32
+ 473 0290 9C42     		cmp	r4, r3
+ 474 0292 08D0     		beq	.L76
+ 475 0294 043C     		subs	r4, r4, #4
+ 476 0296 2046     		mov	r0, r4
+ 477 0298 FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev
+ 478 029c F7E7     		b	.L77
+ 479              	.L96:
+ 480 029e 08AC     		add	r4, sp, #32
+ 481 02a0 74E7     		b	.L75
+ 482              	.L73:
+ 483 02a2 0FAC     		add	r4, sp, #60
+ 484 02a4 F3E7     		b	.L77
+ 485              	.L76:
+ 486 02a6 FFF7FEFF 		bl	__cxa_end_cleanup
+ 487              	.LEHE21:
+ 488              	.L13:
+ 489 02aa 17B0     		add	sp, sp, #92
+ 490              		@ sp needed
+ 491 02ac 30BD     		pop	{r4, r5, pc}
+ 492              	.L128:
+ 493 02ae 00BF     		.align	2
+ 494              	.L127:
+ 495 02b0 00040240 		.word	1073873920
+ 496 02b4 00000240 		.word	1073872896
+ 497              		.global	__gxx_personality_v0
+ 498              		.personality	__gxx_personality_v0
+ 499              		.handlerdata
+ 500              	.LLSDA2925:
+ 501 0008 FF       		.byte	0xff
+ 502 0009 FF       		.byte	0xff
+ 503 000a 01       		.byte	0x1
+ 504 000b 78       		.uleb128 .LLSDACSE2925-.LLSDACSB2925
+ 505              	.LLSDACSB2925:
+ 506 000c 06       		.uleb128 .LEHB0-.LFB2925
+ 507 000d 04       		.uleb128 .LEHE0-.LEHB0
+ 508 000e 18       		.uleb128 .L95-.LFB2925
+ 509 000f 00       		.uleb128 0
+ 510 0010 12       		.uleb128 .LEHB1-.LFB2925
+ 511 0011 04       		.uleb128 .LEHE1-.LEHB1
+ 512 0012 54       		.uleb128 .L82-.LFB2925
+ 513 0013 00       		.uleb128 0
+ 514 0014 3E       		.uleb128 .LEHB2-.LFB2925
+ 515 0015 04       		.uleb128 .LEHE2-.LEHB2
+ 516 0016 50       		.uleb128 .L80-.LFB2925
+ 517 0017 00       		.uleb128 0
+ 518 0018 4A       		.uleb128 .LEHB3-.LFB2925
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 10
+
+
+ 519 0019 04       		.uleb128 .LEHE3-.LEHB3
+ 520 001a 7E       		.uleb128 .L83-.LFB2925
+ 521 001b 00       		.uleb128 0
+ 522 001c 68       		.uleb128 .LEHB4-.LFB2925
+ 523 001d 04       		.uleb128 .LEHE4-.LEHB4
+ 524 001e 7A       		.uleb128 .L94-.LFB2925
+ 525 001f 00       		.uleb128 0
+ 526 0020 74       		.uleb128 .LEHB5-.LFB2925
+ 527 0021 04       		.uleb128 .LEHE5-.LEHB5
+ 528 0022 A201     		.uleb128 .L84-.LFB2925
+ 529 0024 00       		.uleb128 0
+ 530 0025 9201     		.uleb128 .LEHB6-.LFB2925
+ 531 0027 04       		.uleb128 .LEHE6-.LEHB6
+ 532 0028 F204     		.uleb128 .L90-.LFB2925
+ 533 002a 00       		.uleb128 0
+ 534 002b 9C01     		.uleb128 .LEHB7-.LFB2925
+ 535 002d 04       		.uleb128 .LEHE7-.LEHB7
+ 536 002e CC01     		.uleb128 .L85-.LFB2925
+ 537 0030 00       		.uleb128 0
+ 538 0031 B601     		.uleb128 .LEHB8-.LFB2925
+ 539 0033 04       		.uleb128 .LEHE8-.LEHB8
+ 540 0034 C801     		.uleb128 .L92-.LFB2925
+ 541 0036 00       		.uleb128 0
+ 542 0037 C201     		.uleb128 .LEHB9-.LFB2925
+ 543 0039 04       		.uleb128 .LEHE9-.LEHB9
+ 544 003a F601     		.uleb128 .L86-.LFB2925
+ 545 003c 00       		.uleb128 0
+ 546 003d E001     		.uleb128 .LEHB10-.LFB2925
+ 547 003f 04       		.uleb128 .LEHE10-.LEHB10
+ 548 0040 F201     		.uleb128 .L93-.LFB2925
+ 549 0042 00       		.uleb128 0
+ 550 0043 EC01     		.uleb128 .LEHB11-.LFB2925
+ 551 0045 04       		.uleb128 .LEHE11-.LEHB11
+ 552 0046 A002     		.uleb128 .L87-.LFB2925
+ 553 0048 00       		.uleb128 0
+ 554 0049 8A02     		.uleb128 .LEHB12-.LFB2925
+ 555 004b 04       		.uleb128 .LEHE12-.LEHB12
+ 556 004c 9C02     		.uleb128 .L91-.LFB2925
+ 557 004e 00       		.uleb128 0
+ 558 004f 9602     		.uleb128 .LEHB13-.LFB2925
+ 559 0051 04       		.uleb128 .LEHE13-.LEHB13
+ 560 0052 CC02     		.uleb128 .L88-.LFB2925
+ 561 0054 00       		.uleb128 0
+ 562 0055 DC02     		.uleb128 .LEHB14-.LFB2925
+ 563 0057 04       		.uleb128 .LEHE14-.LEHB14
+ 564 0058 FA04     		.uleb128 .L81-.LFB2925
+ 565 005a 00       		.uleb128 0
+ 566 005b 8403     		.uleb128 .LEHB15-.LFB2925
+ 567 005d 04       		.uleb128 .LEHE15-.LEHB15
+ 568 005e 8A03     		.uleb128 .L98-.LFB2925
+ 569 0060 00       		.uleb128 0
+ 570 0061 AA03     		.uleb128 .LEHB16-.LFB2925
+ 571 0063 04       		.uleb128 .LEHE16-.LEHB16
+ 572 0064 B003     		.uleb128 .L97-.LFB2925
+ 573 0066 00       		.uleb128 0
+ 574 0067 C003     		.uleb128 .LEHB17-.LFB2925
+ 575 0069 04       		.uleb128 .LEHE17-.LEHB17
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 11
+
+
+ 576 006a 9E05     		.uleb128 .L96-.LFB2925
+ 577 006c 00       		.uleb128 0
+ 578 006d D003     		.uleb128 .LEHB18-.LFB2925
+ 579 006f 04       		.uleb128 .LEHE18-.LEHB18
+ 580 0070 D603     		.uleb128 .L99-.LFB2925
+ 581 0072 00       		.uleb128 0
+ 582 0073 DE03     		.uleb128 .LEHB19-.LFB2925
+ 583 0075 04       		.uleb128 .LEHE19-.LEHB19
+ 584 0076 E403     		.uleb128 .L100-.LFB2925
+ 585 0078 00       		.uleb128 0
+ 586 0079 F403     		.uleb128 .LEHB20-.LFB2925
+ 587 007b 04       		.uleb128 .LEHE20-.LEHB20
+ 588 007c CA03     		.uleb128 .L89-.LFB2925
+ 589 007e 00       		.uleb128 0
+ 590 007f F604     		.uleb128 .LEHB21-.LFB2925
+ 591 0081 34       		.uleb128 .LEHE21-.LEHB21
+ 592 0082 00       		.uleb128 0
+ 593 0083 00       		.uleb128 0
+ 594              	.LLSDACSE2925:
+ 595              		.section	.text._ZN4Test3LEDEv
+ 596              		.fnend
+ 598              		.section	.text._ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev,"axG",%progbits,_Z
+ 599              		.align	1
+ 600              		.weak	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev
+ 601              		.syntax unified
+ 602              		.thumb
+ 603              		.thumb_func
+ 605              	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev:
+ 606              		.fnstart
+ 607              	.LFB3243:
+ 608              		@ args = 0, pretend = 0, frame = 0
+ 609              		@ frame_needed = 0, uses_anonymous_args = 0
+ 610 0000 10B5     		push	{r4, lr}
+ 611 0002 0446     		mov	r4, r0
+ 612 0004 0068     		ldr	r0, [r0]
+ 613 0006 10B1     		cbz	r0, .L130
+ 614 0008 2021     		movs	r1, #32
+ 615 000a FFF7FEFF 		bl	_ZdlPvj
+ 616              	.L130:
+ 617 000e 0023     		movs	r3, #0
+ 618 0010 2360     		str	r3, [r4]
+ 619 0012 2046     		mov	r0, r4
+ 620 0014 10BD     		pop	{r4, pc}
+ 621              		.cantunwind
+ 622              		.fnend
+ 624              		.weak	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev
+ 625              		.thumb_set _ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev,_ZNSt10unique_ptrIN10p
+ 626              		.section	.text._ZN4Test6BuzzerEv,"ax",%progbits
+ 627              		.align	1
+ 628              		.global	_ZN4Test6BuzzerEv
+ 629              		.syntax unified
+ 630              		.thumb
+ 631              		.thumb_func
+ 633              	_ZN4Test6BuzzerEv:
+ 634              		.fnstart
+ 635              	.LFB2942:
+ 636              		@ args = 0, pretend = 0, frame = 24
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 12
+
+
+ 637              		@ frame_needed = 0, uses_anonymous_args = 0
+ 638 0000 10B5     		push	{r4, lr}
+ 639              		.save {r4, lr}
+ 640              		.pad #24
+ 641 0002 86B0     		sub	sp, sp, #24
+ 642 0004 2020     		movs	r0, #32
+ 643              	.LEHB22:
+ 644 0006 FFF7FEFF 		bl	_Znwj
+ 645              	.LEHE22:
+ 646 000a 0446     		mov	r4, r0
+ 647 000c 0422     		movs	r2, #4
+ 648 000e 2B49     		ldr	r1, .L150
+ 649              	.LEHB23:
+ 650 0010 FFF7FEFF 		bl	_ZN10peripheral3PWMC1EP17TIM_HandleTypeDefm
+ 651              	.LEHE23:
+ 652 0014 0023     		movs	r3, #0
+ 653 0016 0493     		str	r3, [sp, #16]
+ 654 0018 0494     		str	r4, [sp, #16]
+ 655 001a 0594     		str	r4, [sp, #20]
+ 656 001c 0493     		str	r3, [sp, #16]
+ 657 001e 05A9     		add	r1, sp, #20
+ 658 0020 01A8     		add	r0, sp, #4
+ 659              	.LEHB24:
+ 660 0022 FFF7FEFF 		bl	_ZN9indicator6BuzzerC1ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+ 661              	.LEHE24:
+ 662 0026 05E0     		b	.L149
+ 663              	.L145:
+ 664 0028 2021     		movs	r1, #32
+ 665 002a 2046     		mov	r0, r4
+ 666 002c FFF7FEFF 		bl	_ZdlPvj
+ 667              	.LEHB25:
+ 668 0030 FFF7FEFF 		bl	__cxa_end_cleanup
+ 669              	.LEHE25:
+ 670              	.L149:
+ 671 0034 0598     		ldr	r0, [sp, #20]
+ 672 0036 10B1     		cbz	r0, .L135
+ 673 0038 2021     		movs	r1, #32
+ 674 003a FFF7FEFF 		bl	_ZdlPvj
+ 675              	.L135:
+ 676 003e 0023     		movs	r3, #0
+ 677 0040 0593     		str	r3, [sp, #20]
+ 678 0042 9FED1F0A 		vldr.32	s0, .L150+4
+ 679 0046 4FF42F71 		mov	r1, #700
+ 680 004a 01A8     		add	r0, sp, #4
+ 681              	.LEHB26:
+ 682 004c FFF7FEFF 		bl	_ZN9indicator6Buzzer5StartEmf
+ 683 0050 4FF47A70 		mov	r0, #1000
+ 684 0054 FFF7FEFF 		bl	HAL_Delay
+ 685 0058 01A8     		add	r0, sp, #4
+ 686 005a FFF7FEFF 		bl	_ZN9indicator6Buzzer4StopEv
+ 687 005e 4FF4FA70 		mov	r0, #500
+ 688 0062 FFF7FEFF 		bl	HAL_Delay
+ 689 0066 9FED160A 		vldr.32	s0, .L150+4
+ 690 006a 4FF47A72 		mov	r2, #1000
+ 691 006e 1146     		mov	r1, r2
+ 692 0070 01A8     		add	r0, sp, #4
+ 693 0072 FFF7FEFF 		bl	_ZN9indicator6Buzzer4PlayEmmf
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 13
+
+
+ 694              	.LEHE26:
+ 695 0076 0498     		ldr	r0, [sp, #16]
+ 696 0078 10B1     		cbz	r0, .L136
+ 697 007a 2021     		movs	r1, #32
+ 698 007c FFF7FEFF 		bl	_ZdlPvj
+ 699              	.L136:
+ 700 0080 0023     		movs	r3, #0
+ 701 0082 0493     		str	r3, [sp, #16]
+ 702 0084 0398     		ldr	r0, [sp, #12]
+ 703 0086 10B1     		cbz	r0, .L137
+ 704 0088 2021     		movs	r1, #32
+ 705 008a FFF7FEFF 		bl	_ZdlPvj
+ 706              	.L137:
+ 707 008e 0023     		movs	r3, #0
+ 708 0090 0393     		str	r3, [sp, #12]
+ 709 0092 0498     		ldr	r0, [sp, #16]
+ 710 0094 10B1     		cbz	r0, .L139
+ 711 0096 2021     		movs	r1, #32
+ 712 0098 FFF7FEFF 		bl	_ZdlPvj
+ 713              	.L139:
+ 714 009c 0023     		movs	r3, #0
+ 715 009e 0493     		str	r3, [sp, #16]
+ 716 00a0 06B0     		add	sp, sp, #24
+ 717              		@ sp needed
+ 718 00a2 10BD     		pop	{r4, pc}
+ 719              	.L143:
+ 720 00a4 05A8     		add	r0, sp, #20
+ 721 00a6 FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev
+ 722              	.L141:
+ 723 00aa 04A8     		add	r0, sp, #16
+ 724 00ac FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev
+ 725              	.LEHB27:
+ 726 00b0 FFF7FEFF 		bl	__cxa_end_cleanup
+ 727              	.LEHE27:
+ 728              	.L144:
+ 729 00b4 03A8     		add	r0, sp, #12
+ 730 00b6 FFF7FEFF 		bl	_ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev
+ 731 00ba F6E7     		b	.L141
+ 732              	.L151:
+ 733              		.align	2
+ 734              	.L150:
+ 735 00bc 00000000 		.word	htim3
+ 736 00c0 0000A042 		.word	1117782016
+ 737              		.personality	__gxx_personality_v0
+ 738              		.handlerdata
+ 739              	.LLSDA2942:
+ 740 0008 FF       		.byte	0xff
+ 741 0009 FF       		.byte	0xff
+ 742 000a 01       		.byte	0x1
+ 743 000b 1B       		.uleb128 .LLSDACSE2942-.LLSDACSB2942
+ 744              	.LLSDACSB2942:
+ 745 000c 06       		.uleb128 .LEHB22-.LFB2942
+ 746 000d 04       		.uleb128 .LEHE22-.LEHB22
+ 747 000e 00       		.uleb128 0
+ 748 000f 00       		.uleb128 0
+ 749 0010 10       		.uleb128 .LEHB23-.LFB2942
+ 750 0011 04       		.uleb128 .LEHE23-.LEHB23
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 14
+
+
+ 751 0012 28       		.uleb128 .L145-.LFB2942
+ 752 0013 00       		.uleb128 0
+ 753 0014 22       		.uleb128 .LEHB24-.LFB2942
+ 754 0015 04       		.uleb128 .LEHE24-.LEHB24
+ 755 0016 A401     		.uleb128 .L143-.LFB2942
+ 756 0018 00       		.uleb128 0
+ 757 0019 30       		.uleb128 .LEHB25-.LFB2942
+ 758 001a 04       		.uleb128 .LEHE25-.LEHB25
+ 759 001b 00       		.uleb128 0
+ 760 001c 00       		.uleb128 0
+ 761 001d 4C       		.uleb128 .LEHB26-.LFB2942
+ 762 001e 2A       		.uleb128 .LEHE26-.LEHB26
+ 763 001f B401     		.uleb128 .L144-.LFB2942
+ 764 0021 00       		.uleb128 0
+ 765 0022 B001     		.uleb128 .LEHB27-.LFB2942
+ 766 0024 04       		.uleb128 .LEHE27-.LEHB27
+ 767 0025 00       		.uleb128 0
+ 768 0026 00       		.uleb128 0
+ 769              	.LLSDACSE2942:
+ 770              		.section	.text._ZN4Test6BuzzerEv
+ 771              		.fnend
+ 773              		.section	.text._GLOBAL__sub_I__ZN4Test3LEDEv,"ax",%progbits
+ 774              		.align	1
+ 775              		.syntax unified
+ 776              		.thumb
+ 777              		.thumb_func
+ 779              	_GLOBAL__sub_I__ZN4Test3LEDEv:
+ 780              		.fnstart
+ 781              	.LFB3588:
+ 782              		@ args = 0, pretend = 0, frame = 0
+ 783              		@ frame_needed = 0, uses_anonymous_args = 0
+ 784 0000 08B5     		push	{r3, lr}
+ 785 0002 4FF6FF71 		movw	r1, #65535
+ 786 0006 0120     		movs	r0, #1
+ 787 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 788 000c 08BD     		pop	{r3, pc}
+ 789              		.cantunwind
+ 790              		.fnend
+ 792              		.section	.init_array,"aw",%init_array
+ 793              		.align	2
+ 794 0000 00000000 		.word	_GLOBAL__sub_I__ZN4Test3LEDEv(target1)
+ 795              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 796              		.align	2
+ 797              		.set	.LANCHOR0,. + 0
+ 800              	_ZStL8__ioinit:
+ 801 0000 00       		.space	1
+ 802              		.hidden	__dso_handle
+ 803              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 test.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:55     .text._ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:61     .text._ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev:00000000 _ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev
+.ARM.exidx.text._ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:61     .text._ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED2Ev:00000000 _ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED1Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:83     .text._ZN4Test3LEDEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:89     .text._ZN4Test3LEDEv:00000000 _ZN4Test3LEDEv
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:495    .text._ZN4Test3LEDEv:000002b0 $d
+   .ARM.extab.text._ZN4Test3LEDEv:00000000 $d
+   .ARM.exidx.text._ZN4Test3LEDEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:599    .text._ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:605    .text._ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev:00000000 _ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev
+.ARM.exidx.text._ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:605    .text._ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED2Ev:00000000 _ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED1Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:627    .text._ZN4Test6BuzzerEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:633    .text._ZN4Test6BuzzerEv:00000000 _ZN4Test6BuzzerEv
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:735    .text._ZN4Test6BuzzerEv:000000bc $d
+.ARM.extab.text._ZN4Test6BuzzerEv:00000000 $d
+.ARM.exidx.text._ZN4Test6BuzzerEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:774    .text._GLOBAL__sub_I__ZN4Test3LEDEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:779    .text._GLOBAL__sub_I__ZN4Test3LEDEv:00000000 _GLOBAL__sub_I__ZN4Test3LEDEv
+.ARM.exidx.text._GLOBAL__sub_I__ZN4Test3LEDEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:793    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:796    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cctx7nIt.s:800    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+                           .group:00000000 _ZNSt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS1_EED5Ev
+                           .group:00000000 _ZNSt10unique_ptrIN10peripheral3PWMESt14default_deleteIS1_EED5Ev
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_ZdlPvj
+_Znwj
+_ZN10peripheral4GPIOC1EP12GPIO_TypeDeft
+_ZN9indicator3LEDC1ESt5arrayISt10unique_ptrIN10peripheral4GPIOESt14default_deleteIS4_EELj7EE
+HAL_Delay
+_ZN9indicator3LED3OffEh
+_ZN9indicator3LED2OnEh
+_ZN9indicator3LED6ToggleEh
+__cxa_end_cleanup
+__gxx_personality_v0
+_ZN10peripheral3PWMC1EP17TIM_HandleTypeDefm
+_ZN9indicator6BuzzerC1ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+_ZN9indicator6Buzzer5StartEmf
+_ZN9indicator6Buzzer4StopEv
+_ZN9indicator6Buzzer4PlayEmmf
+htim3

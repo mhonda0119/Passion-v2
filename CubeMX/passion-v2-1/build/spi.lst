@@ -1,0 +1,228 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"spi.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB2413:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s 			page 2
+
+
+  61              	_ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:
+  62              		.fnstart
+  63              	.LFB1929:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0160     		str	r1, [r0]
+  68 0002 4260     		str	r2, [r0, #4]
+  69 0004 0381     		strh	r3, [r0, #8]	@ movhi
+  70 0006 7047     		bx	lr
+  71              		.cantunwind
+  72              		.fnend
+  74              		.global	_ZN10peripheral3SPIC1EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
+  75              		.thumb_set _ZN10peripheral3SPIC1EP19__SPI_HandleTypeDefP12GPIO_TypeDeft,_ZN10peripheral3SPIC2EP19_
+  76              		.section	.text._ZN10peripheral3SPI8ReadByteEh,"ax",%progbits
+  77              		.align	1
+  78              		.global	_ZN10peripheral3SPI8ReadByteEh
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  83              	_ZN10peripheral3SPI8ReadByteEh:
+  84              		.fnstart
+  85              	.LFB1931:
+  86              		@ args = 0, pretend = 0, frame = 8
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88 0000 30B5     		push	{r4, r5, lr}
+  89              		.save {r4, r5, lr}
+  90              		.pad #12
+  91 0002 83B0     		sub	sp, sp, #12
+  92 0004 0446     		mov	r4, r0
+  93 0006 0D46     		mov	r5, r1
+  94 0008 0022     		movs	r2, #0
+  95 000a 0189     		ldrh	r1, [r0, #8]
+  96 000c 4068     		ldr	r0, [r0, #4]
+  97 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  98 0012 45F08005 		orr	r5, r5, #128
+  99 0016 8DF80650 		strb	r5, [sp, #6]
+ 100 001a 6423     		movs	r3, #100
+ 101 001c 0122     		movs	r2, #1
+ 102 001e 0DF10601 		add	r1, sp, #6
+ 103 0022 2068     		ldr	r0, [r4]
+ 104 0024 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 105 0028 6423     		movs	r3, #100
+ 106 002a 0122     		movs	r2, #1
+ 107 002c 0DF10701 		add	r1, sp, #7
+ 108 0030 2068     		ldr	r0, [r4]
+ 109 0032 FFF7FEFF 		bl	HAL_SPI_Receive
+ 110 0036 0122     		movs	r2, #1
+ 111 0038 2189     		ldrh	r1, [r4, #8]
+ 112 003a 6068     		ldr	r0, [r4, #4]
+ 113 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 114 0040 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
+ 115 0044 03B0     		add	sp, sp, #12
+ 116              		@ sp needed
+ 117 0046 30BD     		pop	{r4, r5, pc}
+ 118              		.fnend
+ 120              		.section	.text._ZN10peripheral3SPI9WriteByteEhh,"ax",%progbits
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s 			page 3
+
+
+ 121              		.align	1
+ 122              		.global	_ZN10peripheral3SPI9WriteByteEhh
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	_ZN10peripheral3SPI9WriteByteEhh:
+ 128              		.fnstart
+ 129              	.LFB1932:
+ 130              		@ args = 0, pretend = 0, frame = 16
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 0000 10B5     		push	{r4, lr}
+ 133              		.save {r4, lr}
+ 134              		.pad #16
+ 135 0002 84B0     		sub	sp, sp, #16
+ 136 0004 0446     		mov	r4, r0
+ 137 0006 8DF80720 		strb	r2, [sp, #7]
+ 138 000a 01F07F01 		and	r1, r1, #127
+ 139 000e 8DF80F10 		strb	r1, [sp, #15]
+ 140 0012 0022     		movs	r2, #0
+ 141 0014 0189     		ldrh	r1, [r0, #8]
+ 142 0016 4068     		ldr	r0, [r0, #4]
+ 143 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 144 001c 6423     		movs	r3, #100
+ 145 001e 0122     		movs	r2, #1
+ 146 0020 0DF10F01 		add	r1, sp, #15
+ 147 0024 2068     		ldr	r0, [r4]
+ 148 0026 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 149 002a 6423     		movs	r3, #100
+ 150 002c 0122     		movs	r2, #1
+ 151 002e 0DF10701 		add	r1, sp, #7
+ 152 0032 2068     		ldr	r0, [r4]
+ 153 0034 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 154 0038 0122     		movs	r2, #1
+ 155 003a 2189     		ldrh	r1, [r4, #8]
+ 156 003c 6068     		ldr	r0, [r4, #4]
+ 157 003e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 158 0042 04B0     		add	sp, sp, #16
+ 159              		@ sp needed
+ 160 0044 10BD     		pop	{r4, pc}
+ 161              		.fnend
+ 163              		.section	.text._GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft,"ax",%p
+ 164              		.align	1
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 169              	_GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:
+ 170              		.fnstart
+ 171              	.LFB2414:
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174 0000 08B5     		push	{r3, lr}
+ 175 0002 4FF6FF71 		movw	r1, #65535
+ 176 0006 0120     		movs	r0, #1
+ 177 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 178 000c 08BD     		pop	{r3, pc}
+ 179              		.cantunwind
+ 180              		.fnend
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s 			page 4
+
+
+ 182              		.section	.init_array,"aw",%init_array
+ 183              		.align	2
+ 184 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft(target1)
+ 185              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 186              		.align	2
+ 187              		.set	.LANCHOR0,. + 0
+ 190              	_ZStL8__ioinit:
+ 191 0000 00       		.space	1
+ 192              		.hidden	__dso_handle
+ 193              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 spi.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:55     .text._ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:61     .text._ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 _ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
+.ARM.exidx.text._ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:61     .text._ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 _ZN10peripheral3SPIC1EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:77     .text._ZN10peripheral3SPI8ReadByteEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:83     .text._ZN10peripheral3SPI8ReadByteEh:00000000 _ZN10peripheral3SPI8ReadByteEh
+.ARM.exidx.text._ZN10peripheral3SPI8ReadByteEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:121    .text._ZN10peripheral3SPI9WriteByteEhh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:127    .text._ZN10peripheral3SPI9WriteByteEhh:00000000 _ZN10peripheral3SPI9WriteByteEhh
+.ARM.exidx.text._ZN10peripheral3SPI9WriteByteEhh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:164    .text._GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:169    .text._GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 _GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral3SPIC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:183    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:186    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccIoEnVE.s:190    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+HAL_GPIO_WritePin
+HAL_SPI_Transmit
+HAL_SPI_Receive
+__aeabi_unwind_cpp_pr0

@@ -1,0 +1,331 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"interrupt.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3308:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral2IT4FindEP17TIM_HandleTypeDef,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral2IT4FindEP17TIM_HandleTypeDef
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 2
+
+
+  61              	_ZN10peripheral2IT4FindEP17TIM_HandleTypeDef:
+  62              		.fnstart
+  63              	.LFB2805:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0146     		mov	r1, r0
+  68 0002 0023     		movs	r3, #0
+  69 0004 00E0     		b	.L13
+  70              	.L12:
+  71 0006 0133     		adds	r3, r3, #1
+  72              	.L13:
+  73 0008 032B     		cmp	r3, #3
+  74 000a 08D8     		bhi	.L14
+  75 000c 054A     		ldr	r2, .L15
+  76 000e 52F82300 		ldr	r0, [r2, r3, lsl #2]
+  77 0012 0028     		cmp	r0, #0
+  78 0014 F7D0     		beq	.L12
+  79 0016 0268     		ldr	r2, [r0]
+  80 0018 8A42     		cmp	r2, r1
+  81 001a F4D1     		bne	.L12
+  82 001c 00E0     		b	.L10
+  83              	.L14:
+  84 001e 0020     		movs	r0, #0
+  85              	.L10:
+  86 0020 7047     		bx	lr
+  87              	.L16:
+  88 0022 00BF     		.align	2
+  89              	.L15:
+  90 0024 00000000 		.word	.LANCHOR1
+  91              		.cantunwind
+  92              		.fnend
+  94              		.section	.text._ZN10peripheral2IT8RegisterEv,"ax",%progbits
+  95              		.align	1
+  96              		.global	_ZN10peripheral2IT8RegisterEv
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 101              	_ZN10peripheral2IT8RegisterEv:
+ 102              		.fnstart
+ 103              	.LFB2809:
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+ 107 0000 0023     		movs	r3, #0
+ 108              	.L20:
+ 109 0002 032B     		cmp	r3, #3
+ 110 0004 09D8     		bhi	.L17
+ 111 0006 054A     		ldr	r2, .L22
+ 112 0008 52F82320 		ldr	r2, [r2, r3, lsl #2]
+ 113 000c 0AB1     		cbz	r2, .L21
+ 114 000e 0133     		adds	r3, r3, #1
+ 115 0010 F7E7     		b	.L20
+ 116              	.L21:
+ 117 0012 024A     		ldr	r2, .L22
+ 118 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 119 0018 7047     		bx	lr
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 3
+
+
+ 120              	.L17:
+ 121 001a 7047     		bx	lr
+ 122              	.L23:
+ 123              		.align	2
+ 124              	.L22:
+ 125 001c 00000000 		.word	.LANCHOR1
+ 126              		.cantunwind
+ 127              		.fnend
+ 129              		.section	.text._ZN10peripheral2ITC2EP17TIM_HandleTypeDef,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	_ZN10peripheral2ITC2EP17TIM_HandleTypeDef
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 136              	_ZN10peripheral2ITC2EP17TIM_HandleTypeDef:
+ 137              		.fnstart
+ 138              	.LFB2807:
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141 0000 10B5     		push	{r4, lr}
+ 142 0002 0446     		mov	r4, r0
+ 143 0004 0160     		str	r1, [r0]
+ 144 0006 FFF7FEFF 		bl	_ZN10peripheral2IT8RegisterEv
+ 145 000a 2046     		mov	r0, r4
+ 146 000c 10BD     		pop	{r4, pc}
+ 147              		.cantunwind
+ 148              		.fnend
+ 150              		.global	_ZN10peripheral2ITC1EP17TIM_HandleTypeDef
+ 151              		.thumb_set _ZN10peripheral2ITC1EP17TIM_HandleTypeDef,_ZN10peripheral2ITC2EP17TIM_HandleTypeDef
+ 152              		.section	.text._ZN10peripheral2IT5StartEv,"ax",%progbits
+ 153              		.align	1
+ 154              		.global	_ZN10peripheral2IT5StartEv
+ 155              		.syntax unified
+ 156              		.thumb
+ 157              		.thumb_func
+ 159              	_ZN10peripheral2IT5StartEv:
+ 160              		.fnstart
+ 161              	.LFB2810:
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164 0000 08B5     		push	{r3, lr}
+ 165              		.save {r3, lr}
+ 166 0002 0068     		ldr	r0, [r0]
+ 167 0004 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 168 0008 08BD     		pop	{r3, pc}
+ 169              		.fnend
+ 171              		.section	.rodata._ZN10peripheral2IT8CallbackEv.str1.4,"aMS",%progbits,1
+ 172              		.align	2
+ 173              	.LC0:
+ 174 0000 43616C6C 		.ascii	"Callback\000"
+ 174      6261636B 
+ 174      00
+ 175              		.section	.text._ZN10peripheral2IT8CallbackEv,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	_ZN10peripheral2IT8CallbackEv
+ 178              		.syntax unified
+ 179              		.thumb
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 4
+
+
+ 180              		.thumb_func
+ 182              	_ZN10peripheral2IT8CallbackEv:
+ 183              		.fnstart
+ 184              	.LFB2811:
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187 0000 08B5     		push	{r3, lr}
+ 188              		.save {r3, lr}
+ 189 0002 0248     		ldr	r0, .L30
+ 190 0004 FFF7FEFF 		bl	puts
+ 191 0008 08BD     		pop	{r3, pc}
+ 192              	.L31:
+ 193 000a 00BF     		.align	2
+ 194              	.L30:
+ 195 000c 00000000 		.word	.LC0
+ 196              		.fnend
+ 198              		.section	.text._ZN10peripheral2IT4StopEv,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	_ZN10peripheral2IT4StopEv
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	_ZN10peripheral2IT4StopEv:
+ 206              		.fnstart
+ 207              	.LFB2812:
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210 0000 08B5     		push	{r3, lr}
+ 211              		.save {r3, lr}
+ 212 0002 0068     		ldr	r0, [r0]
+ 213 0004 FFF7FEFF 		bl	HAL_TIM_Base_Stop_IT
+ 214 0008 08BD     		pop	{r3, pc}
+ 215              		.fnend
+ 217              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	HAL_TIM_PeriodElapsedCallback
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 224              	HAL_TIM_PeriodElapsedCallback:
+ 225              		.fnstart
+ 226              	.LFB2813:
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 0, uses_anonymous_args = 0
+ 229 0000 08B5     		push	{r3, lr}
+ 230              		.save {r3, lr}
+ 231 0002 FFF7FEFF 		bl	_ZN10peripheral2IT4FindEP17TIM_HandleTypeDef
+ 232 0006 08B1     		cbz	r0, .L34
+ 233 0008 FFF7FEFF 		bl	_ZN10peripheral2IT8CallbackEv
+ 234              	.L34:
+ 235 000c 08BD     		pop	{r3, pc}
+ 236              		.fnend
+ 238              		.section	.text._GLOBAL__sub_I__ZN10peripheral2IT10instances_E,"ax",%progbits
+ 239              		.align	1
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 5
+
+
+ 244              	_GLOBAL__sub_I__ZN10peripheral2IT10instances_E:
+ 245              		.fnstart
+ 246              	.LFB3309:
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249 0000 08B5     		push	{r3, lr}
+ 250 0002 4FF6FF71 		movw	r1, #65535
+ 251 0006 0120     		movs	r0, #1
+ 252 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 253 000c 08BD     		pop	{r3, pc}
+ 254              		.cantunwind
+ 255              		.fnend
+ 257              		.section	.init_array,"aw",%init_array
+ 258              		.align	2
+ 259 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral2IT10instances_E(target1)
+ 260              		.global	_ZN10peripheral2IT10instances_E
+ 261              		.section	.bss._ZN10peripheral2IT10instances_E,"aw",%nobits
+ 262              		.align	2
+ 263              		.set	.LANCHOR1,. + 0
+ 266              	_ZN10peripheral2IT10instances_E:
+ 267 0000 00000000 		.space	16
+ 267      00000000 
+ 267      00000000 
+ 267      00000000 
+ 268              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 269              		.align	2
+ 270              		.set	.LANCHOR0,. + 0
+ 273              	_ZStL8__ioinit:
+ 274 0000 00       		.space	1
+ 275              		.hidden	__dso_handle
+ 276              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 interrupt.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:55     .text._ZN10peripheral2IT4FindEP17TIM_HandleTypeDef:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:61     .text._ZN10peripheral2IT4FindEP17TIM_HandleTypeDef:00000000 _ZN10peripheral2IT4FindEP17TIM_HandleTypeDef
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:90     .text._ZN10peripheral2IT4FindEP17TIM_HandleTypeDef:00000024 $d
+.ARM.exidx.text._ZN10peripheral2IT4FindEP17TIM_HandleTypeDef:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:95     .text._ZN10peripheral2IT8RegisterEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:101    .text._ZN10peripheral2IT8RegisterEv:00000000 _ZN10peripheral2IT8RegisterEv
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:125    .text._ZN10peripheral2IT8RegisterEv:0000001c $d
+.ARM.exidx.text._ZN10peripheral2IT8RegisterEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:130    .text._ZN10peripheral2ITC2EP17TIM_HandleTypeDef:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:136    .text._ZN10peripheral2ITC2EP17TIM_HandleTypeDef:00000000 _ZN10peripheral2ITC2EP17TIM_HandleTypeDef
+.ARM.exidx.text._ZN10peripheral2ITC2EP17TIM_HandleTypeDef:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:136    .text._ZN10peripheral2ITC2EP17TIM_HandleTypeDef:00000000 _ZN10peripheral2ITC1EP17TIM_HandleTypeDef
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:153    .text._ZN10peripheral2IT5StartEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:159    .text._ZN10peripheral2IT5StartEv:00000000 _ZN10peripheral2IT5StartEv
+.ARM.extab.text._ZN10peripheral2IT5StartEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral2IT5StartEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:172    .rodata._ZN10peripheral2IT8CallbackEv.str1.4:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:176    .text._ZN10peripheral2IT8CallbackEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:182    .text._ZN10peripheral2IT8CallbackEv:00000000 _ZN10peripheral2IT8CallbackEv
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:195    .text._ZN10peripheral2IT8CallbackEv:0000000c $d
+.ARM.extab.text._ZN10peripheral2IT8CallbackEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral2IT8CallbackEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:199    .text._ZN10peripheral2IT4StopEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:205    .text._ZN10peripheral2IT4StopEv:00000000 _ZN10peripheral2IT4StopEv
+.ARM.extab.text._ZN10peripheral2IT4StopEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral2IT4StopEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:218    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:224    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+.ARM.extab.text.HAL_TIM_PeriodElapsedCallback:00000000 $d
+.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:239    .text._GLOBAL__sub_I__ZN10peripheral2IT10instances_E:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:244    .text._GLOBAL__sub_I__ZN10peripheral2IT10instances_E:00000000 _GLOBAL__sub_I__ZN10peripheral2IT10instances_E
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral2IT10instances_E:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:258    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:266    .bss._ZN10peripheral2IT10instances_E:00000000 _ZN10peripheral2IT10instances_E
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:262    .bss._ZN10peripheral2IT10instances_E:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:269    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccePKPEk.s:273    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+HAL_TIM_Base_Start_IT
+__aeabi_unwind_cpp_pr1
+puts
+HAL_TIM_Base_Stop_IT

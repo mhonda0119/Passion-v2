@@ -1,0 +1,415 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3899:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN4TestD2Ev,"axG",%progbits,_ZN4TestD5Ev,comdat
+  55              		.align	1
+  56              		.weak	_ZN4TestD2Ev
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 2
+
+
+  61              	_ZN4TestD2Ev:
+  62              		.fnstart
+  63              	.LFB3205:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 70B5     		push	{r4, r5, r6, lr}
+  67 0002 0446     		mov	r4, r0
+  68 0004 806A     		ldr	r0, [r0, #40]
+  69 0006 10B1     		cbz	r0, .L11
+  70 0008 0368     		ldr	r3, [r0]
+  71 000a DB69     		ldr	r3, [r3, #28]
+  72 000c 9847     		blx	r3
+  73              	.L11:
+  74 000e 0023     		movs	r3, #0
+  75 0010 A362     		str	r3, [r4, #40]
+  76 0012 666A     		ldr	r6, [r4, #36]
+  77 0014 A6B1     		cbz	r6, .L12
+  78 0016 9EB1     		cbz	r6, .L12
+  79 0018 76B1     		cbz	r6, .L14
+  80 001a 06F11C05 		add	r5, r6, #28
+  81 001e 01E0     		b	.L16
+  82              	.L15:
+  83 0020 0023     		movs	r3, #0
+  84 0022 2B60     		str	r3, [r5]
+  85              	.L16:
+  86 0024 AE42     		cmp	r6, r5
+  87 0026 07D0     		beq	.L14
+  88 0028 55F8040D 		ldr	r0, [r5, #-4]!
+  89 002c 0028     		cmp	r0, #0
+  90 002e F7D0     		beq	.L15
+  91 0030 0821     		movs	r1, #8
+  92 0032 FFF7FEFF 		bl	_ZdlPvj
+  93 0036 F3E7     		b	.L15
+  94              	.L14:
+  95 0038 1C21     		movs	r1, #28
+  96 003a 3046     		mov	r0, r6
+  97 003c FFF7FEFF 		bl	_ZdlPvj
+  98              	.L12:
+  99 0040 0023     		movs	r3, #0
+ 100 0042 6362     		str	r3, [r4, #36]
+ 101 0044 256A     		ldr	r5, [r4, #32]
+ 102 0046 5DB1     		cbz	r5, .L17
+ 103 0048 55B1     		cbz	r5, .L17
+ 104 004a A868     		ldr	r0, [r5, #8]
+ 105 004c 10B1     		cbz	r0, .L19
+ 106 004e 2021     		movs	r1, #32
+ 107 0050 FFF7FEFF 		bl	_ZdlPvj
+ 108              	.L19:
+ 109 0054 0023     		movs	r3, #0
+ 110 0056 AB60     		str	r3, [r5, #8]
+ 111 0058 0C21     		movs	r1, #12
+ 112 005a 2846     		mov	r0, r5
+ 113 005c FFF7FEFF 		bl	_ZdlPvj
+ 114              	.L17:
+ 115 0060 0023     		movs	r3, #0
+ 116 0062 2362     		str	r3, [r4, #32]
+ 117 0064 E069     		ldr	r0, [r4, #28]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 3
+
+
+ 118 0066 10B1     		cbz	r0, .L20
+ 119 0068 0421     		movs	r1, #4
+ 120 006a FFF7FEFF 		bl	_ZdlPvj
+ 121              	.L20:
+ 122 006e 0023     		movs	r3, #0
+ 123 0070 E361     		str	r3, [r4, #28]
+ 124 0072 A069     		ldr	r0, [r4, #24]
+ 125 0074 10B1     		cbz	r0, .L21
+ 126 0076 0C21     		movs	r1, #12
+ 127 0078 FFF7FEFF 		bl	_ZdlPvj
+ 128              	.L21:
+ 129 007c 0023     		movs	r3, #0
+ 130 007e A361     		str	r3, [r4, #24]
+ 131 0080 6069     		ldr	r0, [r4, #20]
+ 132 0082 10B1     		cbz	r0, .L22
+ 133 0084 2021     		movs	r1, #32
+ 134 0086 FFF7FEFF 		bl	_ZdlPvj
+ 135              	.L22:
+ 136 008a 0023     		movs	r3, #0
+ 137 008c 6361     		str	r3, [r4, #20]
+ 138 008e 2069     		ldr	r0, [r4, #16]
+ 139 0090 10B1     		cbz	r0, .L23
+ 140 0092 0421     		movs	r1, #4
+ 141 0094 FFF7FEFF 		bl	_ZdlPvj
+ 142              	.L23:
+ 143 0098 0023     		movs	r3, #0
+ 144 009a 2361     		str	r3, [r4, #16]
+ 145 009c E068     		ldr	r0, [r4, #12]
+ 146 009e 10B1     		cbz	r0, .L24
+ 147 00a0 0821     		movs	r1, #8
+ 148 00a2 FFF7FEFF 		bl	_ZdlPvj
+ 149              	.L24:
+ 150 00a6 0023     		movs	r3, #0
+ 151 00a8 E360     		str	r3, [r4, #12]
+ 152 00aa A068     		ldr	r0, [r4, #8]
+ 153 00ac 10B1     		cbz	r0, .L25
+ 154 00ae 1821     		movs	r1, #24
+ 155 00b0 FFF7FEFF 		bl	_ZdlPvj
+ 156              	.L25:
+ 157 00b4 0023     		movs	r3, #0
+ 158 00b6 A360     		str	r3, [r4, #8]
+ 159 00b8 6068     		ldr	r0, [r4, #4]
+ 160 00ba 10B1     		cbz	r0, .L26
+ 161 00bc 0121     		movs	r1, #1
+ 162 00be FFF7FEFF 		bl	_ZdlPvj
+ 163              	.L26:
+ 164 00c2 0023     		movs	r3, #0
+ 165 00c4 6360     		str	r3, [r4, #4]
+ 166 00c6 2068     		ldr	r0, [r4]
+ 167 00c8 10B1     		cbz	r0, .L27
+ 168 00ca 1C21     		movs	r1, #28
+ 169 00cc FFF7FEFF 		bl	_ZdlPvj
+ 170              	.L27:
+ 171 00d0 0023     		movs	r3, #0
+ 172 00d2 2360     		str	r3, [r4]
+ 173 00d4 2046     		mov	r0, r4
+ 174 00d6 70BD     		pop	{r4, r5, r6, pc}
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 4
+
+
+ 175              		.cantunwind
+ 176              		.fnend
+ 178              		.weak	_ZN4TestD1Ev
+ 179              		.thumb_set _ZN4TestD1Ev,_ZN4TestD2Ev
+ 180              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 181              		.align	2
+ 182              	.LC0:
+ 183 0000 68656C6C 		.ascii	"hello_c\000"
+ 183      6F5F6300 
+ 184              		.align	2
+ 185              	.LC1:
+ 186 0008 68656C6C 		.ascii	"hello_c++\000"
+ 186      6F5F632B 
+ 186      2B00
+ 187 0012 0000     		.align	2
+ 188              	.LC2:
+ 189 0014 70617373 		.ascii	"passion-v2-1\000"
+ 189      696F6E2D 
+ 189      76322D31 
+ 189      00
+ 190 0021 000000   		.align	2
+ 191              	.LC3:
+ 192 0024 0A00     		.ascii	"\012\000"
+ 193              		.section	.text.main,"ax",%progbits
+ 194              		.align	1
+ 195              		.global	main
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 200              	main:
+ 201              		.fnstart
+ 202              	.LFB2925:
+ 203              		@ args = 0, pretend = 0, frame = 48
+ 204              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205 0000 10B5     		push	{r4, lr}
+ 206              		.save {r4, lr}
+ 207              		.pad #48
+ 208 0002 8CB0     		sub	sp, sp, #48
+ 209              	.LEHB0:
+ 210 0004 FFF7FEFF 		bl	HAL_Init
+ 211 0008 FFF7FEFF 		bl	SystemClock_Config
+ 212 000c FFF7FEFF 		bl	MX_GPIO_Init
+ 213 0010 FFF7FEFF 		bl	MX_DMA_Init
+ 214 0014 FFF7FEFF 		bl	MX_ADC1_Init
+ 215 0018 FFF7FEFF 		bl	MX_SPI3_Init
+ 216 001c FFF7FEFF 		bl	MX_TIM1_Init
+ 217 0020 FFF7FEFF 		bl	MX_TIM2_Init
+ 218 0024 FFF7FEFF 		bl	MX_TIM3_Init
+ 219 0028 FFF7FEFF 		bl	MX_TIM4_Init
+ 220 002c FFF7FEFF 		bl	MX_TIM5_Init
+ 221 0030 FFF7FEFF 		bl	MX_TIM8_Init
+ 222 0034 FFF7FEFF 		bl	MX_USART1_UART_Init
+ 223 0038 1248     		ldr	r0, .L34
+ 224 003a FFF7FEFF 		bl	puts
+ 225 003e 124C     		ldr	r4, .L34+4
+ 226 0040 1249     		ldr	r1, .L34+8
+ 227 0042 2046     		mov	r0, r4
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 5
+
+
+ 228 0044 FFF7FEFF 		bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+ 229 0048 FFF7FEFF 		bl	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+ 230 004c 1049     		ldr	r1, .L34+12
+ 231 004e 2046     		mov	r0, r4
+ 232 0050 FFF7FEFF 		bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+ 233 0054 0F49     		ldr	r1, .L34+16
+ 234 0056 FFF7FEFF 		bl	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+ 235 005a 4FF47A70 		mov	r0, #1000
+ 236 005e FFF7FEFF 		bl	HAL_Delay
+ 237              	.LEHE0:
+ 238 0062 2C22     		movs	r2, #44
+ 239 0064 0021     		movs	r1, #0
+ 240 0066 01A8     		add	r0, sp, #4
+ 241 0068 FFF7FEFF 		bl	memset
+ 242 006c 01A8     		add	r0, sp, #4
+ 243              	.LEHB1:
+ 244 006e FFF7FEFF 		bl	_ZN4Test3LEDEv
+ 245 0072 01A8     		add	r0, sp, #4
+ 246 0074 FFF7FEFF 		bl	_ZN4Test6BuzzerEv
+ 247              	.LEHE1:
+ 248              	.L30:
+ 249 0078 FEE7     		b	.L30
+ 250              	.L32:
+ 251 007a 01A8     		add	r0, sp, #4
+ 252 007c FFF7FEFF 		bl	_ZN4TestD1Ev
+ 253              	.LEHB2:
+ 254 0080 FFF7FEFF 		bl	__cxa_end_cleanup
+ 255              	.LEHE2:
+ 256              	.L35:
+ 257              		.align	2
+ 258              	.L34:
+ 259 0084 00000000 		.word	.LC0
+ 260 0088 00000000 		.word	_ZSt4cout
+ 261 008c 08000000 		.word	.LC1
+ 262 0090 14000000 		.word	.LC2
+ 263 0094 24000000 		.word	.LC3
+ 264              		.global	__gxx_personality_v0
+ 265              		.personality	__gxx_personality_v0
+ 266              		.handlerdata
+ 267              	.LLSDA2925:
+ 268 0008 FF       		.byte	0xff
+ 269 0009 FF       		.byte	0xff
+ 270 000a 01       		.byte	0x1
+ 271 000b 0D       		.uleb128 .LLSDACSE2925-.LLSDACSB2925
+ 272              	.LLSDACSB2925:
+ 273 000c 04       		.uleb128 .LEHB0-.LFB2925
+ 274 000d 5E       		.uleb128 .LEHE0-.LEHB0
+ 275 000e 00       		.uleb128 0
+ 276 000f 00       		.uleb128 0
+ 277 0010 6E       		.uleb128 .LEHB1-.LFB2925
+ 278 0011 0A       		.uleb128 .LEHE1-.LEHB1
+ 279 0012 7A       		.uleb128 .L32-.LFB2925
+ 280 0013 00       		.uleb128 0
+ 281 0014 8001     		.uleb128 .LEHB2-.LFB2925
+ 282 0016 04       		.uleb128 .LEHE2-.LEHB2
+ 283 0017 00       		.uleb128 0
+ 284 0018 00       		.uleb128 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 6
+
+
+ 285              	.LLSDACSE2925:
+ 286              		.section	.text.main
+ 287              		.fnend
+ 289              		.section	.text.Error_Handler,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	Error_Handler
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 296              	Error_Handler:
+ 297              		.fnstart
+ 298              	.LFB3207:
+ 299              		@ Volatile: function does not return.
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 303              		.syntax unified
+ 304              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 305 0000 72B6     		cpsid i
+ 306              	@ 0 "" 2
+ 307              		.thumb
+ 308              		.syntax unified
+ 309              	.L37:
+ 310 0002 FEE7     		b	.L37
+ 311              		.cantunwind
+ 312              		.fnend
+ 314              		.section	.text._GLOBAL__sub_I_main,"ax",%progbits
+ 315              		.align	1
+ 316              		.syntax unified
+ 317              		.thumb
+ 318              		.thumb_func
+ 320              	_GLOBAL__sub_I_main:
+ 321              		.fnstart
+ 322              	.LFB3900:
+ 323              		@ args = 0, pretend = 0, frame = 0
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325 0000 08B5     		push	{r3, lr}
+ 326 0002 4FF6FF71 		movw	r1, #65535
+ 327 0006 0120     		movs	r0, #1
+ 328 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 329 000c 08BD     		pop	{r3, pc}
+ 330              		.cantunwind
+ 331              		.fnend
+ 333              		.section	.init_array,"aw",%init_array
+ 334              		.align	2
+ 335 0000 00000000 		.word	_GLOBAL__sub_I_main(target1)
+ 336              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 337              		.align	2
+ 338              		.set	.LANCHOR0,. + 0
+ 341              	_ZStL8__ioinit:
+ 342 0000 00       		.space	1
+ 343              		.hidden	__dso_handle
+ 344              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:55     .text._ZN4TestD2Ev:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:61     .text._ZN4TestD2Ev:00000000 _ZN4TestD2Ev
+     .ARM.exidx.text._ZN4TestD2Ev:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:61     .text._ZN4TestD2Ev:00000000 _ZN4TestD1Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:181    .rodata.main.str1.4:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:194    .text.main:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:200    .text.main:00000000 main
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:259    .text.main:00000084 $d
+             .ARM.extab.text.main:00000000 $d
+             .ARM.exidx.text.main:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:290    .text.Error_Handler:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:296    .text.Error_Handler:00000000 Error_Handler
+    .ARM.exidx.text.Error_Handler:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:315    .text._GLOBAL__sub_I_main:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:320    .text._GLOBAL__sub_I_main:00000000 _GLOBAL__sub_I_main
+.ARM.exidx.text._GLOBAL__sub_I_main:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:334    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:337    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc4D6Ekm.s:341    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+                           .group:00000000 _ZN4TestD5Ev
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_ZdlPvj
+HAL_Init
+SystemClock_Config
+MX_GPIO_Init
+MX_DMA_Init
+MX_ADC1_Init
+MX_SPI3_Init
+MX_TIM1_Init
+MX_TIM2_Init
+MX_TIM3_Init
+MX_TIM4_Init
+MX_TIM5_Init
+MX_TIM8_Init
+MX_USART1_UART_Init
+puts
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+HAL_Delay
+memset
+_ZN4Test3LEDEv
+_ZN4Test6BuzzerEv
+__cxa_end_cleanup
+_ZSt4cout
+__gxx_personality_v0

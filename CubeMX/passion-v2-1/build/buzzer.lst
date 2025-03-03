@@ -1,0 +1,219 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"buzzer.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3370:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE,"a
+  55              		.align	1
+  56              		.global	_ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s 			page 2
+
+
+  61              	_ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:
+  62              		.fnstart
+  63              	.LFB2822:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 0B68     		ldr	r3, [r1]
+  68 0002 8360     		str	r3, [r0, #8]
+  69 0004 0023     		movs	r3, #0
+  70 0006 0B60     		str	r3, [r1]
+  71 0008 7047     		bx	lr
+  72              		.cantunwind
+  73              		.fnend
+  75              		.global	_ZN9indicator6BuzzerC1ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+  76              		.thumb_set _ZN9indicator6BuzzerC1ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE,_ZN9in
+  77              		.section	.text._ZN9indicator6Buzzer5StartEmf,"ax",%progbits
+  78              		.align	1
+  79              		.global	_ZN9indicator6Buzzer5StartEmf
+  80              		.syntax unified
+  81              		.thumb
+  82              		.thumb_func
+  84              	_ZN9indicator6Buzzer5StartEmf:
+  85              		.fnstart
+  86              	.LFB2824:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 38B5     		push	{r3, r4, r5, lr}
+  90              		.save {r3, r4, r5, lr}
+  91 0002 2DED028B 		vpush.64	{d8}
+  92              		.vsave {d8}
+  93 0006 0446     		mov	r4, r0
+  94 0008 0D46     		mov	r5, r1
+  95 000a B0EE408A 		vmov.f32	s16, s0
+  96 000e 8068     		ldr	r0, [r0, #8]
+  97 0010 FFF7FEFF 		bl	_ZN10peripheral3PWM5StartEv
+  98 0014 2946     		mov	r1, r5
+  99 0016 A068     		ldr	r0, [r4, #8]
+ 100 0018 FFF7FEFF 		bl	_ZN10peripheral3PWM8set_freqEm
+ 101 001c B0EE480A 		vmov.f32	s0, s16
+ 102 0020 A068     		ldr	r0, [r4, #8]
+ 103 0022 FFF7FEFF 		bl	_ZN10peripheral3PWM8set_dutyEf
+ 104 0026 BDEC028B 		vldm	sp!, {d8}
+ 105 002a 38BD     		pop	{r3, r4, r5, pc}
+ 106              		.fnend
+ 108              		.section	.text._ZN9indicator6Buzzer4StopEv,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	_ZN9indicator6Buzzer4StopEv
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	_ZN9indicator6Buzzer4StopEv:
+ 116              		.fnstart
+ 117              	.LFB2826:
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120 0000 08B5     		push	{r3, lr}
+ 121              		.save {r3, lr}
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s 			page 3
+
+
+ 122 0002 8068     		ldr	r0, [r0, #8]
+ 123 0004 FFF7FEFF 		bl	_ZN10peripheral3PWM4StopEv
+ 124 0008 08BD     		pop	{r3, pc}
+ 125              		.fnend
+ 127              		.section	.text._ZN9indicator6Buzzer4PlayEmmf,"ax",%progbits
+ 128              		.align	1
+ 129              		.global	_ZN9indicator6Buzzer4PlayEmmf
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 134              	_ZN9indicator6Buzzer4PlayEmmf:
+ 135              		.fnstart
+ 136              	.LFB2825:
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 38B5     		push	{r3, r4, r5, lr}
+ 140              		.save {r3, r4, r5, lr}
+ 141 0002 0446     		mov	r4, r0
+ 142 0004 1546     		mov	r5, r2
+ 143 0006 FFF7FEFF 		bl	_ZN9indicator6Buzzer5StartEmf
+ 144 000a 2846     		mov	r0, r5
+ 145 000c FFF7FEFF 		bl	HAL_Delay
+ 146 0010 2046     		mov	r0, r4
+ 147 0012 FFF7FEFF 		bl	_ZN9indicator6Buzzer4StopEv
+ 148 0016 38BD     		pop	{r3, r4, r5, pc}
+ 149              		.fnend
+ 151              		.section	.text._GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_
+ 152              		.align	1
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	_GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:
+ 158              		.fnstart
+ 159              	.LFB3371:
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162 0000 08B5     		push	{r3, lr}
+ 163 0002 4FF6FF71 		movw	r1, #65535
+ 164 0006 0120     		movs	r0, #1
+ 165 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 166 000c 08BD     		pop	{r3, pc}
+ 167              		.cantunwind
+ 168              		.fnend
+ 170              		.section	.init_array,"aw",%init_array
+ 171              		.align	2
+ 172 0000 00000000 		.word	_GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3
+ 173              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 174              		.align	2
+ 175              		.set	.LANCHOR0,. + 0
+ 178              	_ZStL8__ioinit:
+ 179 0000 00       		.space	1
+ 180              		.hidden	__dso_handle
+ 181              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 buzzer.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:55     .text._ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:61     .text._ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 _ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+.ARM.exidx.text._ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:61     .text._ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 _ZN9indicator6BuzzerC1ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:78     .text._ZN9indicator6Buzzer5StartEmf:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:84     .text._ZN9indicator6Buzzer5StartEmf:00000000 _ZN9indicator6Buzzer5StartEmf
+.ARM.extab.text._ZN9indicator6Buzzer5StartEmf:00000000 $d
+.ARM.exidx.text._ZN9indicator6Buzzer5StartEmf:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:109    .text._ZN9indicator6Buzzer4StopEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:115    .text._ZN9indicator6Buzzer4StopEv:00000000 _ZN9indicator6Buzzer4StopEv
+.ARM.extab.text._ZN9indicator6Buzzer4StopEv:00000000 $d
+.ARM.exidx.text._ZN9indicator6Buzzer4StopEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:128    .text._ZN9indicator6Buzzer4PlayEmmf:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:134    .text._ZN9indicator6Buzzer4PlayEmmf:00000000 _ZN9indicator6Buzzer4PlayEmmf
+.ARM.exidx.text._ZN9indicator6Buzzer4PlayEmmf:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:152    .text._GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:157    .text._GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 _GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE
+.ARM.exidx.text._GLOBAL__sub_I__ZN9indicator6BuzzerC2ESt10unique_ptrIN10peripheral3PWMESt14default_deleteIS3_EE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:171    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:174    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cc3xcPkY.s:178    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_ZN10peripheral3PWM5StartEv
+_ZN10peripheral3PWM8set_freqEm
+_ZN10peripheral3PWM8set_dutyEf
+__aeabi_unwind_cpp_pr1
+_ZN10peripheral3PWM4StopEv
+HAL_Delay
+__aeabi_unwind_cpp_pr0

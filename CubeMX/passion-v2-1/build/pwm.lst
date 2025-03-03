@@ -1,0 +1,302 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"pwm.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3305:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 2
+
+
+  61              	_ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:
+  62              		.fnstart
+  63              	.LFB2805:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 10B5     		push	{r4, lr}
+  67              		.save {r4, lr}
+  68 0002 0446     		mov	r4, r0
+  69 0004 0023     		movs	r3, #0
+  70 0006 C360     		str	r3, [r0, #12]
+  71 0008 0020     		movs	r0, #0
+  72 000a 2061     		str	r0, [r4, #16]	@ float
+  73 000c 6361     		str	r3, [r4, #20]
+  74 000e 2160     		str	r1, [r4]
+  75 0010 6260     		str	r2, [r4, #4]
+  76 0012 CB68     		ldr	r3, [r1, #12]
+  77 0014 A360     		str	r3, [r4, #8]
+  78 0016 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+  79 001a 4000     		lsls	r0, r0, #1
+  80 001c A061     		str	r0, [r4, #24]
+  81 001e 2368     		ldr	r3, [r4]
+  82 0020 5B68     		ldr	r3, [r3, #4]
+  83 0022 E361     		str	r3, [r4, #28]
+  84 0024 2046     		mov	r0, r4
+  85 0026 10BD     		pop	{r4, pc}
+  86              		.fnend
+  88              		.global	_ZN10peripheral3PWMC1EP17TIM_HandleTypeDefm
+  89              		.thumb_set _ZN10peripheral3PWMC1EP17TIM_HandleTypeDefm,_ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm
+  90              		.section	.text._ZN10peripheral3PWM5StartEv,"ax",%progbits
+  91              		.align	1
+  92              		.global	_ZN10peripheral3PWM5StartEv
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  97              	_ZN10peripheral3PWM5StartEv:
+  98              		.fnstart
+  99              	.LFB2807:
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102 0000 08B5     		push	{r3, lr}
+ 103              		.save {r3, lr}
+ 104 0002 4168     		ldr	r1, [r0, #4]
+ 105 0004 0068     		ldr	r0, [r0]
+ 106 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 107 000a 08BD     		pop	{r3, pc}
+ 108              		.fnend
+ 110              		.section	.text._ZN10peripheral3PWM8set_dutyEf,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	_ZN10peripheral3PWM8set_dutyEf
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 117              	_ZN10peripheral3PWM8set_dutyEf:
+ 118              		.fnstart
+ 119              	.LFB2808:
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 3
+
+
+ 122              		@ link register save eliminated.
+ 123 0000 9FED1C7A 		vldr.32	s14, .L27
+ 124 0004 C0EE077A 		vdiv.f32	s15, s0, s14
+ 125 0008 C0ED047A 		vstr.32	s15, [r0, #16]
+ 126 000c F5EEC07A 		vcmpe.f32	s15, #0
+ 127 0010 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 128 0014 06DB     		blt	.L15
+ 129 0016 B7EE007A 		vmov.f32	s14, #1.0e+0
+ 130 001a F4EEC77A 		vcmpe.f32	s15, s14
+ 131 001e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 132 0022 06D9     		bls	.L24
+ 133              	.L15:
+ 134 0024 4368     		ldr	r3, [r0, #4]
+ 135 0026 8BB9     		cbnz	r3, .L18
+ 136 0028 0368     		ldr	r3, [r0]
+ 137 002a 1B68     		ldr	r3, [r3]
+ 138 002c C268     		ldr	r2, [r0, #12]
+ 139 002e 5A63     		str	r2, [r3, #52]
+ 140 0030 7047     		bx	lr
+ 141              	.L24:
+ 142 0032 8368     		ldr	r3, [r0, #8]
+ 143 0034 0133     		adds	r3, r3, #1
+ 144 0036 07EE103A 		vmov	s14, r3	@ int
+ 145 003a B8EE477A 		vcvt.f32.u32	s14, s14
+ 146 003e 67EE277A 		vmul.f32	s15, s14, s15
+ 147 0042 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 148 0046 C0ED037A 		vstr.32	s15, [r0, #12]	@ int
+ 149 004a EBE7     		b	.L15
+ 150              	.L18:
+ 151 004c 042B     		cmp	r3, #4
+ 152 004e 06D0     		beq	.L25
+ 153 0050 082B     		cmp	r3, #8
+ 154 0052 09D0     		beq	.L26
+ 155 0054 0368     		ldr	r3, [r0]
+ 156 0056 1B68     		ldr	r3, [r3]
+ 157 0058 C268     		ldr	r2, [r0, #12]
+ 158 005a 1A64     		str	r2, [r3, #64]
+ 159 005c 7047     		bx	lr
+ 160              	.L25:
+ 161 005e 0368     		ldr	r3, [r0]
+ 162 0060 1B68     		ldr	r3, [r3]
+ 163 0062 C268     		ldr	r2, [r0, #12]
+ 164 0064 9A63     		str	r2, [r3, #56]
+ 165 0066 7047     		bx	lr
+ 166              	.L26:
+ 167 0068 0368     		ldr	r3, [r0]
+ 168 006a 1B68     		ldr	r3, [r3]
+ 169 006c C268     		ldr	r2, [r0, #12]
+ 170 006e DA63     		str	r2, [r3, #60]
+ 171 0070 7047     		bx	lr
+ 172              	.L28:
+ 173 0072 00BF     		.align	2
+ 174              	.L27:
+ 175 0074 0000C842 		.word	1120403456
+ 176              		.cantunwind
+ 177              		.fnend
+ 179              		.section	.text._ZN10peripheral3PWM8set_freqEm,"ax",%progbits
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 4
+
+
+ 180              		.align	1
+ 181              		.global	_ZN10peripheral3PWM8set_freqEm
+ 182              		.syntax unified
+ 183              		.thumb
+ 184              		.thumb_func
+ 186              	_ZN10peripheral3PWM8set_freqEm:
+ 187              		.fnstart
+ 188              	.LFB2809:
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192 0000 4161     		str	r1, [r0, #20]
+ 193 0002 8369     		ldr	r3, [r0, #24]
+ 194 0004 C269     		ldr	r2, [r0, #28]
+ 195 0006 02FB0111 		mla	r1, r2, r1, r1
+ 196 000a B3FBF1F3 		udiv	r3, r3, r1
+ 197 000e 013B     		subs	r3, r3, #1
+ 198 0010 8360     		str	r3, [r0, #8]
+ 199 0012 0268     		ldr	r2, [r0]
+ 200 0014 1268     		ldr	r2, [r2]
+ 201 0016 D362     		str	r3, [r2, #44]
+ 202 0018 0268     		ldr	r2, [r0]
+ 203 001a D360     		str	r3, [r2, #12]
+ 204 001c 7047     		bx	lr
+ 205              		.cantunwind
+ 206              		.fnend
+ 208              		.section	.text._ZN10peripheral3PWM4StopEv,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	_ZN10peripheral3PWM4StopEv
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 215              	_ZN10peripheral3PWM4StopEv:
+ 216              		.fnstart
+ 217              	.LFB2810:
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220 0000 08B5     		push	{r3, lr}
+ 221              		.save {r3, lr}
+ 222 0002 4168     		ldr	r1, [r0, #4]
+ 223 0004 0068     		ldr	r0, [r0]
+ 224 0006 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 225 000a 08BD     		pop	{r3, pc}
+ 226              		.fnend
+ 228              		.section	.text._GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm,"ax",%progbits
+ 229              		.align	1
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 234              	_GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:
+ 235              		.fnstart
+ 236              	.LFB3306:
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239 0000 08B5     		push	{r3, lr}
+ 240 0002 4FF6FF71 		movw	r1, #65535
+ 241 0006 0120     		movs	r0, #1
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 5
+
+
+ 242 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 243 000c 08BD     		pop	{r3, pc}
+ 244              		.cantunwind
+ 245              		.fnend
+ 247              		.section	.init_array,"aw",%init_array
+ 248              		.align	2
+ 249 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm(target1)
+ 250              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 251              		.align	2
+ 252              		.set	.LANCHOR0,. + 0
+ 255              	_ZStL8__ioinit:
+ 256 0000 00       		.space	1
+ 257              		.hidden	__dso_handle
+ 258              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pwm.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:55     .text._ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:61     .text._ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 _ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm
+.ARM.exidx.text._ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:61     .text._ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 _ZN10peripheral3PWMC1EP17TIM_HandleTypeDefm
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:91     .text._ZN10peripheral3PWM5StartEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:97     .text._ZN10peripheral3PWM5StartEv:00000000 _ZN10peripheral3PWM5StartEv
+.ARM.extab.text._ZN10peripheral3PWM5StartEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral3PWM5StartEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:111    .text._ZN10peripheral3PWM8set_dutyEf:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:117    .text._ZN10peripheral3PWM8set_dutyEf:00000000 _ZN10peripheral3PWM8set_dutyEf
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:175    .text._ZN10peripheral3PWM8set_dutyEf:00000074 $d
+.ARM.exidx.text._ZN10peripheral3PWM8set_dutyEf:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:180    .text._ZN10peripheral3PWM8set_freqEm:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:186    .text._ZN10peripheral3PWM8set_freqEm:00000000 _ZN10peripheral3PWM8set_freqEm
+.ARM.exidx.text._ZN10peripheral3PWM8set_freqEm:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:209    .text._ZN10peripheral3PWM4StopEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:215    .text._ZN10peripheral3PWM4StopEv:00000000 _ZN10peripheral3PWM4StopEv
+.ARM.extab.text._ZN10peripheral3PWM4StopEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral3PWM4StopEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:229    .text._GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:234    .text._GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 _GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral3PWMC2EP17TIM_HandleTypeDefm:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:248    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:251    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\cckYIglP.s:255    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+HAL_RCC_GetPCLK1Freq
+__aeabi_unwind_cpp_pr0
+HAL_TIM_PWM_Start
+__aeabi_unwind_cpp_pr1
+HAL_TIM_PWM_Stop

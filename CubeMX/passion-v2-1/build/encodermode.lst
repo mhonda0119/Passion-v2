@@ -1,0 +1,330 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"encodermode.cpp"
+  16              		.text
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LFB3359:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 0128     		cmp	r0, #1
+  29 0002 00D0     		beq	.L7
+  30              	.L4:
+  31 0004 7047     		bx	lr
+  32              	.L7:
+  33 0006 4FF6FF73 		movw	r3, #65535
+  34 000a 9942     		cmp	r1, r3
+  35 000c FAD1     		bne	.L4
+  36 000e 10B5     		push	{r4, lr}
+  37 0010 044C     		ldr	r4, .L8
+  38 0012 2046     		mov	r0, r4
+  39 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+  40 0018 034A     		ldr	r2, .L8+4
+  41 001a 0449     		ldr	r1, .L8+8
+  42 001c 2046     		mov	r0, r4
+  43 001e FFF7FEFF 		bl	__aeabi_atexit
+  44 0022 10BD     		pop	{r4, pc}
+  45              	.L9:
+  46              		.align	2
+  47              	.L8:
+  48 0024 00000000 		.word	.LANCHOR0
+  49 0028 00000000 		.word	__dso_handle
+  50 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+  51              		.cantunwind
+  52              		.fnend
+  54              		.section	.text._ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm,"ax",%progbits
+  55              		.align	1
+  56              		.global	_ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 2
+
+
+  61              	_ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:
+  62              		.fnstart
+  63              	.LFB2815:
+  64              		@ args = 0, pretend = 0, frame = 8
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 30B5     		push	{r4, r5, lr}
+  67              		.save {r4, r5, lr}
+  68              		.pad #12
+  69 0002 83B0     		sub	sp, sp, #12
+  70 0004 0446     		mov	r4, r0
+  71 0006 0160     		str	r1, [r0]
+  72 0008 4260     		str	r2, [r0, #4]
+  73 000a 0023     		movs	r3, #0
+  74 000c 8360     		str	r3, [r0, #8]	@ float
+  75 000e CB68     		ldr	r3, [r1, #12]
+  76 0010 0133     		adds	r3, r3, #1
+  77 0012 0361     		str	r3, [r0, #16]
+  78 0014 2420     		movs	r0, #36
+  79 0016 FFF7FEFF 		bl	_Znwj
+  80 001a 0546     		mov	r5, r0
+  81 001c 2422     		movs	r2, #36
+  82 001e 0021     		movs	r1, #0
+  83 0020 FFF7FEFF 		bl	memset
+  84 0024 0023     		movs	r3, #0
+  85 0026 0193     		str	r3, [sp, #4]
+  86 0028 0195     		str	r5, [sp, #4]
+  87 002a 2368     		ldr	r3, [r4]
+  88 002c 1A68     		ldr	r2, [r3]
+  89 002e 9368     		ldr	r3, [r2, #8]
+  90 0030 03F00703 		and	r3, r3, #7
+  91 0034 012B     		cmp	r3, #1
+  92 0036 0CD0     		beq	.L16
+  93 0038 9368     		ldr	r3, [r2, #8]
+  94 003a 03F00703 		and	r3, r3, #7
+  95 003e 022B     		cmp	r3, #2
+  96 0040 13D0     		beq	.L17
+  97 0042 9368     		ldr	r3, [r2, #8]
+  98 0044 03F00703 		and	r3, r3, #7
+  99 0048 032B     		cmp	r3, #3
+ 100 004a 04D1     		bne	.L12
+ 101 004c 0423     		movs	r3, #4
+ 102 004e 6361     		str	r3, [r4, #20]
+ 103 0050 01E0     		b	.L12
+ 104              	.L16:
+ 105 0052 0223     		movs	r3, #2
+ 106 0054 6361     		str	r3, [r4, #20]
+ 107              	.L12:
+ 108 0056 0198     		ldr	r0, [sp, #4]
+ 109 0058 10B1     		cbz	r0, .L14
+ 110 005a 2421     		movs	r1, #36
+ 111 005c FFF7FEFF 		bl	_ZdlPvj
+ 112              	.L14:
+ 113 0060 0023     		movs	r3, #0
+ 114 0062 0193     		str	r3, [sp, #4]
+ 115 0064 2046     		mov	r0, r4
+ 116 0066 03B0     		add	sp, sp, #12
+ 117              		@ sp needed
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 3
+
+
+ 118 0068 30BD     		pop	{r4, r5, pc}
+ 119              	.L17:
+ 120 006a 6361     		str	r3, [r4, #20]
+ 121 006c F3E7     		b	.L12
+ 122              		.fnend
+ 124              		.global	_ZN10peripheral11EncoderModeC1EP17TIM_HandleTypeDefm
+ 125              		.thumb_set _ZN10peripheral11EncoderModeC1EP17TIM_HandleTypeDefm,_ZN10peripheral11EncoderModeC2EP17
+ 126              		.section	.text._ZN10peripheral11EncoderMode5StartEv,"ax",%progbits
+ 127              		.align	1
+ 128              		.global	_ZN10peripheral11EncoderMode5StartEv
+ 129              		.syntax unified
+ 130              		.thumb
+ 131              		.thumb_func
+ 133              	_ZN10peripheral11EncoderMode5StartEv:
+ 134              		.fnstart
+ 135              	.LFB2817:
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138 0000 08B5     		push	{r3, lr}
+ 139              		.save {r3, lr}
+ 140 0002 4168     		ldr	r1, [r0, #4]
+ 141 0004 0068     		ldr	r0, [r0]
+ 142 0006 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 143 000a 08BD     		pop	{r3, pc}
+ 144              		.fnend
+ 146              		.section	.text._ZN10peripheral11EncoderMode7ReadValEv,"ax",%progbits
+ 147              		.align	1
+ 148              		.global	_ZN10peripheral11EncoderMode7ReadValEv
+ 149              		.syntax unified
+ 150              		.thumb
+ 151              		.thumb_func
+ 153              	_ZN10peripheral11EncoderMode7ReadValEv:
+ 154              		.fnstart
+ 155              	.LFB2818:
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 159 0000 0368     		ldr	r3, [r0]
+ 160 0002 1B68     		ldr	r3, [r3]
+ 161 0004 D3ED097A 		vldr.32	s15, [r3, #36]	@ int
+ 162 0008 F8EE677A 		vcvt.f32.u32	s15, s15
+ 163 000c C0ED027A 		vstr.32	s15, [r0, #8]
+ 164 0010 7047     		bx	lr
+ 165              		.cantunwind
+ 166              		.fnend
+ 168              		.section	.text._ZN10peripheral11EncoderMode4StopEv,"ax",%progbits
+ 169              		.align	1
+ 170              		.global	_ZN10peripheral11EncoderMode4StopEv
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 175              	_ZN10peripheral11EncoderMode4StopEv:
+ 176              		.fnstart
+ 177              	.LFB2819:
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 4
+
+
+ 181              		.save {r3, lr}
+ 182 0002 4168     		ldr	r1, [r0, #4]
+ 183 0004 0068     		ldr	r0, [r0]
+ 184 0006 FFF7FEFF 		bl	HAL_TIM_Encoder_Stop
+ 185 000a 08BD     		pop	{r3, pc}
+ 186              		.fnend
+ 188              		.section	.text._ZN10peripheral11EncoderMode7get_valEv,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	_ZN10peripheral11EncoderMode7get_valEv
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 195              	_ZN10peripheral11EncoderMode7get_valEv:
+ 196              		.fnstart
+ 197              	.LFB2821:
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200              		@ link register save eliminated.
+ 201 0000 D0ED027A 		vldr.32	s15, [r0, #8]
+ 202 0004 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 203 0008 17EE900A 		vmov	r0, s15	@ int
+ 204 000c 7047     		bx	lr
+ 205              		.cantunwind
+ 206              		.fnend
+ 208              		.section	.text._ZN10peripheral11EncoderMode7set_valEf,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	_ZN10peripheral11EncoderMode7set_valEf
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 215              	_ZN10peripheral11EncoderMode7set_valEf:
+ 216              		.fnstart
+ 217              	.LFB2822:
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220              		@ link register save eliminated.
+ 221 0000 0368     		ldr	r3, [r0]
+ 222 0002 1B68     		ldr	r3, [r3]
+ 223 0004 BCEEC00A 		vcvt.u32.f32	s0, s0
+ 224 0008 83ED090A 		vstr.32	s0, [r3, #36]	@ int
+ 225 000c 7047     		bx	lr
+ 226              		.cantunwind
+ 227              		.fnend
+ 229              		.section	.text._ZN10peripheral11EncoderMode5ResetEv,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	_ZN10peripheral11EncoderMode5ResetEv
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 236              	_ZN10peripheral11EncoderMode5ResetEv:
+ 237              		.fnstart
+ 238              	.LFB2820:
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241 0000 08B5     		push	{r3, lr}
+ 242 0002 9FED020A 		vldr.32	s0, .L27
+ 243 0006 FFF7FEFF 		bl	_ZN10peripheral11EncoderMode7set_valEf
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 5
+
+
+ 244 000a 08BD     		pop	{r3, pc}
+ 245              	.L28:
+ 246              		.align	2
+ 247              	.L27:
+ 248 000c 0060EA46 		.word	1189765120
+ 249              		.cantunwind
+ 250              		.fnend
+ 252              		.section	.text._GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm,"ax",%progbits
+ 253              		.align	1
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	_GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:
+ 259              		.fnstart
+ 260              	.LFB3360:
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263 0000 08B5     		push	{r3, lr}
+ 264 0002 4FF6FF71 		movw	r1, #65535
+ 265 0006 0120     		movs	r0, #1
+ 266 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 267 000c 08BD     		pop	{r3, pc}
+ 268              		.cantunwind
+ 269              		.fnend
+ 271              		.section	.init_array,"aw",%init_array
+ 272              		.align	2
+ 273 0000 00000000 		.word	_GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm(target1)
+ 274              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 275              		.align	2
+ 276              		.set	.LANCHOR0,. + 0
+ 279              	_ZStL8__ioinit:
+ 280 0000 00       		.space	1
+ 281              		.hidden	__dso_handle
+ 282              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 encodermode.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:48     .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:55     .text._ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:61     .text._ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 _ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm
+.ARM.exidx.text._ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:61     .text._ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 _ZN10peripheral11EncoderModeC1EP17TIM_HandleTypeDefm
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:127    .text._ZN10peripheral11EncoderMode5StartEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:133    .text._ZN10peripheral11EncoderMode5StartEv:00000000 _ZN10peripheral11EncoderMode5StartEv
+.ARM.extab.text._ZN10peripheral11EncoderMode5StartEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral11EncoderMode5StartEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:147    .text._ZN10peripheral11EncoderMode7ReadValEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:153    .text._ZN10peripheral11EncoderMode7ReadValEv:00000000 _ZN10peripheral11EncoderMode7ReadValEv
+.ARM.exidx.text._ZN10peripheral11EncoderMode7ReadValEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:169    .text._ZN10peripheral11EncoderMode4StopEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:175    .text._ZN10peripheral11EncoderMode4StopEv:00000000 _ZN10peripheral11EncoderMode4StopEv
+.ARM.extab.text._ZN10peripheral11EncoderMode4StopEv:00000000 $d
+.ARM.exidx.text._ZN10peripheral11EncoderMode4StopEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:189    .text._ZN10peripheral11EncoderMode7get_valEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:195    .text._ZN10peripheral11EncoderMode7get_valEv:00000000 _ZN10peripheral11EncoderMode7get_valEv
+.ARM.exidx.text._ZN10peripheral11EncoderMode7get_valEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:209    .text._ZN10peripheral11EncoderMode7set_valEf:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:215    .text._ZN10peripheral11EncoderMode7set_valEf:00000000 _ZN10peripheral11EncoderMode7set_valEf
+.ARM.exidx.text._ZN10peripheral11EncoderMode7set_valEf:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:230    .text._ZN10peripheral11EncoderMode5ResetEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:236    .text._ZN10peripheral11EncoderMode5ResetEv:00000000 _ZN10peripheral11EncoderMode5ResetEv
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:248    .text._ZN10peripheral11EncoderMode5ResetEv:0000000c $d
+.ARM.exidx.text._ZN10peripheral11EncoderMode5ResetEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:253    .text._GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:258    .text._GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 _GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm
+.ARM.exidx.text._GLOBAL__sub_I__ZN10peripheral11EncoderModeC2EP17TIM_HandleTypeDefm:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:272    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:275    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccyyrjD0.s:279    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+
+UNDEFINED SYMBOLS
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_Znwj
+memset
+_ZdlPvj
+__aeabi_unwind_cpp_pr0
+HAL_TIM_Encoder_Start
+__aeabi_unwind_cpp_pr1
+HAL_TIM_Encoder_Stop

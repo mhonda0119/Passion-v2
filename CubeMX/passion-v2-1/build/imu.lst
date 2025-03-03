@@ -1,0 +1,764 @@
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"imu.cpp"
+  16              		.text
+  17              		.section	.text._ZN6sensor8ICM206899GetOffsetEv,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN6sensor8ICM206899GetOffsetEv
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	_ZN6sensor8ICM206899GetOffsetEv:
+  25              		.fnstart
+  26              	.LFB2852:
+  27              		@ args = 0, pretend = 0, frame = 0
+  28              		@ frame_needed = 0, uses_anonymous_args = 0
+  29 0000 10B5     		push	{r4, lr}
+  30              		.save {r4, lr}
+  31 0002 0446     		mov	r4, r0
+  32 0004 0368     		ldr	r3, [r0]
+  33 0006 9B68     		ldr	r3, [r3, #8]
+  34 0008 9847     		blx	r3
+  35 000a 2368     		ldr	r3, [r4]
+  36 000c 5B69     		ldr	r3, [r3, #20]
+  37 000e 2046     		mov	r0, r4
+  38 0010 9847     		blx	r3
+  39 0012 0368     		ldr	r3, [r0]
+  40 0014 9A69     		ldr	r2, [r3, #24]	@ float
+  41 0016 2369     		ldr	r3, [r4, #16]
+  42 0018 9A61     		str	r2, [r3, #24]	@ float
+  43 001a 0368     		ldr	r3, [r0]
+  44 001c DA69     		ldr	r2, [r3, #28]	@ float
+  45 001e 2369     		ldr	r3, [r4, #16]
+  46 0020 DA61     		str	r2, [r3, #28]	@ float
+  47 0022 0368     		ldr	r3, [r0]
+  48 0024 1A6A     		ldr	r2, [r3, #32]	@ float
+  49 0026 2369     		ldr	r3, [r4, #16]
+  50 0028 1A62     		str	r2, [r3, #32]	@ float
+  51 002a 0368     		ldr	r3, [r0]
+  52 002c 1A6B     		ldr	r2, [r3, #48]	@ float
+  53 002e 2369     		ldr	r3, [r4, #16]
+  54 0030 1A63     		str	r2, [r3, #48]	@ float
+  55 0032 0368     		ldr	r3, [r0]
+  56 0034 5A6B     		ldr	r2, [r3, #52]	@ float
+  57 0036 2369     		ldr	r3, [r4, #16]
+  58 0038 5A63     		str	r2, [r3, #52]	@ float
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 2
+
+
+  59 003a 0368     		ldr	r3, [r0]
+  60 003c 9A6B     		ldr	r2, [r3, #56]	@ float
+  61 003e 2369     		ldr	r3, [r4, #16]
+  62 0040 9A63     		str	r2, [r3, #56]	@ float
+  63 0042 10BD     		pop	{r4, pc}
+  64              		.fnend
+  66              		.section	.text._ZN6sensor8ICM206897ReadValEv,"ax",%progbits
+  67              		.align	1
+  68              		.global	_ZN6sensor8ICM206897ReadValEv
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  73              	_ZN6sensor8ICM206897ReadValEv:
+  74              		.fnstart
+  75              	.LFB2853:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78 0000 10B5     		push	{r4, lr}
+  79              		.save {r4, lr}
+  80 0002 0446     		mov	r4, r0
+  81 0004 0368     		ldr	r3, [r0]
+  82 0006 9B68     		ldr	r3, [r3, #8]
+  83 0008 9847     		blx	r3
+  84 000a 2368     		ldr	r3, [r4]
+  85 000c 5B69     		ldr	r3, [r3, #20]
+  86 000e 2046     		mov	r0, r4
+  87 0010 9847     		blx	r3
+  88 0012 0368     		ldr	r3, [r0]
+  89 0014 D3ED067A 		vldr.32	s15, [r3, #24]
+  90 0018 2369     		ldr	r3, [r4, #16]
+  91 001a 93ED067A 		vldr.32	s14, [r3, #24]
+  92 001e 77EEC77A 		vsub.f32	s15, s15, s14
+  93 0022 A368     		ldr	r3, [r4, #8]
+  94 0024 C3ED067A 		vstr.32	s15, [r3, #24]
+  95 0028 0368     		ldr	r3, [r0]
+  96 002a D3ED077A 		vldr.32	s15, [r3, #28]
+  97 002e 2369     		ldr	r3, [r4, #16]
+  98 0030 93ED077A 		vldr.32	s14, [r3, #28]
+  99 0034 77EEC77A 		vsub.f32	s15, s15, s14
+ 100 0038 A368     		ldr	r3, [r4, #8]
+ 101 003a C3ED077A 		vstr.32	s15, [r3, #28]
+ 102 003e 0368     		ldr	r3, [r0]
+ 103 0040 D3ED087A 		vldr.32	s15, [r3, #32]
+ 104 0044 2369     		ldr	r3, [r4, #16]
+ 105 0046 93ED087A 		vldr.32	s14, [r3, #32]
+ 106 004a 77EEC77A 		vsub.f32	s15, s15, s14
+ 107 004e A368     		ldr	r3, [r4, #8]
+ 108 0050 C3ED087A 		vstr.32	s15, [r3, #32]
+ 109 0054 0368     		ldr	r3, [r0]
+ 110 0056 D3ED0C7A 		vldr.32	s15, [r3, #48]
+ 111 005a 2369     		ldr	r3, [r4, #16]
+ 112 005c 93ED0C7A 		vldr.32	s14, [r3, #48]
+ 113 0060 77EEC77A 		vsub.f32	s15, s15, s14
+ 114 0064 A368     		ldr	r3, [r4, #8]
+ 115 0066 C3ED0C7A 		vstr.32	s15, [r3, #48]
+ 116 006a 0368     		ldr	r3, [r0]
+ 117 006c D3ED0D7A 		vldr.32	s15, [r3, #52]
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 3
+
+
+ 118 0070 2369     		ldr	r3, [r4, #16]
+ 119 0072 93ED0D7A 		vldr.32	s14, [r3, #52]
+ 120 0076 77EEC77A 		vsub.f32	s15, s15, s14
+ 121 007a A368     		ldr	r3, [r4, #8]
+ 122 007c C3ED0D7A 		vstr.32	s15, [r3, #52]
+ 123 0080 0368     		ldr	r3, [r0]
+ 124 0082 D3ED0E7A 		vldr.32	s15, [r3, #56]
+ 125 0086 2369     		ldr	r3, [r4, #16]
+ 126 0088 93ED0E7A 		vldr.32	s14, [r3, #56]
+ 127 008c 77EEC77A 		vsub.f32	s15, s15, s14
+ 128 0090 A368     		ldr	r3, [r4, #8]
+ 129 0092 C3ED0E7A 		vstr.32	s15, [r3, #56]
+ 130 0096 10BD     		pop	{r4, pc}
+ 131              		.fnend
+ 133              		.section	.text._ZN6sensor8ICM2068911get_val_refEv,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	_ZN6sensor8ICM2068911get_val_refEv
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 140              	_ZN6sensor8ICM2068911get_val_refEv:
+ 141              		.fnstart
+ 142              	.LFB2854:
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146 0000 0830     		adds	r0, r0, #8
+ 147 0002 7047     		bx	lr
+ 148              		.cantunwind
+ 149              		.fnend
+ 151              		.section	.text._ZN6sensor8ICM2068911get_raw_refEv,"ax",%progbits
+ 152              		.align	1
+ 153              		.global	_ZN6sensor8ICM2068911get_raw_refEv
+ 154              		.syntax unified
+ 155              		.thumb
+ 156              		.thumb_func
+ 158              	_ZN6sensor8ICM2068911get_raw_refEv:
+ 159              		.fnstart
+ 160              	.LFB2855:
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 164 0000 0C30     		adds	r0, r0, #12
+ 165 0002 7047     		bx	lr
+ 166              		.cantunwind
+ 167              		.fnend
+ 169              		.section	.rodata._ZN6sensor8ICM206894InitEv.str1.4,"aMS",%progbits,1
+ 170              		.align	2
+ 171              	.LC0:
+ 172 0000 77686F5F 		.ascii	"who_am_i = 0x%x\015\012\000"
+ 172      616D5F69 
+ 172      203D2030 
+ 172      7825780D 
+ 172      0A00
+ 173 0012 0000     		.align	2
+ 174              	.LC1:
+ 175 0014 6779726F 		.ascii	"gyro_error\015\012\000"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 4
+
+
+ 175      5F657272 
+ 175      6F720D0A 
+ 175      00
+ 176              		.section	.text._ZN6sensor8ICM206894InitEv,"ax",%progbits
+ 177              		.align	1
+ 178              		.global	_ZN6sensor8ICM206894InitEv
+ 179              		.syntax unified
+ 180              		.thumb
+ 181              		.thumb_func
+ 183              	_ZN6sensor8ICM206894InitEv:
+ 184              		.fnstart
+ 185              	.LFB2850:
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188 0000 38B5     		push	{r3, r4, r5, lr}
+ 189              		.save {r3, r4, r5, lr}
+ 190 0002 0446     		mov	r4, r0
+ 191 0004 7521     		movs	r1, #117
+ 192 0006 4068     		ldr	r0, [r0, #4]
+ 193 0008 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 194 000c 0546     		mov	r5, r0
+ 195 000e 0146     		mov	r1, r0
+ 196 0010 1948     		ldr	r0, .L12
+ 197 0012 FFF7FEFF 		bl	printf
+ 198 0016 982D     		cmp	r5, #152
+ 199 0018 08D0     		beq	.L8
+ 200 001a 6420     		movs	r0, #100
+ 201 001c FFF7FEFF 		bl	HAL_Delay
+ 202 0020 9821     		movs	r1, #152
+ 203 0022 6068     		ldr	r0, [r4, #4]
+ 204 0024 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 205 0028 9828     		cmp	r0, #152
+ 206 002a 20D1     		bne	.L11
+ 207              	.L8:
+ 208 002c 0022     		movs	r2, #0
+ 209 002e 6B21     		movs	r1, #107
+ 210 0030 6068     		ldr	r0, [r4, #4]
+ 211 0032 FFF7FEFF 		bl	_ZN10peripheral3SPI9WriteByteEhh
+ 212 0036 3220     		movs	r0, #50
+ 213 0038 FFF7FEFF 		bl	HAL_Delay
+ 214 003c 0022     		movs	r2, #0
+ 215 003e 6C21     		movs	r1, #108
+ 216 0040 6068     		ldr	r0, [r4, #4]
+ 217 0042 FFF7FEFF 		bl	_ZN10peripheral3SPI9WriteByteEhh
+ 218 0046 3220     		movs	r0, #50
+ 219 0048 FFF7FEFF 		bl	HAL_Delay
+ 220 004c 1822     		movs	r2, #24
+ 221 004e 1B21     		movs	r1, #27
+ 222 0050 6068     		ldr	r0, [r4, #4]
+ 223 0052 FFF7FEFF 		bl	_ZN10peripheral3SPI9WriteByteEhh
+ 224 0056 3220     		movs	r0, #50
+ 225 0058 FFF7FEFF 		bl	HAL_Delay
+ 226 005c 1822     		movs	r2, #24
+ 227 005e 1B21     		movs	r1, #27
+ 228 0060 6068     		ldr	r0, [r4, #4]
+ 229 0062 FFF7FEFF 		bl	_ZN10peripheral3SPI9WriteByteEhh
+ 230 0066 3220     		movs	r0, #50
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 5
+
+
+ 231 0068 FFF7FEFF 		bl	HAL_Delay
+ 232 006c 38BD     		pop	{r3, r4, r5, pc}
+ 233              	.L11:
+ 234 006e 0348     		ldr	r0, .L12+4
+ 235 0070 FFF7FEFF 		bl	puts
+ 236              	.L9:
+ 237 0074 FEE7     		b	.L9
+ 238              	.L13:
+ 239 0076 00BF     		.align	2
+ 240              	.L12:
+ 241 0078 00000000 		.word	.LC0
+ 242 007c 14000000 		.word	.LC1
+ 243              		.fnend
+ 245              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 246              		.align	1
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 251              	_Z41__static_initialization_and_destruction_0ii:
+ 252              		.fnstart
+ 253              	.LFB3452:
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256 0000 0128     		cmp	r0, #1
+ 257 0002 00D0     		beq	.L20
+ 258              	.L17:
+ 259 0004 7047     		bx	lr
+ 260              	.L20:
+ 261 0006 4FF6FF73 		movw	r3, #65535
+ 262 000a 9942     		cmp	r1, r3
+ 263 000c FAD1     		bne	.L17
+ 264 000e 10B5     		push	{r4, lr}
+ 265 0010 044C     		ldr	r4, .L21
+ 266 0012 2046     		mov	r0, r4
+ 267 0014 FFF7FEFF 		bl	_ZNSt8ios_base4InitC1Ev
+ 268 0018 034A     		ldr	r2, .L21+4
+ 269 001a 0449     		ldr	r1, .L21+8
+ 270 001c 2046     		mov	r0, r4
+ 271 001e FFF7FEFF 		bl	__aeabi_atexit
+ 272 0022 10BD     		pop	{r4, pc}
+ 273              	.L22:
+ 274              		.align	2
+ 275              	.L21:
+ 276 0024 00000000 		.word	.LANCHOR0
+ 277 0028 00000000 		.word	__dso_handle
+ 278 002c 00000000 		.word	_ZNSt8ios_base4InitD1Ev
+ 279              		.cantunwind
+ 280              		.fnend
+ 282              		.section	.text._ZN6sensor8ICM20689D2Ev,"axG",%progbits,_ZN6sensor8ICM20689D5Ev,comdat
+ 283              		.align	1
+ 284              		.weak	_ZN6sensor8ICM20689D2Ev
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 289              	_ZN6sensor8ICM20689D2Ev:
+ 290              		.fnstart
+ 291              	.LFB3441:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 6
+
+
+ 292              		@ args = 0, pretend = 0, frame = 0
+ 293              		@ frame_needed = 0, uses_anonymous_args = 0
+ 294 0000 10B5     		push	{r4, lr}
+ 295 0002 0446     		mov	r4, r0
+ 296 0004 104B     		ldr	r3, .L29
+ 297 0006 0360     		str	r3, [r0]
+ 298 0008 0069     		ldr	r0, [r0, #16]
+ 299 000a 10B1     		cbz	r0, .L24
+ 300 000c 6C21     		movs	r1, #108
+ 301 000e FFF7FEFF 		bl	_ZdlPvj
+ 302              	.L24:
+ 303 0012 0023     		movs	r3, #0
+ 304 0014 2361     		str	r3, [r4, #16]
+ 305 0016 E068     		ldr	r0, [r4, #12]
+ 306 0018 10B1     		cbz	r0, .L25
+ 307 001a 6C21     		movs	r1, #108
+ 308 001c FFF7FEFF 		bl	_ZdlPvj
+ 309              	.L25:
+ 310 0020 0023     		movs	r3, #0
+ 311 0022 E360     		str	r3, [r4, #12]
+ 312 0024 A068     		ldr	r0, [r4, #8]
+ 313 0026 10B1     		cbz	r0, .L26
+ 314 0028 6C21     		movs	r1, #108
+ 315 002a FFF7FEFF 		bl	_ZdlPvj
+ 316              	.L26:
+ 317 002e 0023     		movs	r3, #0
+ 318 0030 A360     		str	r3, [r4, #8]
+ 319 0032 6068     		ldr	r0, [r4, #4]
+ 320 0034 10B1     		cbz	r0, .L27
+ 321 0036 0C21     		movs	r1, #12
+ 322 0038 FFF7FEFF 		bl	_ZdlPvj
+ 323              	.L27:
+ 324 003c 0023     		movs	r3, #0
+ 325 003e 6360     		str	r3, [r4, #4]
+ 326 0040 024B     		ldr	r3, .L29+4
+ 327 0042 2360     		str	r3, [r4]
+ 328 0044 2046     		mov	r0, r4
+ 329 0046 10BD     		pop	{r4, pc}
+ 330              	.L30:
+ 331              		.align	2
+ 332              	.L29:
+ 333 0048 08000000 		.word	.LANCHOR1+8
+ 334 004c 08000000 		.word	_ZTVN6sensor4IIMUE+8
+ 335              		.cantunwind
+ 336              		.fnend
+ 338              		.weak	_ZN6sensor8ICM20689D1Ev
+ 339              		.thumb_set _ZN6sensor8ICM20689D1Ev,_ZN6sensor8ICM20689D2Ev
+ 340              		.section	.text._ZN6sensor8ICM20689D0Ev,"axG",%progbits,_ZN6sensor8ICM20689D5Ev,comdat
+ 341              		.align	1
+ 342              		.weak	_ZN6sensor8ICM20689D0Ev
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 347              	_ZN6sensor8ICM20689D0Ev:
+ 348              		.fnstart
+ 349              	.LFB3443:
+ 350              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 7
+
+
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352 0000 10B5     		push	{r4, lr}
+ 353 0002 0446     		mov	r4, r0
+ 354 0004 124B     		ldr	r3, .L37
+ 355 0006 0360     		str	r3, [r0]
+ 356 0008 0069     		ldr	r0, [r0, #16]
+ 357 000a 10B1     		cbz	r0, .L32
+ 358 000c 6C21     		movs	r1, #108
+ 359 000e FFF7FEFF 		bl	_ZdlPvj
+ 360              	.L32:
+ 361 0012 0023     		movs	r3, #0
+ 362 0014 2361     		str	r3, [r4, #16]
+ 363 0016 E068     		ldr	r0, [r4, #12]
+ 364 0018 10B1     		cbz	r0, .L33
+ 365 001a 6C21     		movs	r1, #108
+ 366 001c FFF7FEFF 		bl	_ZdlPvj
+ 367              	.L33:
+ 368 0020 0023     		movs	r3, #0
+ 369 0022 E360     		str	r3, [r4, #12]
+ 370 0024 A068     		ldr	r0, [r4, #8]
+ 371 0026 10B1     		cbz	r0, .L34
+ 372 0028 6C21     		movs	r1, #108
+ 373 002a FFF7FEFF 		bl	_ZdlPvj
+ 374              	.L34:
+ 375 002e 0023     		movs	r3, #0
+ 376 0030 A360     		str	r3, [r4, #8]
+ 377 0032 6068     		ldr	r0, [r4, #4]
+ 378 0034 10B1     		cbz	r0, .L35
+ 379 0036 0C21     		movs	r1, #12
+ 380 0038 FFF7FEFF 		bl	_ZdlPvj
+ 381              	.L35:
+ 382 003c 0023     		movs	r3, #0
+ 383 003e 6360     		str	r3, [r4, #4]
+ 384 0040 044B     		ldr	r3, .L37+4
+ 385 0042 2360     		str	r3, [r4]
+ 386 0044 1421     		movs	r1, #20
+ 387 0046 2046     		mov	r0, r4
+ 388 0048 FFF7FEFF 		bl	_ZdlPvj
+ 389 004c 2046     		mov	r0, r4
+ 390 004e 10BD     		pop	{r4, pc}
+ 391              	.L38:
+ 392              		.align	2
+ 393              	.L37:
+ 394 0050 08000000 		.word	.LANCHOR1+8
+ 395 0054 08000000 		.word	_ZTVN6sensor4IIMUE+8
+ 396              		.cantunwind
+ 397              		.fnend
+ 399              		.section	.text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_I
+ 400              		.align	1
+ 401              		.global	_ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state
+ 402              		.syntax unified
+ 403              		.thumb
+ 404              		.thumb_func
+ 406              	_ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES
+ 407              		.fnstart
+ 408              	.LFB2846:
+ 409              		@ args = 4, pretend = 0, frame = 0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 8
+
+
+ 410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 411              		@ link register save eliminated.
+ 412 0000 30B4     		push	{r4, r5}
+ 413 0002 029D     		ldr	r5, [sp, #8]
+ 414 0004 094C     		ldr	r4, .L41
+ 415 0006 0460     		str	r4, [r0]
+ 416 0008 094C     		ldr	r4, .L41+4
+ 417 000a 0460     		str	r4, [r0]
+ 418 000c 0C68     		ldr	r4, [r1]
+ 419 000e 4460     		str	r4, [r0, #4]
+ 420 0010 0024     		movs	r4, #0
+ 421 0012 0C60     		str	r4, [r1]
+ 422 0014 1168     		ldr	r1, [r2]
+ 423 0016 8160     		str	r1, [r0, #8]
+ 424 0018 1460     		str	r4, [r2]
+ 425 001a 1A68     		ldr	r2, [r3]
+ 426 001c C260     		str	r2, [r0, #12]
+ 427 001e 1C60     		str	r4, [r3]
+ 428 0020 2B68     		ldr	r3, [r5]
+ 429 0022 0361     		str	r3, [r0, #16]
+ 430 0024 2C60     		str	r4, [r5]
+ 431 0026 30BC     		pop	{r4, r5}
+ 432 0028 7047     		bx	lr
+ 433              	.L42:
+ 434 002a 00BF     		.align	2
+ 435              	.L41:
+ 436 002c 08000000 		.word	_ZTVN6sensor4IIMUE+8
+ 437 0030 08000000 		.word	.LANCHOR1+8
+ 438              		.cantunwind
+ 439              		.fnend
+ 441              		.global	_ZN6sensor8ICM20689C1ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state
+ 442              		.thumb_set _ZN6sensor8ICM20689C1ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5st
+ 443              		.section	.text._ZN6sensor8ICM206899AccelReadEh,"ax",%progbits
+ 444              		.align	1
+ 445              		.global	_ZN6sensor8ICM206899AccelReadEh
+ 446              		.syntax unified
+ 447              		.thumb
+ 448              		.thumb_func
+ 450              	_ZN6sensor8ICM206899AccelReadEh:
+ 451              		.fnstart
+ 452              	.LFB2848:
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 455 0000 70B5     		push	{r4, r5, r6, lr}
+ 456              		.save {r4, r5, r6, lr}
+ 457 0002 0646     		mov	r6, r0
+ 458 0004 0D46     		mov	r5, r1
+ 459 0006 4068     		ldr	r0, [r0, #4]
+ 460 0008 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 461 000c 0402     		lsls	r4, r0, #8
+ 462 000e 24B2     		sxth	r4, r4
+ 463 0010 691C     		adds	r1, r5, #1
+ 464 0012 C9B2     		uxtb	r1, r1
+ 465 0014 7068     		ldr	r0, [r6, #4]
+ 466 0016 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 467 001a 00B2     		sxth	r0, r0
+ 468 001c 44EA0003 		orr	r3, r4, r0
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 9
+
+
+ 469 0020 07EE903A 		vmov	s15, r3	@ int
+ 470 0024 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 471 0028 9FED060A 		vldr.32	s0, .L45
+ 472 002c 67EE807A 		vmul.f32	s15, s15, s0
+ 473 0030 9FED050A 		vldr.32	s0, .L45+4
+ 474 0034 67EE807A 		vmul.f32	s15, s15, s0
+ 475 0038 9FED040A 		vldr.32	s0, .L45+8
+ 476 003c 27EE800A 		vmul.f32	s0, s15, s0
+ 477 0040 70BD     		pop	{r4, r5, r6, pc}
+ 478              	.L46:
+ 479 0042 00BF     		.align	2
+ 480              	.L45:
+ 481 0044 0000003A 		.word	973078528
+ 482 0048 CDCC1C41 		.word	1092406477
+ 483 004c 00007A44 		.word	1148846080
+ 484              		.fnend
+ 486              		.section	.text._ZN6sensor8ICM206899OmegaReadEh,"ax",%progbits
+ 487              		.align	1
+ 488              		.global	_ZN6sensor8ICM206899OmegaReadEh
+ 489              		.syntax unified
+ 490              		.thumb
+ 491              		.thumb_func
+ 493              	_ZN6sensor8ICM206899OmegaReadEh:
+ 494              		.fnstart
+ 495              	.LFB2849:
+ 496              		@ args = 0, pretend = 0, frame = 0
+ 497              		@ frame_needed = 0, uses_anonymous_args = 0
+ 498 0000 70B5     		push	{r4, r5, r6, lr}
+ 499              		.save {r4, r5, r6, lr}
+ 500 0002 0646     		mov	r6, r0
+ 501 0004 0D46     		mov	r5, r1
+ 502 0006 4068     		ldr	r0, [r0, #4]
+ 503 0008 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 504 000c 0402     		lsls	r4, r0, #8
+ 505 000e 24B2     		sxth	r4, r4
+ 506 0010 691C     		adds	r1, r5, #1
+ 507 0012 C9B2     		uxtb	r1, r1
+ 508 0014 7068     		ldr	r0, [r6, #4]
+ 509 0016 FFF7FEFF 		bl	_ZN10peripheral3SPI8ReadByteEh
+ 510 001a 00B2     		sxth	r0, r0
+ 511 001c 0443     		orrs	r4, r4, r0
+ 512 001e 07EE904A 		vmov	s15, r4	@ int
+ 513 0022 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 514 0026 9FED020A 		vldr.32	s0, .L49
+ 515 002a 87EE800A 		vdiv.f32	s0, s15, s0
+ 516 002e 70BD     		pop	{r4, r5, r6, pc}
+ 517              	.L50:
+ 518              		.align	2
+ 519              	.L49:
+ 520 0030 33338341 		.word	1099117363
+ 521              		.fnend
+ 523              		.section	.text._ZN6sensor8ICM206897ReadRawEv,"ax",%progbits
+ 524              		.align	1
+ 525              		.global	_ZN6sensor8ICM206897ReadRawEv
+ 526              		.syntax unified
+ 527              		.thumb
+ 528              		.thumb_func
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 10
+
+
+ 530              	_ZN6sensor8ICM206897ReadRawEv:
+ 531              		.fnstart
+ 532              	.LFB2851:
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535 0000 10B5     		push	{r4, lr}
+ 536              		.save {r4, lr}
+ 537 0002 0446     		mov	r4, r0
+ 538 0004 3B21     		movs	r1, #59
+ 539 0006 FFF7FEFF 		bl	_ZN6sensor8ICM206899AccelReadEh
+ 540 000a B1EE400A 		vneg.f32	s0, s0
+ 541 000e E368     		ldr	r3, [r4, #12]
+ 542 0010 83ED060A 		vstr.32	s0, [r3, #24]
+ 543 0014 3D21     		movs	r1, #61
+ 544 0016 2046     		mov	r0, r4
+ 545 0018 FFF7FEFF 		bl	_ZN6sensor8ICM206899AccelReadEh
+ 546 001c E368     		ldr	r3, [r4, #12]
+ 547 001e 83ED070A 		vstr.32	s0, [r3, #28]
+ 548 0022 3F21     		movs	r1, #63
+ 549 0024 2046     		mov	r0, r4
+ 550 0026 FFF7FEFF 		bl	_ZN6sensor8ICM206899AccelReadEh
+ 551 002a E368     		ldr	r3, [r4, #12]
+ 552 002c 83ED080A 		vstr.32	s0, [r3, #32]
+ 553 0030 4321     		movs	r1, #67
+ 554 0032 2046     		mov	r0, r4
+ 555 0034 FFF7FEFF 		bl	_ZN6sensor8ICM206899OmegaReadEh
+ 556 0038 E368     		ldr	r3, [r4, #12]
+ 557 003a 83ED0C0A 		vstr.32	s0, [r3, #48]
+ 558 003e 4521     		movs	r1, #69
+ 559 0040 2046     		mov	r0, r4
+ 560 0042 FFF7FEFF 		bl	_ZN6sensor8ICM206899OmegaReadEh
+ 561 0046 E368     		ldr	r3, [r4, #12]
+ 562 0048 83ED0D0A 		vstr.32	s0, [r3, #52]
+ 563 004c 4721     		movs	r1, #71
+ 564 004e 2046     		mov	r0, r4
+ 565 0050 FFF7FEFF 		bl	_ZN6sensor8ICM206899OmegaReadEh
+ 566 0054 E368     		ldr	r3, [r4, #12]
+ 567 0056 83ED0E0A 		vstr.32	s0, [r3, #56]
+ 568 005a 10BD     		pop	{r4, pc}
+ 569              		.fnend
+ 571              		.section	.text._GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_d
+ 572              		.align	1
+ 573              		.syntax unified
+ 574              		.thumb
+ 575              		.thumb_func
+ 577              	_GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN
+ 578              		.fnstart
+ 579              	.LFB3453:
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582 0000 08B5     		push	{r3, lr}
+ 583 0002 4FF6FF71 		movw	r1, #65535
+ 584 0006 0120     		movs	r0, #1
+ 585 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 586 000c 08BD     		pop	{r3, pc}
+ 587              		.cantunwind
+ 588              		.fnend
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 11
+
+
+ 590              		.section	.init_array,"aw",%init_array
+ 591              		.align	2
+ 592 0000 00000000 		.word	_GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_
+ 593              		.weak	_ZTSN6sensor4IIMUE
+ 594              		.section	.rodata._ZTSN6sensor4IIMUE,"aG",%progbits,_ZTSN6sensor4IIMUE,comdat
+ 595              		.align	2
+ 598              	_ZTSN6sensor4IIMUE:
+ 599 0000 4E367365 		.ascii	"N6sensor4IIMUE\000"
+ 599      6E736F72 
+ 599      3449494D 
+ 599      554500
+ 600              		.weak	_ZTIN6sensor4IIMUE
+ 601              		.section	.rodata._ZTIN6sensor4IIMUE,"aG",%progbits,_ZTIN6sensor4IIMUE,comdat
+ 602              		.align	2
+ 605              	_ZTIN6sensor4IIMUE:
+ 606 0000 08000000 		.word	_ZTVN10__cxxabiv117__class_type_infoE+8
+ 607 0004 00000000 		.word	_ZTSN6sensor4IIMUE
+ 608              		.global	_ZTSN6sensor8ICM20689E
+ 609              		.global	_ZTIN6sensor8ICM20689E
+ 610              		.weak	_ZTVN6sensor4IIMUE
+ 611              		.section	.rodata._ZTVN6sensor4IIMUE,"aG",%progbits,_ZTVN6sensor4IIMUE,comdat
+ 612              		.align	2
+ 615              	_ZTVN6sensor4IIMUE:
+ 616 0000 00000000 		.word	0
+ 617 0004 00000000 		.word	_ZTIN6sensor4IIMUE
+ 618 0008 00000000 		.word	__cxa_pure_virtual
+ 619 000c 00000000 		.word	__cxa_pure_virtual
+ 620 0010 00000000 		.word	__cxa_pure_virtual
+ 621 0014 00000000 		.word	__cxa_pure_virtual
+ 622 0018 00000000 		.word	__cxa_pure_virtual
+ 623 001c 00000000 		.word	__cxa_pure_virtual
+ 624 0020 00000000 		.word	0
+ 625 0024 00000000 		.word	0
+ 626              		.global	_ZTVN6sensor8ICM20689E
+ 627              		.section	.bss._ZStL8__ioinit,"aw",%nobits
+ 628              		.align	2
+ 629              		.set	.LANCHOR0,. + 0
+ 632              	_ZStL8__ioinit:
+ 633 0000 00       		.space	1
+ 634              		.section	.rodata._ZTIN6sensor8ICM20689E,"a"
+ 635              		.align	2
+ 638              	_ZTIN6sensor8ICM20689E:
+ 639 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 640 0004 00000000 		.word	_ZTSN6sensor8ICM20689E
+ 641 0008 00000000 		.word	_ZTIN6sensor4IIMUE
+ 642              		.section	.rodata._ZTSN6sensor8ICM20689E,"a"
+ 643              		.align	2
+ 646              	_ZTSN6sensor8ICM20689E:
+ 647 0000 4E367365 		.ascii	"N6sensor8ICM20689E\000"
+ 647      6E736F72 
+ 647      3849434D 
+ 647      32303638 
+ 647      394500
+ 648              		.section	.rodata._ZTVN6sensor8ICM20689E,"a"
+ 649              		.align	2
+ 650              		.set	.LANCHOR1,. + 0
+ 653              	_ZTVN6sensor8ICM20689E:
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 12
+
+
+ 654 0000 00000000 		.word	0
+ 655 0004 00000000 		.word	_ZTIN6sensor8ICM20689E
+ 656 0008 00000000 		.word	_ZN6sensor8ICM206894InitEv
+ 657 000c 00000000 		.word	_ZN6sensor8ICM206897ReadValEv
+ 658 0010 00000000 		.word	_ZN6sensor8ICM206897ReadRawEv
+ 659 0014 00000000 		.word	_ZN6sensor8ICM206899GetOffsetEv
+ 660 0018 00000000 		.word	_ZN6sensor8ICM2068911get_val_refEv
+ 661 001c 00000000 		.word	_ZN6sensor8ICM2068911get_raw_refEv
+ 662 0020 00000000 		.word	_ZN6sensor8ICM20689D1Ev
+ 663 0024 00000000 		.word	_ZN6sensor8ICM20689D0Ev
+ 664              		.hidden	__dso_handle
+ 665              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 imu.cpp
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:18     .text._ZN6sensor8ICM206899GetOffsetEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:24     .text._ZN6sensor8ICM206899GetOffsetEv:00000000 _ZN6sensor8ICM206899GetOffsetEv
+.ARM.exidx.text._ZN6sensor8ICM206899GetOffsetEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:67     .text._ZN6sensor8ICM206897ReadValEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:73     .text._ZN6sensor8ICM206897ReadValEv:00000000 _ZN6sensor8ICM206897ReadValEv
+.ARM.exidx.text._ZN6sensor8ICM206897ReadValEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:134    .text._ZN6sensor8ICM2068911get_val_refEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:140    .text._ZN6sensor8ICM2068911get_val_refEv:00000000 _ZN6sensor8ICM2068911get_val_refEv
+.ARM.exidx.text._ZN6sensor8ICM2068911get_val_refEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:152    .text._ZN6sensor8ICM2068911get_raw_refEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:158    .text._ZN6sensor8ICM2068911get_raw_refEv:00000000 _ZN6sensor8ICM2068911get_raw_refEv
+.ARM.exidx.text._ZN6sensor8ICM2068911get_raw_refEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:170    .rodata._ZN6sensor8ICM206894InitEv.str1.4:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:177    .text._ZN6sensor8ICM206894InitEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:183    .text._ZN6sensor8ICM206894InitEv:00000000 _ZN6sensor8ICM206894InitEv
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:241    .text._ZN6sensor8ICM206894InitEv:00000078 $d
+.ARM.exidx.text._ZN6sensor8ICM206894InitEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:246    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:251    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:276    .text._Z41__static_initialization_and_destruction_0ii:00000024 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:283    .text._ZN6sensor8ICM20689D2Ev:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:289    .text._ZN6sensor8ICM20689D2Ev:00000000 _ZN6sensor8ICM20689D2Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:333    .text._ZN6sensor8ICM20689D2Ev:00000048 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:615    .rodata._ZTVN6sensor4IIMUE:00000000 _ZTVN6sensor4IIMUE
+.ARM.exidx.text._ZN6sensor8ICM20689D2Ev:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:289    .text._ZN6sensor8ICM20689D2Ev:00000000 _ZN6sensor8ICM20689D1Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:341    .text._ZN6sensor8ICM20689D0Ev:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:347    .text._ZN6sensor8ICM20689D0Ev:00000000 _ZN6sensor8ICM20689D0Ev
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:394    .text._ZN6sensor8ICM20689D0Ev:00000050 $d
+.ARM.exidx.text._ZN6sensor8ICM20689D0Ev:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:400    .text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:406    .text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 _ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:436    .text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:0000002c $d
+.ARM.exidx.text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:406    .text._ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 _ZN6sensor8ICM20689C1ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:444    .text._ZN6sensor8ICM206899AccelReadEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:450    .text._ZN6sensor8ICM206899AccelReadEh:00000000 _ZN6sensor8ICM206899AccelReadEh
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:481    .text._ZN6sensor8ICM206899AccelReadEh:00000044 $d
+.ARM.exidx.text._ZN6sensor8ICM206899AccelReadEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:487    .text._ZN6sensor8ICM206899OmegaReadEh:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:493    .text._ZN6sensor8ICM206899OmegaReadEh:00000000 _ZN6sensor8ICM206899OmegaReadEh
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:520    .text._ZN6sensor8ICM206899OmegaReadEh:00000030 $d
+.ARM.exidx.text._ZN6sensor8ICM206899OmegaReadEh:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:524    .text._ZN6sensor8ICM206897ReadRawEv:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:530    .text._ZN6sensor8ICM206897ReadRawEv:00000000 _ZN6sensor8ICM206897ReadRawEv
+.ARM.exidx.text._ZN6sensor8ICM206897ReadRawEv:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:572    .text._GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 $t
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:577    .text._GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 _GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_
+.ARM.exidx.text._GLOBAL__sub_I__ZN6sensor8ICM20689C2ESt10unique_ptrIN10peripheral3SPIESt14default_deleteIS3_EES1_IN5state6MotionES4_IS8_EESA_SA_:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:591    .init_array:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:598    .rodata._ZTSN6sensor4IIMUE:00000000 _ZTSN6sensor4IIMUE
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:595    .rodata._ZTSN6sensor4IIMUE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:605    .rodata._ZTIN6sensor4IIMUE:00000000 _ZTIN6sensor4IIMUE
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:602    .rodata._ZTIN6sensor4IIMUE:00000000 $d
+ARM GAS  C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s 			page 14
+
+
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:646    .rodata._ZTSN6sensor8ICM20689E:00000000 _ZTSN6sensor8ICM20689E
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:638    .rodata._ZTIN6sensor8ICM20689E:00000000 _ZTIN6sensor8ICM20689E
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:612    .rodata._ZTVN6sensor4IIMUE:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:653    .rodata._ZTVN6sensor8ICM20689E:00000000 _ZTVN6sensor8ICM20689E
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:628    .bss._ZStL8__ioinit:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:632    .bss._ZStL8__ioinit:00000000 _ZStL8__ioinit
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:635    .rodata._ZTIN6sensor8ICM20689E:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:643    .rodata._ZTSN6sensor8ICM20689E:00000000 $d
+C:\Users\MHONDA~1\AppData\Local\Temp\ccEEmHlR.s:649    .rodata._ZTVN6sensor8ICM20689E:00000000 $d
+                           .group:00000000 _ZN6sensor8ICM20689D5Ev
+
+UNDEFINED SYMBOLS
+__aeabi_unwind_cpp_pr0
+_ZN10peripheral3SPI8ReadByteEh
+printf
+HAL_Delay
+_ZN10peripheral3SPI9WriteByteEhh
+puts
+_ZNSt8ios_base4InitC1Ev
+__aeabi_atexit
+__dso_handle
+_ZNSt8ios_base4InitD1Ev
+_ZdlPvj
+_ZTVN10__cxxabiv117__class_type_infoE
+__cxa_pure_virtual
+_ZTVN10__cxxabiv120__si_class_type_infoE
